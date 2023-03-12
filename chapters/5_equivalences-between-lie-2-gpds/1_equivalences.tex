@@ -1,24 +1,130 @@
 %
-% SECTION 1 - EQUIVALENCES
+% SECTION 5.1 - EQUIVALENCES
 %
 
-Let $G$, $H$ be Lie 2-groupoids, $M$ a smooth manifold and $\psi\colon M\to H_0$ a smooth map.
-We say that $\psi$ meets transversally every orbit of $H$ if the map
-$t\pi_1\colon H_1\times_{H_0} G_0 \to H_0$
-is a surjective submersion, equivalently if the following two conditions hold.
+% \subsection*{Pull-back of Lie 2-groupoids}\label{pb1gpds}
+
+Let $G$ be a Lie $2$-groupoid and $\psi: M\to G_0$  a smooth map.
+If $t\pi_1: G_1\times_{G_0} M \to G_0$ is a surjective submersion, we can consider the fiber products $\psi^*G_1 \coloneqq G_1\times_{G_0\times G_0}(M\times M)$ and $\psi^*G_2 \coloneqq G_2\times_{G_0\times G_0}(M\times M)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \medskip\noindent
+% Cosas a chequear:
+% \begin{enumerate}[nosep, label = (\roman*)]
+%   \item $\psi^*G_0$, $\psi^*G_2$ y $\psi^*G_2$ son variedades OK.
+%   \item $s,t: \psi^*G_1\to M$ son submersiones suryectivas OK.\\
+%   $s,t: \psi^*G_2\to \psi^*G_1$ son submersiones suryectivas OK (explicado en el siguiente párrafo).
+%   \item $u: M\to\psi^*G_1$, $(x,y,x)\mapsto (1_{\psi(x)},x,x)$ y $u: \psi^*G_1\to\psi^*G_2$, $(g,y,x)\mapsto (1_g,x,x)$ son suaves OK.\\
+%   Las composiciones $\circ$ y $\bullet$ son suaves OK.
+%   \item La inversión $i: \psi^*G_2\to\psi^*G_2$, $(\alpha,y,x)\mapsto (\alpha^{-1},y,x)$ es suave OK.
+%   \item $d_{2,0}:N_2(\psi^*G)\to N_{2,0}(\psi^*G)$ y $d_{2,2}:N_2(\psi^*G)\to N_{2,2}(\psi^*G)$ son suryectvas OK, submersiones FALTA.
+% \end{enumerate}
+% \medskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To see that the source map
+$$ s: \psi^*G_2\to \psi^*G_1 \quad (\alpha,y,x) \mapsto (s(\alpha),y,x) $$
+is a surjective submersion consider the following commutative diagram.
+\begin{equation}
+\begin{gathered}
+\xymatrix{
+  \psi^*G_2 \ar[r] \ar[d]_{s} \ar@{}[dr] | {(*)} & G_2 \ar[d]^{s} \\
+  \psi^*G_1 \ar[r] \ar[d]_{(t,s)} \ar@{}[dr] | {(**)} & G_1 \ar[d]^{(t,s)} \\
+  M\times M \ar[r]_{\phi\times\phi} & G_0\times G_0
+}
+\end{gathered}
+\end{equation}
+As the squares $(**)$ and $(*)+(**)$ are cartesian, so is the square $(*)$, which implies that the source map is a surjective submersion.
+The same argument applies to the target $t(\alpha,y,x)=(t(\alpha),y,x)$.
+
+The resulting Lie groupoid $\psi^*G\tto N$ is the \emph{pull-back} of $G$ along $\psi$, there is also an induced map of Lie 2-groupoids $(\psi^*G\tto N) \to (G\tto M)$.
+
+\begin{example}[Pulling back the General Linear 2-groupoid along an open cover]
+Let $C$ and $E$ be two vector bundles over $M$ and $q: \coprod U_i \to M$ an open cover.
+Let us denote with $C_\U$ and $E_\U$ be the pull-backs via $q$ of $C$ and $E$ respectively
+\begin{equation}
+\begin{gathered}
+\xymatrix{
+  C_\U \ar[r]^{\tilde q} \ar[d] & C \ar[d] \\
+  \coprod U_i \ar[r]^q & M
+} \qquad
+\xymatrix{
+  E_\U \ar[r]^{\bar q} \ar[d] & E \ar[d] \\
+  \coprod U_i \ar[r]^q & M
+}
+\end{gathered}
+\end{equation}
+and consider the following map
+\begin{align*}
+\psi: [C_\U,E_\U] &\to [C,E] \\
+\eta: {C_\U}_{(x,i)} \to {E_\U}_{(x,i)} &\mapsto \bar{q_i}\eta\tilde{q_i}^{-1}: C_x \to E_x \text{.}
+\end{align*}
+As $\psi$ is a fiberwise linear vector bundle map covering $q$, the following square is also a good pull-back.
+\begin{equation}
+\begin{gathered}
+\xymatrix{
+  [C_\U,E_\U] \ar[r]^\psi \ar[d] & [C,E] \ar[d] \\
+  \coprod U_i \ar[r]^q & M
+}
+\end{gathered}
+\end{equation}
+So, $\psi$ is a surjective submersion and we can consider the pull-back $\psi^* GL(C\oplus E)$.
+
+Recall that $GL(C_\U\oplus E_\U)_0 = [C_\U,E_\U]$ and $GL(C\oplus E)_0 = [C,E]$.
+There is a map $GL(C_\U\oplus E_\U) \to GL(C\oplus E)$ that in the objects is $\psi$.
+Let us see that
+$$GL(C_\U\oplus E_\U) = \psi^* GL(C\oplus E) \text{.} $$
+To ease notation we will abbreviate $G\coloneqq GL(C_\U\oplus E_\U)$ and $H\coloneqq GL(C_\U\oplus E_\U)$.
+We have to check that the following squares are good pull-backs.
+\begin{equation}
+\begin{gathered}
+\xymatrix{
+  G_1 \ar[r] \ar[d] \ar@{}[dr] | {(1)} & H_1 \ar[d] \\
+  G_0\times G_0 \ar[r] & H_0\times H_0
+} \qquad
+\xymatrix{
+  G_2 \ar[r] \ar[d] \ar@{}[dr] | {(2)} & H_2 \ar[d] \\
+  G_0\times G_0 \ar[r] & H_0\times H_0
+}
+\end{gathered}
+\end{equation}
+Let us denote $\widetilde H_1 = [\pi_1^*C,\pi_1^*E]\oplus [\pi_2^*C,\pi_2^*E]\oplus [\pi_1^*C,\pi_2^*C]\oplus [\pi_1^*E,\pi_2^*E]$, the same with $G_2 \subset \widetilde G_1$.
+The square $(*)$ below is a set-theoretic fiber product.
+As $i: \widetilde G_1\to G_1$ is an immersion, we have that $(*)$ is a good pull-back.
+\begin{equation}
+\begin{gathered}
+\xymatrix{
+    G_1 \ar[r] \ar@{^{(}->}[d]_i \ar@{}[dr] | {(*)} & H_1 \ar@{^{(}->}[d] \\
+    \widetilde G_1 \ar[r] \ar[d] \ar@{}[dr] | {(**)} & \widetilde H_1 \ar[d] \\
+    G_0\times G_0 \ar[r] & H_0\times H_0
+}
+\end{gathered}
+\end{equation}
+As the map $(\psi,t,s): \widetilde G_1 \to \widetilde H_1\times_{H_0\times H_0} (G_0\times G_0)$ is a diffeomorphism, the square $(**)$ is a good pull-back as well.
+So, $(1) = (*)+(**)$ is a good pull-back.
+In a similar way, as $(\psi,t,s): G_2 \to H_2\times_{H_0\times H_0} (G_0\times G_0)$ is a diffeomorphism, the square $(2)$ is a good pull-back.
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection*{Equivalences of Lie 2-groupoids}
+
+Let $G$, $H$ be Lie 2-groupoids and $M$ a smooth manifold and $\psi\colon M\to H_0$ a smooth map.
+We say that $\psi$ meets transversally every orbit of $H$ if:
 \begin{enumerate}
-\item for every $y\in H_0$ there exists a $x\in G_0$ and a $h\in H_1$ with $s(h) = \phi(x)$ and $t(h) = y$.
-\item for every $x\in H_0$ the linear map induced in the normal directions $N_x\to N_{\phi(x)}$ is surjective.
+  \item for every $y\in H_0$ there exists a $x\in G_0$ and a $h\in H_1$ with $s(h) = \phi(x)$ and $t(h) = y$.
+  \item for every $x\in H_0$ the linear map induced in the normal directions $N_x\to N_{\phi(x)}$ is surjective.
 \end{enumerate}
-A map of Lie 2-groupoids $\phi\colon G\to H$ meets transversally every orbit of $H$ if the map on the objects $\phi_0\colon G_0\to H_0$ does.
+This is equivalent to asking the map $t\pi_1\colon H_1\times_{H_0} G_0 \to H_0$ to be a surjective submersion.
+A map of Lie 2-groupoids $\phi\colon G\to H$ \emph{meets transversally every orbit} of $H$ if the map on the objects $\phi_0\colon G_0\to H_0$ does.
 
 For every $x, y\in G_0$, the $G_2(y,x)\tto G_1(y,x)$ are Lie 1-groupoids, we call them \emph{hom-groupoids}.
 We say that a map of Lie 2-groupoids $\phi\colon G\to H$ is \emph{locally Morita}, or locally an equivalence, if for every pair of objects $x, y\in G_0$ the restriction to the hom-groupouid
-\[ \phi_{x,y}\colon \left( G_2(y,x)\tto G_1(y,x) \right) \to \left( H_2(\phi(y),\phi(x))\tto H_1(\phi(y),\phi(x)) \right) \]
+\[ \phi_{x,y}\colon \big( G_2(y,x)\tto G_1(y,x) \big) \to \big( H_2(\phi(y),\phi(x))\tto H_1(\phi(y),\phi(x)) \big) \]
 is Morita.
 
 \begin{mydef}
-$\phi$ is an \emph{equivalence} if it meets transversally every orbit and it is locally Morita.
+A map of Lie 2-groupoids $\phi\colon G\to H$ is an \emph{equivalence} if it meets transversally every orbit and it is locally Morita.
 If in addition the map on the objects $\phi_0\colon G_0\to H_0$ is a surjective submersion we say that $\phi$ is a \emph{surjective equivalence}.
 \end{mydef}
 
@@ -35,3 +141,33 @@ $GL(p,q)' \to GL(p,q)$ is a surjective equivalence.
 % With similar arguments as in the previuous example is easy to see that
 The inclusion $GL(p,q) \to GL(p+1,q+1)$ is an equivalence.
 \end{example}
+
+In the particular case in which $G$ and $H$ are Lie 1-groupoids seen as Lie 2-groupoids with trivial 2-cells and $\phi: G\to H$ is a map such that $\phi_0$ meets transversally every orbit of $H$, the induced map $(G_2\tto G_1)\to (\phi^*H_2\tto \phi^*H_1)$ is Morita if and only if $H_1\to \phi^*G_1$ is a diffeomorphism.
+So, our definition of equivalence for Lie 2-groupoids extends the notion of Morita map between Lie 1-groupoids.
+
+\medskip
+
+It is not the first time that the definition of equivalence between Lie 2-groupoids appears in the literature.
+In addition to the conditions 1, 2 and 3 above, Ginot and Stienon work with strict Lie 2-groupoids and ask in \cite{gs} that the maps $\phi_0: G_0\to H_0$ and $G_1 \to \phi^*H_1$ are surjective submersions and call such maps hypercovers.
+For us, this type of maps will be called \emph{surjective equivalences}.
+
+In other places, for example in \cite{z}, the authors work with weak Lie 2-groupoids, that is, simplicial manifolds that satisfy the horn-filling condition for all $n$ and such the horn-filling is unique for all $n\geq 2$.
+In this context a map of between weak Lie 2-groupoids $X\to Y$ is an equivalence, also called hypercover, if $X_0\to Y_0$ and $X_1\to (X_0\times X_0)\times_{Y_0\times Y_0} Y_1$ are surjective submersions and $X_2\to M_2X\times_{M_2Y} Y_2$ is a diffeomorphism.
+Here $M_2X = \Hom(\partial\Delta_2, X)$ is referred in some places as the matching space.
+
+One problem that appears when working with weak Lie groupoids is that the matching space does not always admit a manifold structure.
+An example of this is the nerve of the action groupoid $S^1\times\RR^2 \tto \RR^2$ considered as a Lie 2-groupoid with only trivial 2-cells, where $S^1$ is acting on $\RR^2$ by rotations.
+The matching space
+$ M_2(S^1\times\RR^2) = \{ (g_1,g_2,g_3,x)\in S^1\times S^1\times S^1\times\RR^2 \mid g_2g_1 x = g_1 x \} $
+can be written as the union of $S^1\times S^1\times S^1\times \{0\}$ and $S^1\times S^1\times (\RR^2\setminus \{0\})$, so it does not admit a manifold structure.
+
+Let us ignore that for a moment and assume that all matching spaces are manifolds.
+If the nerve $N(\phi)$ of a map of Lie 2-groupoids $\phi$ is an hypercover, then $\phi$ is a surjective equivalence.\\
+Q: ¿Vale la vuelta?
+
+\medskip
+
+Let $G$ be a Lie 2-groupoid and $\phi: M\to G_0$ a smooth map that intersects transversally every orbit of $G$.
+The induced map in the pull-back $\phi^*G \to G$ meets conditions 1, 2 and 3 trivially, so it is an equivalence.
+In section 4\nota{Ver números secciones.} we saw that the map $GL(C_\U\oplus E_\U) \to GL(C\oplus E)$ is a pull-back, therefore an equivalence.
+
