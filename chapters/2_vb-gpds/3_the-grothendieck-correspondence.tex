@@ -1,0 +1,77 @@
+%
+% SECTION 3 - THE GROTHENDIECK CORRESPONDENCE
+%
+
+% CLEAVAGES
+There is a canonical identification $t^*C = \ker(s\colon\Gamma\to E)$ given by $c\mapsto c\, 0_g$ for a $c\in t^*C$ over $g$ and $\gamma\mapsto\gamma\, 0_{g^{-1}}$ for a $\gamma\in\ker(s\colon\Gamma\to E)$ over $g$.
+A \emph{cleavage} is a linear section $\Sigma$ of the source map $\bar s\colon\Gamma\to s^*E$ over $G$.
+\begin{equation}
+  \begin{tikzcd}[column sep=1.5em, row sep=small]
+    0 \ar{r} & t^*C \ar{r} & \Gamma \ar{r}{\bar s} & s^*E \ar{r} \ar[bend left = 50]{l}{\Sigma} & 0
+  \end{tikzcd}
+\end{equation}
+% UNITARY CLEAVAGE
+A cleavage is said to be \emph{flat} if $\Sigma(h, t\Sigma(g, e))\Sigma(g, e) = \Sigma(hg, e)$, \emph{unital} if $\Sigma(u_x, e) = u_e$ for all $x\in M$ and $e\in E_x$.
+
+% EVERY VB-GPD ADMITS CLEAVAGES
+In order to define a cleavage is enough to have a subbundle of $\Gamma$ complementary to $t^*C$.
+This can always be achieved by fixing an inner product on $\Gamma$, therefore every VB-groupoid admits cleavages.
+If we take a little care while choosing the inner product we can ensure that the resulting cleavage is unital.
+%
+% EVERY VB-GPD ADMITS A UNITAL CLEAVAGE
+\begin{lemma}
+Every VB-groupoid admits a unital cleavage.
+\end{lemma}
+
+\begin{proof}
+Let $\{U_i\}$ be a cover of $G$ consisting of open sets trivializing $\Gamma$ such that every $U_i$ that intersects $M$ is the domain of a slice chart $(U_i, \varphi_i)$ of $G$ relative to $M$.
+If $M\cap U_i \neq \emptyset$, as we have a cleavage defined by the unit map $u\colon M\to G$, we can fix an inner product $\nu_i$ on $M\cap U_i$ such that $M\cap U_i = {\res{t^*C}{M\cap U_i}}^\perp$.
+Let $\eta_i$ be the inner product on $U_i$ that results from extending $\nu_i$ with the slice chart $\varphi_i$.
+If $M\cap U_i = \emptyset$, take any inner product $\eta_i$ on $U_i$.
+Glue all the $\eta_i$ together with a partition of unity subordinated to the open cover $\{U_i\}$.
+\end{proof}
+
+% INDUCED REPRESENTATION
+Let $\Gamma$ be a VB-groupoid and $\Sigma$ a unital a cleavage.
+The anchor map $\partial$ together with the pseudo-representations
+\[ \rho^C_g(c) = \Sigma(g, \partial(c)) \, c \: 0_{g^{-1}} \quad \rho^E_g(e) = t \, \Sigma(g, e) \]
+and the curvarture tensor
+\[ \gamma_{g_2, g_1}(e) = \Sigma(g_2, \rho_{g_1}^E(e)) \, \Sigma(g_1, e) \, \Sigma(g_2g_1, e)^{-1} - ut\Sigma(g_2g_1, e) \]
+form a representation up to homotopy $(\partial, \rho, \gamma)\colon G\acts(C\oplus E)$.
+So, modulo the choice of the cleavage, we have a 2-term representation up to homotopy for every VB-groupouid.
+\smallskip
+
+% SEMIDIRECT PRODUCT
+Given a representation up to homotopy $(\partial, \rho, \gamma)\colon G\acts (E_1\oplus E_0)$, let us consider the semidirect product
+\[ G\times_{M\times M}(E_1\times E_0) \tto E_0 . \]
+This is a VB-groupoid over $G$, referred to as the \emph{Grothendieck construction} in \cite{dho20}.
+It has the the following structural maps.
+\begin{gather}
+  s(g, e_1, e_0) = e_0 \quad t(g, e_1, e_0) = \rho_g(e_0) + \partial(e_1) \\
+  (g_2, c_2, e_2)\circ (g_1, c_1, e_1) = (g_2g_1, c_2+\rho_{g_2}(c_1)-\gamma_{g_2, g_1}(e_1), e_1) \\
+  (g, c, e)^{-1} = (g^{-1}, \gamma_{g^{-1}, g}(e)-\rho_{g^{-1}}(c), \rho_g(e)+\partial(c)) \\
+  u_e = (u_x, 0_x, e) \ \text{for} \ e\in E_x
+\end{gather}
+
+\noi MAPAS.
+
+% GROTHENDIECK CORRESPONDENCE
+\begin{thm}[\cite{dho20}]\label{thm:Grothendieck}
+The Grothendieck construction is functorial and sets an equivalence of categories
+\[ \text{Rep}_\text{2-term}^\infty(G)\to VB(G). \]
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

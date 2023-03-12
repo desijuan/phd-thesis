@@ -1,0 +1,97 @@
+%
+% SECTION 3 - THE CATEGORY OF 2-STACKS
+%
+
+
+
+
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{The homotopy pull-back}
+
+% Let $\phi\colon G\to H$, $\psi\colon G'\to H$ maps of Lie 2-groupoids.
+% The \emph{homotopy pull-back} $G\tilde\times_H G'$ is the following Lie 2-groupoid.
+
+% \noi
+% \textbf{Objects:} $(\phi(y)\xfrom{h}\psi(x), y, x) \in H_1\times_{H_0\times H_0}(G_0\times G'_0)$.
+% % Let us suppose that the pull-back $H_1\times_{H_0\times H_0}(G_0\times G'_0)$ is good.
+% % \begin{tikz-cd}[sep = small]
+% %      & G' \ar{d}[\psi] \\
+% %     G \ar{r}[\phi] & H
+% % \end{tikz-cd}
+
+% \noi
+% \textbf{Arrows:} $(\gamma, k, g) \in H_2\times(G_1\times G_1')$ such that $t(\gamma) = h_1\phi(g)$ and $s(\gamma) = \psi(k)h_0$.
+
+% \noi
+% \textbf{2-cells:} $(\beta, \alpha) \in G_2\times G_2'$ such that $(h_1\circ\phi(\alpha))\bullet\gamma_0 = \gamma_1\bullet(\psi(\beta)\circ h_0)$.
+
+% \noi
+% We say that $\tilde\phi$, $\tilde\psi$ are the \emph{base-changes} of $\phi$, $\psi$ respectively.
+
+% \begin{prop}
+% If the map $\phi$ is an equivalence, then the homotopy pull-back exists and the base change map $\tilde\phi$ is a surjective equivalence.
+% \begin{equation*}
+% \begin{tikzcd}[sep = small]
+% G\tilde\times_H G' \ar{r}{\tilde\phi} \ar[swap]{d}{\tilde\psi} & G' \ar{d}{\phi} \\
+% G \ar{r}{\psi} & H
+% \end{tikzcd}
+% \end{equation*}
+% \end{prop}
+
+% The homotopy pull-back $G\tilde\times_H G'$ is a pullback in the category of Lie 2-groupoids and isomorphism classes of maps.
+
+% \begin{prop}
+% Given $\phi_0:N\to G'$, $\psi_0:N\to G$ and an isomorphism $\psi\phi_0\cong\phi\psi_0$, there is a unique map $\psi:N\to G_1\tilde\times_G G_2$ such that $\psi_1=\tilde\phi_2 \psi$, $\psi_2=\tilde\phi_1\psi$ and the isomorphism is naturally induced by $\psi$.
+% \end{prop}
+
+% Taking $\psi$ as the identity $\text{id}\colon H\to H$ we have that every map of Lie 2-groupoids $\phi\colon G\to H$ admits a factorization with $\pi$ a surjective equivalence.
+% \begin{equation*}
+% \begin{tikzcd}[sep = small]
+% & E \ar{dl}[sloped, below]{\sim}[sloped, above]{\pi} \ar{dr}[sloped, above]{\bar\phi} \\
+% G \ar{rr}{\phi} & & H
+% \end{tikzcd}
+% \end{equation*}
+% The map $\phi$ is an equivalence if and only if $\bar\phi$ is a surjective equivalence.
+
+% \subsection*{Maps of 2-stacks}
+
+% Let us consider the pairs of maps $\psi\colon H\to G'$ and $\phi\colon H\xto\sim G$ where the second one is an equivalence.
+% \begin{equation*}
+% \begin{tikzcd}[sep = small]
+%  G & H \ar[shorten = -.14em]{l}[sloped, below]{\sim}[sloped, above]{\phi} \ar[shorten = -.13em]{r}[pos=.45]{\psi} & G'
+% \end{tikzcd}
+% \end{equation*}
+% We identify $(\psi_1, \phi_1)$ and $(\psi_2, \phi_2)$ if there is a Lie 2-groupoid $H_3$ together with two equivalences $H_3\xto\sim H_1$ and $H_3\xto\sim H_2$ that fit into a diagram commutative up to isomorphisms.
+% \begin{equation*}
+% \begin{tikzcd}
+%   & H_1 \ar{dl}[pos=.4, sloped, below]{\sim}[pos=.4, sloped, above]{\phi_1} \ar{dr}[pos=.4, sloped, above]{\psi_1} & \\
+%  G & H_3 \ar{u}[pos=.4, sloped, above]{\sim} \ar{d}[pos=.4, sloped, below]{\sim} & G' \\
+%   & H_2 \ar{ul}[pos=.4, sloped, above]{\phi_2}[pos=.4, sloped, below]{\sim} \ar{ur}[pos=.4, sloped, above]{\psi_2} &
+% \end{tikzcd}
+% \end{equation*}
+% \begin{mydef}
+% A \emph{map of 2-stacks} $\psi/\phi\colon G\dasharrow G'$ is an equivalence class of pairs $(\psi, \phi)$.
+% \end{mydef}
+
+% By taking the homotopy pull-back between $\phi$ and the identity of $G$ we have that every map of 2-stacks can be presented as a fraction $\psi/\phi$ with $\phi$ a surjective equivalence.
+
+% \noi COBERTURA POR ABIERTOS?
+
+% Given two fractions $\psi/\phi:G\dashto G'$, $\psi'/\phi':G'\dashto G''$, their \emph{composition} is defined as $\psi'\psi''/\phi''\phi$, where $\phi'':K\xto\sim H$ and $\psi':K\to H'$ are such that the square below commutes up to isomorphism.
+% $$\xymatrix@R=10pt{ & & K \ar[dl]^\sim_{\phi''} \ar[dr]^{\psi''} & & \\
+%  & H \ar[dl]^\sim_\phi \ar[dr]^{\psi} & & H' \ar[dl]^\sim_{\phi'} \ar[dr]^{\psi'} & \\ G & & G' & & G''}$$
+% We can take $K$ as the homotopy pullback $H\tilde\times_{G'} H'$, and any other choice will lead to an equivalent fraction.
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Relation with other definitions}
+
+% a
+
+

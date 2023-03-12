@@ -1,0 +1,73 @@
+%
+% SECTION 3 - VB-MORITA MORPHISMS
+%
+
+% VB-MORITA
+Given VB-groupoids $(\Gamma\tto E)\to (G\tto M)$ and $(\Gamma'\tto E')\to (G'\tto M')$, a morphism $\Phi\colon \Gamma\to\Gamma'$ is \emph{VB-Morita} if the morphism on the total spaces $\Phi\colon (\Gamma\tto E)\to (\Gamma'\tto E')$ is Morita.
+
+% PULL-BACK
+Given a vector bundle $E\to M$ and a smooth map $\psi\colon N\to M$, one can consider the pull-back $\psi^*E\to N$, which is the vector bundle over $N$ whose total space is the fiber product $E\times_M N$ between the map $\psi\colon N\to M$ and the projection $E\to M$.
+\[\begin{tikzcd}[sep=1em]
+  \psi^*E \ar{r} \ar{d} & E \ar{d} \\
+  N \ar{r}{\psi} & M
+\end{tikzcd}\]
+Given a VB-groupoid $(\Gamma\tto E)\to (G\tto M)$ and a morphism of Lie groupoids $\phi\colon (H\tto N)\to (G\tto M)$,
+let us consider the pull-backs $\phi^*\Gamma\to H$ and $\phi^*E\to N$ of the vector bundles $\Gamma\to G$ and $E\to M$ via the maps on the arrows $\phi\colon H \to G$ and the objects $\phi\colon N\to M$ respectively.
+\[
+\phi =
+\begin{cases}
+  H\xto{\phi} G \\
+  N\xto{\phi} M
+\end{cases}
+\quad\leadsto\qquad
+\begin{tikzcd}[sep=1em]
+  \phi^*\Gamma \ar{r} \ar{d} & \Gamma \ar{d} \\
+  H \ar{r}{\phi} & G
+\end{tikzcd}
+\quad
+\begin{tikzcd}[sep=1em]
+  \phi^*E \ar{r} \ar{d} & E \ar{d} \\
+  N \ar{r}{\phi} & M
+\end{tikzcd}\]
+In \cite{bcdh16} it is proved that  $\phi^*\Gamma = (\phi^*\Gamma\tto\phi^* E) \to (H\tto N)$ is a VB-groupoid over $H\tto N$.
+It is called the \emph{pull-back} or base-change of $\Gamma$ along $\phi$.
+There is also an induced morphism of VB-groupoids $\phi^*\Gamma\to\Gamma$.
+\[\begin{tikzcd}[sep=small]
+  (\phi^*\Gamma\tto\phi^*E) \ar{r} \ar{d} & (\Gamma\tto E) \ar{d} \\
+  (H\tto N) \ar{r}{\phi} & (G\tto M)
+\end{tikzcd}\]
+
+This construction defines a \emph{base-change} functor which preserves short exact sequences and duals.
+\[ \phi^*\colon\mathrm{VB}(G\tto M) \to \mathrm{VB}(H\tto N) \]
+
+% FIBER
+Given an object $x\in M$, the \emph{fiber} of $\Gamma$ over $x$, denoted by $\Gamma_x$, is the VB-groupoid over the point $*\tto *$ defined as the base change of $\Gamma$ along the inclusion $*\xto{x}G$.
+
+In an analogous way as with vector bundles over manifolds $E\to M$, in which a linear map $\phi\colon(E\to M)\to (F\to N)$ is an isomorphism if and only if the map on the base $\phi\colon M\to N$ is a diffeomorphism and the maps on the fibers $\phi_x\colon E_x\to F_x$ are isomorphisms, for a VB-morphism to be Morita it is enough to be Morita on the base and fiberwise Morita.
+
+\begin{thm}[\cite{dho20}]\label{thm:VB-morita}
+A VB-map $\Phi\colon\Gamma\to\Gamma'$ is VB-Morita if and only if the map on base $\varphi\colon (G\tto M)\to (G'\tto M')$ is Morita and the maps on the fibers $\Phi_x\colon \Gamma_x\to\Gamma'_{\phi(x)}$ al Morita for all $x\in M$.
+\end{thm}
+
+\begin{coro}\label{cor:quasi-iso}
+Under the Grothendieck construction (see section \ref{sec:groth-corresp}), quasi-isomorphisms of representations up to homotopy correspond to VB-Morita morpisms.
+\end{coro}
+
+\begin{coro}
+Given a VB-groupoid $(\Gamma\tto E)\to (G\tto M)$ and a morphism of Lie groupoids $\phi\colon (H\tto N)\to (G\tto M)$, the morphism induced in the pull-back $\phi^*\Gamma\to \Gamma$ is VB-Morita.
+\end{coro}
+
+When working with Lie groupoids, every morphism that admits an inverse up to isomorphism is Morita, but in general not every Morita morphism admits an inverse up to isomorphism.
+The next proposition shows that in the context of VB-groupoids and linear morphisms both notions agree.
+
+% VB-MORITA IFF INVERTIBLE UP TO ISOMORPHISM
+\begin{prop}[\cite{dho20}]
+A VB-morphism covering the identity is VB-Morita if and only if it admits an inverse up to isomorphism.
+\end{prop}
+
+To close the section, there is a characterization of Morita equivalence in the linear context.
+
+% MORITA EQUIVALENT IFF SUM OF ACYCLIC
+\begin{prop}[\cite{dho20}]
+Two VB-groupoids $\Gamma$ and $\Gamma'$ over $G\tto M$ are Morita equivalent if and only if there are acyclic VB-groupouids $\Omega$ and $\Omega'$ over $G\tto M$ such that $\Gamma\oplus\Omega$ and $\Gamma'\oplus\Omega'$ are isomorphic.
+\end{prop}

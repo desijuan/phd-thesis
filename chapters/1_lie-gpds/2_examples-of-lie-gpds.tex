@@ -1,0 +1,95 @@
+%
+% SECTION 2 - EXAMPLES OF LIE GPDS
+%
+
+% EX: MANIFOLD
+\begin{example}[manifolds]\label{ex:unit}
+The \emph{unit groupoid} associated to a manifold $M$ is the Lie groupoid $M\tto M$ whose manifold of arrows has only units and the five structural maps are identities.
+Since the morphisms of Lie groupoids should preserve units, a morphism $\phi\colon (M\tto M)\to (N\tto N)$ between pair groupoids is the same as a smooth map $\phi\colon M\to N$.
+If $\phi$ and $\psi$ are morphisms between pair groupoids, there is an equivalence $\alpha\colon\phi\Rightarrow\psi$ if and only if they coincide $\phi=\psi$.
+For each $x\in M$ the isotropy group at $x$ is $G_x = \{ u_x \}$ and the orbit is $O_x = \{ x \}$.
+\end{example}
+
+% EX: OPEN COVER
+\begin{example}[open covers]\label{ex:cover}
+An open cover $\U=\{U_i\}$ of a manifold $M$ can also be thought of as a Lie groupoid.
+The \emph{\v Cech groupoid} \( M_\U = \big( \coprod U_{ji}\tto \coprod U_i \big) \) has the pairs $(x,i)$ with $x\in U_i$ as objects and the triples $(x,j,i)$ with $x\in U_{ji}$ as arrows.
+For each $(x,i)$ the isotropy group at $(x,i)$ is $G_{(x,i)}=\{u_{(x,i)}\}$ and the orbit of $(x,i)$ consists of all the $(x,j)$ such that $x$ is in $U_j$.
+\end{example}
+
+% EX: PAIR GPD
+\begin{example}[pair groupoid]\label{ex:pair}
+Let $M$ be a manifold.
+A \emph{pair groupoid} $M\times M\tto M$ is a Lie groupoid over $M$ which has one arrow from $x$ to $y$ for every $x,y\in M$.
+For each $x\in M$ the isotropy group at $x$ is $G_x = \{(x,x)\}$ and the orbit is $O_x = M$.
+Thus, the pair groupoid is transitive.
+\end{example}
+
+% EQUIVALENCE RELATION.
+\begin{example}[equivalence relations]
+Let $R\subset M\times M$ be an \emph{equivalence relation} on a manifold $M$ which is an embedded submanifold and such that the projections onto the first and second factors $\pi_1\colon R\to M$ and $\pi_2\colon R\to M$ are surjective submersions, then $R\tto M$ is a Lie groupoid with trivial isotropy and orbits the equivalence classes.
+\end{example}
+
+% EX: LIE GROUPS
+\begin{example}[Lie groups]\label{ex:lie-group}
+A \emph{Lie group} $G$ is the same as a Lie groupoid over the point $G\tto *$.
+The source and target maps are trivial and the multiplication and inversion are given by the Lie group structure.
+A morphism of Lie groupoids is the same as a morphisms of Lie groups.
+A pair of morphisms of Lie groups from $G$ to $H$ are equivalent if and only if they are related by an inner automorphism.
+In other words, there is an equivalence $\alpha\colon\phi\Rightarrow\psi$ if and only if there exists an $h\in H$ such that $\psi=C_h\circ\phi$, where $C_h$ is $C_h(k)=hkh^{-1}$.
+We are particularly interested in the General Linear Group $GL_k$, whose manifold of arrows consists of the invertible matrices of rank $k$.
+\end{example}
+
+% EX: ACTION GPD
+\begin{example}[group actions]\label{ex:action-gpd}
+An action of a Lie group $G$ on a manifold $M$ gives rise to an \emph{action groupoid} $G\times M\tto M$ with source $s(g,x) = x$, target $t(g,x) = g\cdot x$ given by the action of $G$, and composition, unit and inverse maps induced by those of $G$.
+The orbits and isotropy groups of the action groupoid coincide with the usual notions of orbits and isotropy groups of the action.
+\red{Discuss morphisms. In particular it is important that a morphism between the action groupoids need not to come from a morphism between the acting groups, so the functor is not full.}
+\end{example}
+
+% EX: VECTOR BUNDLES
+\begin{example}[vector bundles]\label{ex:vectorBundle}
+A real \emph{vector bundle} of rank $k$ over a manifold $M$ is a locally trivial map $p\colon E\to M$ with fiber $\RR^k$ and structure group $GL_k$.
+This means % $p\colon E\to M$ is a surjective submersion where all the fibers are vector bundles of rank $k$, and such
+that there are local trivializations $\varphi_i\colon p^{-1}(U_i) \to U_i\times \RR^k$ with $\pi_1\varphi_i=p$, for which the transition maps have the following form \(\varphi_j\varphi_i^{-1}\colon U_{ji}\times\RR^k\to U_{ji}\times\RR^k\), \((x,v)\mapsto (x,\theta_{ji}(x)v)\).
+The collection $\{\theta_{ji}\}$ is a \emph{$\bm{GL_k}$-cocycle}, that is, a family of smooth maps $\theta_{ji}\colon U_{ji}\to GL(k,\RR)$ defined over the double intersections such that $\theta_{ii}=1$ and $\theta_{kj}\theta_{ji}=\theta_{ki}$ over the triple intersections.
+% Given a cocycle $\theta_{ji}$ defined over an open cover $U_{i}$, it is possible to build a vector bundle \(E=\big( \coprod U_i\times\RR^k \big)/_\sim\), where \((x,i,v)\sim(x,j,\theta_{ji}(x)v)\).
+This collection of transition maps $\{\theta_{ji}\}$ constitute a morphism of Lie groupoids from the \v Cech groupoid \( M_\U=\big(\coprod U_{ji}\tto\coprod U_i\big) \) associated to the open cover $\{U_i\}$ of example  \ref{ex:cover} to the General Linear Group $GL_k\tto *$.
+% \[ \theta\colon \Big(\coprod U_{ji}\tto \coprod U_i\Big) \to (GL_k\tto *) \qquad  \theta(x,j,i) = \theta_{ji}(x) \]
+\end{example}
+
+% EX: G-BUNDLES
+\begin{example}[$G$-bundles]
+The previous example can be generalized to $G$-bundles.
+Let $G$ be a Lie group acting effectively on a manifold $F$, that is, for every pair of distinct $g,h\in G$ there is a $x\in F$ such that $gx\neq hx$.
+A \emph{$\bm{G}$-bundle} with fiber type $F$ is a surjective submersion $p\colon E\to M$ together with fiber-preserving diffeomorphisms $\varphi_i\colon p^{-1}(U_i) \to U_i\times F$ defined on an open cover $\{U_i\}$ of $M$, such that the transition functions $\varphi_j\varphi_i^{-1}$ take values in $G$.
+The collection of maps \smash{$\res{\varphi_j\varphi_i^{-1}}{\{x\}\times F} = \theta_{ji}\colon U_{ji}\to G$} verify $\theta_{ii}=1$ and $\theta_{kj}\theta_{ji}=\theta_{ki}$, and therefore it is a \emph{$\bm{G}$-cocycle}.
+So, by fixing a trivializing open cover $\{U_i\}$, we can think of a $G$-bundle as a morphism of Lie groupoids $\theta\colon\big(\coprod U_{ji}\tto\coprod U_i\big) \to (G\tto *)$, $\theta(x,j,i)=\theta_{ji}(x)$.
+\end{example}
+
+% EX: GL(E)
+\begin{example}[General Linear Groupoid]\label{ex:gle}
+Given\nota{redactar mejor esto} a real vector bundle $E\to M$ of finite rank, there is an associated \emph{General Linear Groupoid}, denoted by $GL(E)\tto M$, which is similar to the General Linear Group associated to a vector space.
+Its manifold of objects is $M$ and for any pair of points $x,y\in M$ the arrows between them are the linear isomorphisms between the fibers $\xi\colon E_x\to E_y$.
+If\nota{notación? $\varphi_{ji}$} \smash{$\varphi_i\colon \res{E}{U_i} \to \RR^k_{U_i}$} are local trivializations of $E\to M$ defined on open cover $\{U_i\}$ of $M$, then the maps \smash{$\varphi_{ji}\colon GL(E)(U_j)(U_i)\to U_j\times U_i\times\RR^{k^2}$} given by \smash{$\varphi_{ji}(\xi\colon E_x\to E_y)=(y,x,\varphi_j\xi\varphi_i^{-1})$} are charts of $GL(E)$ (see \cite[Example 1.1.12]{mack05}).
+\end{example}
+
+% EX: GAUGE GPD
+\begin{example}[gauge groupoid]
+Let $G$ be a Lie group and $p\colon P\to B$ a principal $G$-bundle, the \emph{gauge groupoid} $P\times^G P\tto B$ is the quotient of the pair groupoid $P\times P\tto P$ by the diagonal diagonal action of $G$.
+Gauge groupoids have only one orbit, so, they are transitive.
+Conversely, if we start with a transitive groupoid $G\tto M$, we can recover it up to isomorphism as the gauge groupoid associated to the principal $G_x$-bundle $t\colon G(-,x)\to O_x$ for any $x\in M$.
+Note that, since a point should be chosen this construction is not functorial.
+\end{example}
+
+% EX: SUBMERSION GPD
+\begin{example}[submersions]\label{ex:submersion_gpd}
+Let $q\colon M\to N$ be a submersion.
+The \emph{submersion groupoid} $M\times_N M\tto M$ is the Lie groupoid over $M$ that has an arrow between $x$ and $y$ if and only if they belong to the same fiber of $q$.
+The source and target maps are the projections and the composition is $(z,y)\circ(y,x)=(z,x)$.
+The orbits of $M\times_N M\tto M$ are the fibers of $q$, the isotropies are trivial and the orbit space identifies with $N$.
+Some of the previous examples can also be thought of as submersion groupoids:
+the unit groupoid of example \ref{ex:unit} is the submersion groupoid of the identity $\text{id}_M\colon M\to M$,
+the pair groupoid, example \ref{ex:pair}, is the submersion groupoid of projection $M\to *$
+and the \v Cech groupoid, example \ref{ex:cover}, is the submersion groupoid of the open cover $q\colon\coprod U_i \to M$.
+\end{example}

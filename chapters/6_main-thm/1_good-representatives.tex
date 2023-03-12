@@ -1,0 +1,138 @@
+%
+% SECTION 1 - GOOD REPRESENTATIVES
+%
+
+In chapter \ref{ch:stacks-and-syacky-vb} we enunciated the Lemma \ref{representative}, that stated that every map of stacks $[M\tto M]\to [G\tto N]$ with domain a manifold $M$ admits a representative with denominator \( \pi_\U\colon M_\U \to (G\tto N) \) for some open cover $\U$ of $M$.
+The following proposition is a generalization of that fact for Lie 2-groupoids.
+
+\begin{prop}
+Let $G\colon G_1\tto G_0$ be a Lie 1-groupoid seen as a Lie 2-groupoid with trivial 2-cells.
+Every map of 2-stacks $[G]\to [GL_{pq}]$ can be represented by a fraction of the form
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  G & G_\U \ar{l}[pos=.45, above]{\sim} \ar{r} & GL_{pq}
+\end{tikzcd}
+\end{equation}
+for some open cover $\U$.
+\end{prop}
+
+\begin{proof}
+Let $\phi/\pi$ be a representative of the map of 2-stacks $[G]\to [GL_{pq}]$.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  G & H \ar{l}[pos=.45, above]{\pi}[pos=.45, below]{\sim} \ar{r}{\phi} & GL_{pq}
+\end{tikzcd}
+\end{equation}
+Let $H_\U$ be the pull-back of $H$ via $\sigma$\nota{quien era $\sigma$?} and let us consider the following diagram, where $\phi\colon H_\U\to GL_{pq}$ is $\phi=(N_2\phi,\phi_1,\phi_0\sigma)$.
+\begin{equation}
+\begin{tikzcd}
+  G_\U \ar{d}[sloped]{\sim} & H_\U \ar{l}[below]{\sim}[above]{\pi} \ar{d}[sloped]{\sim} \ar{dr}{\phi} \\
+  G & H \ar{l}[below]{\sim}[above]{\pi} \ar{r}[above]{\phi} & GL_{pq}
+\end{tikzcd}
+\end{equation}
+
+Let us consider the Lie 1-groupoids
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  & H_2(U_j,U_i)\tto H_1(U_j,U_i) \ar{dl}[sloped, below]{\sim}[sloped, above]{\pi} \ar{dr}[sloped]{\phi} \\
+  G_1(U_j,U_i)\tto G_1(U_j,U_i) &  & \RR^{p\times q}\times W \tto W
+\end{tikzcd}
+\end{equation}
+where $\RR^{p\times q}\times W \tto W$ is ${GL_{pq}}_2 \tto {GL_{pq}}_1$ and the map $\phi_2$ is the following.
+\begin{align}
+  \phi_2\colon H_2(U_j,U_i) &\to \RR^{p\times q}\times W \\
+  \alpha &\mapsto (c(\alpha), \phi(k))\colon\phi(k)\To\phi(l)
+\end{align}
+Note that the map $c\colon H_2(U_j,U_i)\to\RR^{p\times q}$ is a cocycle in the differentiable cohomology of $H_2(U_j,U_i)\tto H_1(U_j,U_i)$.
+In other words $c(\beta\bullet\alpha) = c(\beta) + c(\alpha)$.
+\begin{align}
+  C^\infty(H_1(U_j,U_i)) \xto{\delta} C^\infty(H_2(U_j,U_i)) &\xto{\delta} C^\infty(H_2(U_j,U_i) \times_{H_1(U_j,U_i)} H_2(U_j,U_i)) \\
+  c &\mapsto 0
+\end{align}
+
+As $\pi$ is Morita, we have that $H^1_\text{diff}\big(H_2(U_j,U_i)\tto H_1(U_j,U_i)\big) = H^1_\text{diff}\big(G_1(U_j,U_i)\big)$ and as $G_1(U_j,U_i)$ is a unit groupoid, we have that $H^1_\text{diff}(G_1(U_j,U_i)) = 0$.
+So, the differentiable cohomology of $H_2(U_j,U_i)\tto H_1(U_j,U_i)$ in degree one is zero.
+\[ H^1_\text{diff}\big(H_2(U_j,U_i)\tto H_1(U_j,U_i)\big) = 0 \]
+
+This implies that there exists a map $d\colon H^1(U_j,U_i)\to\RR^{pq}$ such that $c=\delta(d)$.
+In other words, if $\alpha\colon k \To l$, then $c(\alpha)=d(l)-d(k)$.
+One can work with the reduced differentiable complex that is equivalent with the regular one.
+So, we can ask $d$ to be normal\nota{normal? reduced?}, that is $d(1_{(x,i)})=0$ for all $(x,i)\in\U$.
+
+Let $h=(h_1,h_0)$, where $h_1$ and $h_0$ are the following.
+\begin{align}
+  h_1\colon\U &\to W \\
+  (x,i) &\mapsto 1_{(x,i)}
+\end{align}
+\begin{align}
+  h_1\colon H_1(U_j,U_i) &\to \RR^{pq}\times W \\
+  h(k) &\mapsto (-d(k), \phi(l))
+\end{align}
+
+Let $\psi=\phi^h$ be a lax functor obtained by twisting $\phi$ with $h$.
+We have two lax functors $\phi$ and $\psi$ from $H_\U$ to $GL_{pq}$ and a lax equivalence $h\colon\phi\To\psi$ between them.
+Let us see how is $\psi=(N_2\psi,\psi_1,\psi_0)$.
+$\psi_0=\phi_0\sigma$
+$\psi(x,i)=\phi(\sigma_i(x))$
+$k\colon\sigma_i(x)\to\sigma_j(y)$
+\begin{align}
+  \psi(k) &= -d(k)\phi(k) \\
+  &= (\phi^1(k)-d(k)\phi(\sigma_i(x)), \phi^0(k)-\phi(\sigma_j(y))d(k))
+\end{align}
+\begin{equation}
+\begin{tikzcd}
+  \RR^p \ar{r}{\phi(\sigma_i(x))} \ar{d}[left]{\phi^1(k)-\psi^1(k)} & \RR^q \ar{d}{\phi^0(k)-\psi^0(k)} \ar{dl}[sloped, above]{d(k)} \\
+  \RR^p \ar{r}[below]{\phi(\sigma_j(y))} & \RR^q
+\end{tikzcd}
+\end{equation}
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  k \ar[Rightarrow]{d}[left]{\alpha} \\
+  l
+\end{tikzcd} \qquad
+\begin{tikzcd}[sep = small]
+  \phi(k) \ar[Rightarrow]{r}{h(k)} \ar[Rightarrow]{d}[left]{\phi(\alpha)} & \psi(k) \ar[Rightarrow]{d}{\psi(\alpha)} \\
+  \phi(l) \ar[Rightarrow]{r}[below]{h(l)} & \phi(l)
+\end{tikzcd}
+\end{equation}
+\begin{align}
+  \psi(\alpha) &= h(l)\bullet\phi(\alpha)\bullet h(k)^{-1} \\
+  &= (d(k)+c(\alpha)-d(l), \phi(k))\colon\psi(k)\To\psi(l) \\
+  &= (0, \psi(k)) \\
+  &= \text{id}_{\psi(s(\alpha))}
+\end{align}
+The structural map $\psi_{1,1}\colon {H_\U}_1\times_\U{H_\U}_1 \to GL_{pq}$ is the following.\nota{hago el diagrama?} Use property iii\dots
+\[ \psi_{1,1}(l,k) = (h(l)\circ h(k))\bullet\phi_{1,1}(l,k)\bullet h(lk)^{-1} \]
+Note that the property i (normality): $h(\text{id}_{(x,i)})=\text{id}_{h(x,i)}$, is fullfilled by $h$ if and only if $d(\text{id}_{(x,i)})=0$ for all $(x,i)\in\U$.
+This is the reason that motivated the use of the reduced differentiable complex in (ref) before.
+
+We have a lax functor $\psi\colon H_\U\to GL_{pq}$ that is naturally equivalent to $\phi$.
+Let us see that $\psi$ descends to the quotient, that is, there exists a lax functor $\overline\psi\colon G_\U\to GL_{pq}$ such that $\overline\psi\pi=\psi$.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  H_\U \ar{rr}{\phi} \ar{dr}[sloped, below]{\pi}[sloped, above]{\sim} & & GL_{pq} \\
+  & G_\U \ar[dashed]{ur}[sloped, below]{\overline\psi}
+\end{tikzcd}
+\end{equation}
+In degree 2, as $G_\U$ is a Lie 1-groupoid, we have that $\psi(\alpha)=\text{id}$ for all $\alpha\in {H_\U}_2$.
+
+In degree 1, as the map of Lie 1-groupoids $\pi\colon(H_2(U_j,U_i)\tto H_1(U_j,U_i))\xto\sim G_1(U_j,U_i)$ is Morita, we have that $H_2(U_j,U_i)\tto H_1(U_j,U_i)$ is a submersion groupoid.
+In other words, for every $k,l \in H_1(U_j,U_i)$ we have that $\pi(k) = \pi(l)$ if and only if there exists a 2-cell $\alpha\colon k\To l\in H_2(U_j,U_i)$, and $\alpha$ is unique.
+As $\psi(\alpha)=\text{id}_{\psi(s(\alpha))}$ for all $\alpha$, we have that $\pi(k) = \pi(l)$ implies $\psi(k) = \psi(l)$ for every $k,l \in H_1(U_j,U_i)$.
+Moreover, we also need to check that if $(l,k),(l',k')\in{H_\U}_1\times_\U{H_\U}_1$ are 2 pairs of compatible arrows such that $\pi(k) = \pi(k')$ and $\pi(l) = \pi(l')$, then $\psi_{1,1}(l,k) = \psi_{1,1}(l',k')$.
+This follows from property ii DIAGRAMAS.
+
+Finally, in degree 0 there is nothing to prove, as $\pi_0 = \text{id}\colon\U\to\U$.
+
+So, we have well defined lax functor $\overline\psi\colon G_\U\to GL_{pq}$ such that $\overline\psi\pi=\psi$.
+
+
+
+
+
+
+
+
+
+\end{proof}
+

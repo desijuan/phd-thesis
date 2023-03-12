@@ -1,0 +1,176 @@
+%
+% SECTION 3 - ACTIONS AND REPRESENTATIONS
+%
+
+% ACTIONS
+Let $G\tto M$ be a Lie groupoid, $A$ a manifold and $p\colon A\to M$ a map of constant rank.
+We denote by $A_x=p^{-1}(x)$ the fiber of $p$ over the point $x$ of $M$.
+A (left) \emph{groupoid action} $\theta\colon (G\tto M)\acts (A\to M)$ is a smooth map
+\[ \theta\colon G\times_M A\to A \qquad (y\xfrom{g}x, a)\mapsto \theta_g(a) \]
+such that $p(\theta_g(a)) = t(g)$, $\theta_{\id}=\id$ and $\theta_{hg}=\theta_h\theta_g$.
+Here, by $G\times_M A$ we mean the fiber product between the source map $s\colon G\to M$ and the map $p\colon A\to M$, which is often called the \emph{moment map} of the action.
+For each arrow $y\xfrom g x$ there is a diffeomorphism $\theta_g\colon A_x\to A_y$, so, an action is a way of realizing the arrows of the groupoid $G\tto M$ as symmetries of the family of fibers of $p$.
+
+% REPRESENTATIONS
+Given a Lie group $G\tto M$ and a vector bundle $E\to M$, a \emph{representation} $\rho\colon (G\tto M)\acts (E\to M)$ is an action in which the maps $\rho_g\colon E_x\to E_y$ are all linear.
+% It is given by a smooth map
+% $$ \rho\colon G\times_M E\to E \qquad (y\xfrom{g}x, e)\mapsto \rho_g(e) $$
+% such that $\pi(\rho_g(e)) = t(g)$, the map $\rho_g\colon E_x\to E_y$ is linear, $\rho_{\id}=\id$ and $\rho_h\rho_g = \rho_{hg}$.
+%
+% RANK
+The \emph{rank} of $\rho$ is defined as the rank of the vector bundle $E\to M$.
+
+%EX: MANIFOLDS
+\begin{example}
+Let $M$ be a manifold and $E\to M$ a vector bundle.
+There is only one representation of the unit groupoid $M\tto M$ on $E\to M$, the trivial one.
+So, the representations of a unit groupoid $M\tto M$ are in one-to-one correspondence with the vector bundles over $M$.
+\end{example}
+
+%EX: LIE GROUPS
+\begin{example}
+A vector bundle over the point $V\to *$ is a vector space.
+Representations of Lie Groups $(G\tto *)\acts (V\to *)$ are vector spaces equipped with an usual group representation.
+\end{example}
+
+%EX: PAIR GPD
+\begin{example}
+Let $\rho$ be a representation of a pair groupoid $M\times M\tto M$ on a vector bundle $E\to M$.
+For any fixed $x_0\in M$ the map $E\to M\times E_{x_0}$, $e\mapsto (x, \rho_{(x_0,x)}(e))$ is a trivialization of $E$.
+So, if a vector bundle $E\to M$ admits a representation of the pair groupoid $M\times M\tto M$, then it has to be trivializable.
+Conversely, given a global trivialization $\varphi\colon E\to M\times\RR^k$ of $E\to M$, the map $M\times M\times_M E \to E$, $((y,x),x))\mapsto \varphi^{-1}(y,\varphi_2(e))$ is a representation of the pair groupoid $M\times M\tto M$.
+\end{example}
+
+Let $\theta\colon (G\tto M)\acts (A\to M)$ be a Lie groupoid action, its \emph{action groupoid} \(G\times_M A\tto A\) is a Lie groupoid over $A$ whose arrows are \smash{$\theta_g(a) \xfrom{(g,a)} a$}.
+The source is $s(g,a) = a$, the target $t(g,a) = \theta_g(a)$ is given by the action of $G$, and the composition, unit and inverse maps are induced by those of $G$.
+This generalizes example \ref{ex:action-gpd}.
+We say that the action $G\acts A$ is \emph{free} if the action groupoid has no isotropy, and that the action is \emph{proper} if the map $G \times_M A \to A\times A$, $(g,a)\mapsto (\theta_g(a),a)$ is so.
+
+% ACTION MAPS
+Given an action of Lie groupoids $(G\tto M)\acts (A\to M)$, the moment map $A\to M$ and the projection $G\times_M A\to G$ define a morphisim \((G\times_M A\tto A)\to (G\tto M)\) of particular nature.
+Given a constant rank map $p\colon A\to M$, a morphism of Lie groupoids $\phi\colon(H\tto A)\to (G\tto M)$ is an \emph{action map} if it induces a good pullback between the sources.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  H \ar{r}{s} \ar{d}{\phi} & A \ar{d}{p} \\
+  G \ar{r}{s} & M
+\end{tikzcd}
+\end{equation}
+
+Clearly, the projection \((G\times_M A\tto A)\to (G\tto M)\) associated to an action of Lie groupoids $(G\tto M)\acts (A\to M)$ is an action map.
+Conversely, if $(H\tto A)\to (G\tto M)$ is an action map, then $H$ is diffeomorphic to $G\times_M A$ and the composition \smash{$G\times_M A\to H\xto t A$} is an action, it is called the \emph{underlying action}.
+It is straightforward to check that these constructions are mutually inverse.
+
+\begin{prop}[\cite{mack05}]
+There is a one-to-one correspondence between left actions and action maps.
+\end{prop}
+
+% AS A MAP FROM G TO GL(E)
+If $\rho\colon G\times_ME\to E$ is a representation, for each arrow $y\xfrom g x$ there is an isomorprism of vector bundles $\rho_g\colon E_x\to E_y$, which is an element of the General Linear Groupoid described in example \ref{ex:gle}.
+So, one could alternatively define a representation as a morphism of Lie groupoids $(G\tto M)\to (GL(E)\tto M)$ that is the identity over $M$.
+In fact, both definitions are equivalent.
+
+\begin{prop}\label{repr}
+There is a one-to-one correspondence between representations of $G\tto M$ over $E\to M$ and Lie groupoid maps from $G\tto M$ to the General Linear Groupoid $GL(E)$
+% \[ rho\colon (G\tto M)\to (GL(E)\tto M) \qquad g \mapsto \rho_g \]
+that are the identity over $M$.
+\end{prop}
+
+\begin{proof}
+Given a representation $\rho\colon G\times_ME\to E$, let us consider the morphism of groupoids $\psi\colon(G\tto M)\to(GL(E)\tto M)$ that is the identity over $M$ and sends an arrow \smash{$y\xfrom{g} x$} to the linear isomorphism \smash{$\rho_g\colon E_x\to E_y$}.
+To see that the morphism $\psi$ is smooth, let us pick a chart \smash{$\varphi_{ji}\colon GL(E)(U_j)(U_i)\to U_j\times U_i\times\RR^{k^2}$} of $GL(E)$ (see example \ref{ex:gle}) and consider the composition \smash{$\varphi_{ji}\res{\psi}{G(U_j,U_i)}\colon G(U_j,U_i)\to U_j\times U_i\times\RR^{k^2}$}.
+By looking at the last factor we have a map \smash{$A\colon G(U_j,U_i)\to \RR^{k^2}$} that assigns the matrix \smash{$A(g)=\varphi_j\rho_g\varphi_i^{-1}\in\RR^{k^2}$} to each arrow $g\in G(U_j,U_i)$.
+Let $\{e_1,\dots,e_k\}$ be the canonical basis of $\RR^k$ and $\{e^1,\dots,e^k\}$ its dual basis.
+For each $1\leq r,s\leq k$ the entry $rs$ of $A$ is $A{rs}=e^s\circ\varphi_j\circ\rho\circ\varphi_i^{-1}\circ i_{e_r}$,
+which is a smooth function of $g$.
+Here, $i_{e_r}\colon G\to G\times\RR^k$ is $g\mapsto(g,e_r)$,
+Therefore, \smash{$A\colon G(U_j,U_i)\to \RR^{k^2}$} is smooth and so is $\psi\colon G\to GL(E)$.
+This shows that we have a well defined morphism of Lie groupoids $\psi\colon(G\tto M)\to(GL(E)\tto M)$.
+
+Conversely, if we have a morphism of Lie groupoids $\psi\colon(G\tto M)\to(GL(E)\tto M)$, let $\rho\colon G\times_ME\to E$ be the map given by $\rho(g,e)=\psi_g(e)$.
+As $\psi$ is a morphism of groupoids, $\rho$ is an action.
+To see that it is smooth, note that $\rho=\text{ev}\circ(\psi\times \text{id}_E)$, where $\text{ev}\colon GL(E)\times_M E\to E$ is the evaluation $\text{ev}(\xi,e)=\xi(e)$.
+\end{proof}
+
+If one tries to carry on the characterization of Proposition \ref{repr}, but for actions in general instad of representations, the resulting space is infinite dimensional.
+\red{Should be developed. Explain the set-theoretic situation and the smooth aspects.}
+
+% MORPHISMS OF REPRESENTATIONS
+If\nota{subir esto?} $\rho_1\colon (G\tto M)\acts (E_1\to M)$ and $\rho_2\colon (G\tto M)\acts (E_2\to M)$ are representations of the same groupoid $G\tto M$, a \emph{morphism} $\eta\colon \rho_1 \Rightarrow \rho_2$ between them is a morphism of vector bundles $\eta\colon E_1 \to E_2$ such that $\eta_y\rho_1(g) = \rho_2(g)\eta_x$ for every arrow $y\xfrom{g}x$ of $G$.
+
+% PULLBACK OF REPRESENTATIONS
+Let $\rho\colon (G\tto M)\acts (E\to M)$ be a representation.
+Given another Lie groupoid $H\tto N$ and morphism $\phi\colon (H\tto N) \to (G\tto M)$, we can consider the \emph{pull-back} of $\rho$ via $\phi$, denoted by \(\phi^*(\rho)\colon (H\tto N)\acts (\phi^*E\to N)\).
+This is a representation of $H\tto N$ on the pull-back vector bundle $\phi^*E\to N$ that sends an arrow \smash{$w\xfrom h z$} to the linear isomorphism $\rho(\phi(h))\colon E_{\phi(w)}\to E_{\phi(z)}$.
+
+% EX: VECTOR BUNDLES AS REPRESENTATIONS
+\begin{example}
+In example \ref{ex:vectorBundle} we observed that, by picking a trivializing open cover $\U=\{U_i\}$ of the base, a vector bundle of rank $k$ over $M$ can be seen a morphism of Lie groupoids $\theta\colon M_\U \to GL_k$.
+Considering the pull-back of the identity representation of $GL_k$ on $\RR^k$ via the morphism $\theta$, we can also think of a vector bundle, or a $GL_k$-cocycle, as a representation of the \v Cech groupoid $M_\U$ on the pull-back vector bundle $\theta^*(\RR^k) = \big( \coprod U_i\times \RR^k \to \coprod U_i \big)$.
+\end{example}
+
+\red{Write example on submersion groupoids, it works exactly as the open cover case, it is called ``descent theory'', read wikipedia article about it.}
+
+% % En realidad esta proposición son dos:
+% % 1) El pull-back de representaciones es funtorial
+% % 2) Si $\phi_1$ y $\phi_2$ son morfismos de fibrados naturalmente equivalentes, entonces $\phi_1^* = \phi_2^*$.
+% \begin{prop}\label{iso}
+% Let $\phi_1$ and $\phi_2$ be morphisms of Lie groupoids from $G'\tto M'$ to $G\tto M$ and $\rho_1\colon (G\tto M)\to (GL(E_1)\tto M)$ and $\rho_2\colon (G\tto M)\to (GL(E_2)\tto M)$ two representations of $G\tto M$.
+% % If $\phi_1\simeq\phi_2$ and $\rho_1\simeq\rho_2$, then $\phi_1^*\rho_1 \simeq \phi_2^*\rho_2$.
+% If the morphisms $\phi_1$ and $\phi_2$ are naturally equivalent and the representations $\rho_1$ and $\rho_2$ are isomorphic, then so are $\phi_1^*\rho_1$ and $\phi_2^*\rho_2$.
+% \end{prop}
+
+% \begin{proof}
+% Let $\eta\colon E_1\to E_2$ be an isomorphism of vector bundles providing the isomorphism $\rho_1\simeq\rho_2$ and let $\alpha$ be a natural equivalence $\phi_1\simeq\phi_2$.
+% Given an $x'\in M'$, let $\mu_{x'}\colon \left(\phi_1^*E_1\right)_{x'} \to \left(\phi_2^*E_2\right)_{x'}$ be the isomorphism of vector spaces defined by $\mu_{x'} = \eta_{\phi_2(x')}\rho_1(\alpha_{x'})$.
+% This gives us a section of the fiber bundle $\Iso\left(\rho_1^*E_1,\rho_2^*E_2\right)$ such that $\mu_{y'}\rho_1(\phi_1(g')) = \rho_2(\phi_2(g'))\mu_{x'}$ for every arrow $g'\colon x'\to y'$ of $G'$.
+% \end{proof}
+
+% \begin{prop}\label{morita}
+% If $\phi\colon (G\tto M) \to (G'\tto M')$ is a Morita morphism such that the map on the objects $\phi\colon M\to M'$ is a surjective submersion, then the pull-back induces a bijection between the sets of isomorphism classes of representations of $G\tto M$ and of $G'\tto M'$.
+% \end{prop}
+
+% \begin{proof}
+% As the morphism $\phi$ is a surjective submersion on the objects, choosing local sections we can obtain an open cover $\U'$ and a morphism $\sigma\colon G'_{\U'} \to G$ such that $\pi'_{\U'} = \phi\sigma$.
+% Consider the cover $\U$ of $M$ that has all the preimages via $\phi$ of all the open sets $U'$ in $\U'$.
+% We have the following commutative diagram.
+% \begin{equation*}
+% \begin{tikzcd}
+%  G_\U \ar{r}{\pi_\U} \ar{d}[swap]{\phi_\U} & G \ar{d}{\phi} \\
+%  G'_{\U'} \ar{r}[swap]{\pi'_{\U'}} \ar{ur}{\sigma} & G'
+% \end{tikzcd}
+% \end{equation*}
+% Observing that $\sigma^*\phi^* = \pi'^*_{\U'}$ and $\phi_\U^*\sigma^* = \pi_\U^*$ we get that if $\pi'^*_{\U'}$ and $\pi^*_\U$ induce bijections between the respective sets of representations, then so does $\phi^*$.
+% Hence, it is enough to prove that the result holds for a morphism of Lie groupoids of the form $\pi_\U\colon G_\U \to G$.
+
+% If $\rho_1\colon (G\tto M) \to (GL(E_1)\tto M)$ and $\rho_2\colon (G\tto M) \to (GL(E_2)\tto M)$ are two representations of $G\tto M$ such that the pull-backs $\pi_\U^*(\rho_1)$ and $\pi_\U^*(\rho_2)$ are isomorphic, let us say, via an isomorphism of vector bundles $\mu\colon\pi_\U^*(E_1) \to \pi_\U^*(E_2)$.
+% Putting $\eta_i(x) = \mu_{(x,i)}$ we have a family of isomorphisms of vector bundles $\eta_i\colon \res{E_1}{U_i} \to \res{E_2}{U_i}$.
+% Note that $\eta_i(x) = \pi_\U^*\rho_2(u_x,i,j) \, \mu_{(x,i)} = \mu_{(x,j)} \, \pi_\U^*\rho_1(u_x,i,j) = \eta_j(x)$ for every $x \in U_{ij}$.
+% This allows us to glue the $\eta_i$ all together to get a morphism of vector bundles $\eta\colon E_1 \to E_2$ that gives us the desired isomorphism of representations between $\rho_1$ and $\rho_2$.
+% This proves the injectivity of $\pi_\U^*$.
+
+% For the surjectivity, given a representation $\tau\colon (\coprod_{i,j} G(U_i,U_j) \tto \coprod_i U_i) \to (GL(F)\tto \coprod_i U_i)$ of $G_\U$, let us consider the vector bundle $E = ( \coprod_i F_{(x,i)} ) / _\sim$, where we are identifying a $v$ in the fiber $F_{(x,i)}$ with $\tau(u_x,i,j) \, v$ in $F_{(x,j)}$ for every $j$ such that $x$ also belongs to $U_j$.
+% The representation $\rho\colon (G\tto M) \to (GL(E)\tto M)$ of $G$ that sends an arrow $g\colon x\to y$ to the isomorphism $\rho\colon E_x \to E_y$ induced by $\tau(g,i,j)\colon F_{(x,i)} \to F_{(x,j)}$ where $i$ and $j$ are any such that $x$ is in $U_i$ and $y$ is in $U_j$, satisfies that $\pi_\U^*(\rho) = \tau$.
+% \end{proof}
+
+% \begin{thm}
+% The pull-back of representations induces a natural bijection between the set of maps of stacks from a manifold $M$ to the classifying stack of the general linear groupoid $BGL(k,\CC)$ and the set of isomorphism classes o rank $k$ vector bundles over $M$.
+% \end{thm}
+
+% \begin{proof}
+% Let us use $G\tto *$ as an abbreviation for the general linear group $GL(k,\CC)$.
+% If we are given a map of stacks from $M$ to $BG$, let us say represented by a fraction
+% \begin{equation*}
+% \begin{tikzcd}
+%  (M\tto M) & (H\tto N) \ar{l}[sloped, below]{\sim}[sloped, above]{\phi} \ar{r}{\psi} & (G\tto *) ,
+% \end{tikzcd}
+% \end{equation*}
+% we can pull-back the identity representation of $G\tto *$ to obtain a representation of $H\tto N$, let us call it $\tau$.
+% As the map $\phi$ is Morita and a surjective submersion on the objects, by proposition \ref{morita} we know that there exists a unique (modulo isomorphism) representation $\rho\colon (M\tto M) \to (GL(E)\tto M)$ such that that $\phi^*\rho$ and $\tau$ are isomorphic.
+% Propositions \ref{iso} and \ref{morita} together with the observations made in example \ref{rep-unit} assure us that we have a well defined mapping $\psi/\phi \mapsto [E\to M]$, that does not depend on the choice of the representative $(\psi,\phi)$.
+% Let us denote this mapping with $\psi/\phi \mapsto (\psi/\phi)^*(1) = [E\to M]$.
+
+% By lemma \ref{representative}, we can choose a representative of the form of the form $\theta/\pi_\U$ for some open cover $\U$ of $M$.
+% To have an isomorphims class of vector bundles $[E\to M]$ is the same as an equivalence class of cocycles $[(\U,\{\theta_{ij}\})]$, and this is the same as a map of stacks $\theta/\pi_\U$.
+
+% \noi FALTA TERMINAR.
+% \end{proof}

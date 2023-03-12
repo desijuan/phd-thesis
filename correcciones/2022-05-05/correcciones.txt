@@ -1,0 +1,52 @@
+
+
+first paragraph in each subsection describing content
+
+
+---
+
+1 Lie groupoids
+
+1.1 First definitions
+Definition, basics facts, types of groupoids.
+Lie groupoid, morphisms, isotropy and orbits, first result.
+
+1.2 Examples of Lie groupoids
+
+1.3 Actions and representations
+Definitinon, characterization via general linear groupoid, examples
+
+1.4 Nerve and cohomology
+
+---
+
+2 VB-groupoids
+
+2.1 VB-groupoids
+2.2 RUTH
+Pseudo-representation, RUTH, morphism.
+2.3
+
+
+Pullback groupoid
+
+
+2.1
+core, anchor, morphisms in examples
+2.1.1 Core and anchor map. In fact, the anchor map completely codify the 2vect [int. ref.]
+2.1.2 remark that if G is etale then core is 0.
+2.1.3 Actually...
+dual of vector bundle
+example of acycle: pair groupoid of vector bundle
+Proposition: characterization of acyclic
+VBgpd with side 0
+VBgpd with anchor 0
+
+2.2
+induce representations in cohomology (non-smooth, over each orbit, constant rank)
+adjoint representation
+
+pseudo-representation, example
+ruth and morphism
+
+rmk:

@@ -1,0 +1,37 @@
+%
+% SECTION 1 - EQUIVALENCES
+%
+
+Let $G$, $H$ be Lie 2-groupoids, $M$ a smooth manifold and $\psi\colon M\to H_0$ a smooth map.
+We say that $\psi$ meets transversally every orbit of $H$ if the map
+$t\pi_1\colon H_1\times_{H_0} G_0 \to H_0$
+is a surjective submersion, equivalently if the following two conditions hold.
+\begin{enumerate}
+\item for every $y\in H_0$ there exists a $x\in G_0$ and a $h\in H_1$ with $s(h) = \phi(x)$ and $t(h) = y$.
+\item for every $x\in H_0$ the linear map induced in the normal directions $N_x\to N_{\phi(x)}$ is surjective.
+\end{enumerate}
+A map of Lie 2-groupoids $\phi\colon G\to H$ meets transversally every orbit of $H$ if the map on the objects $\phi_0\colon G_0\to H_0$ does.
+
+For every $x, y\in G_0$, the $G_2(y,x)\tto G_1(y,x)$ are Lie 1-groupoids, we call them \emph{hom-groupoids}.
+We say that a map of Lie 2-groupoids $\phi\colon G\to H$ is \emph{locally Morita}, or locally an equivalence, if for every pair of objects $x, y\in G_0$ the restriction to the hom-groupouid
+\[ \phi_{x,y}\colon \left( G_2(y,x)\tto G_1(y,x) \right) \to \left( H_2(\phi(y),\phi(x))\tto H_1(\phi(y),\phi(x)) \right) \]
+is Morita.
+
+\begin{mydef}
+$\phi$ is an \emph{equivalence} if it meets transversally every orbit and it is locally Morita.
+If in addition the map on the objects $\phi_0\colon G_0\to H_0$ is a surjective submersion we say that $\phi$ is a \emph{surjective equivalence}.
+\end{mydef}
+
+\begin{example}
+$GL(p,q)' \to GL(p,q)$ is a surjective equivalence.
+% The map in the objects is the identity so it is a surjective equivalence.
+% It is easy to see that it is set-theoreticaly locally Morita.
+% To see that for fixed matrices $\delta$ and  $\nu$ the map
+% $$ t\pi_1\colon GL(p,q)_2(\nu, \delta) \times_{GL(p,q)_1(\nu, \delta)} GL(p,q)_1'(\nu, \delta) \to GL(p,q)_1(\nu, \delta) $$
+% is a submersion, observe that it is the restriction of the target map $t\colon GL(p,q)_2(\nu, \delta) \to GL(p,q)_1(\nu, \delta)$ to the open set $s^{-1}(GL(p,q)_1'(\nu, \delta)) \subset GL(p,q)_2(\nu, \delta)$.
+\end{example}
+
+\begin{example}
+% With similar arguments as in the previuous example is easy to see that
+The inclusion $GL(p,q) \to GL(p+1,q+1)$ is an equivalence.
+\end{example}

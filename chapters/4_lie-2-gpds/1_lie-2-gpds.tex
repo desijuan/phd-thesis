@@ -1,0 +1,138 @@
+%
+% SECTION 1 - LIE 2-GPDS
+%
+
+A (small) \emph{2-category} $C$ has three sets: the objects $C_0=\{x,y,z,\dots\}$, the arrows $C_1=\{g,h,\dots\}$ and the 2-cells $C_2=\{\alpha,\beta,\dots\}$.
+In the same way as with 1-categories, each arrow has a sorce and a target, the arrows can be composed in an associative way $\circ$ and there are units.
+The are also source and target for the 2-cells
+\[ s,t\colon G_2\to G_1  \qquad s \Big( \2cell{x}{y}{f}{g}{\alpha} \Big) = f  \qquad t \Big( \2cell{x}{y}{f}{g}{\alpha} \Big) = g . \]
+The 2-cells can be composed in two ways.
+The vertical composition
+\[ \bullet\colon C_2(y,x)\times_{C_1(y,x)} C_2(y,x) \to C_2(y,x) \qquad \Big( \2cell{x}{y}{g}{h}{\beta}, \2cell{x}{y}{f}{g}{\alpha} \Big) \mapsto \2cell{x}{y}{f}{h}{\beta\alpha} , \]
+which is associative and has units \smash{\(\2cell{x}{y}{f}{f}{u_f}\)}.
+The horizontal composition
+\[ \circ\colon C_2\times_{C_1}C_2\to C_2 \qquad \Big( \2cell{y}{z}{f_2}{g_2}{\alpha_2}, \2cell{x}{y}{f_1}{g_1}{\alpha_1} \Big) \mapsto \2cell{x}{z}{f_2f_1}{g_2g_1}{\alpha_2\alpha_1} \]
+is also associative and the 2-cells \smash{\(\2cell{x}{x}{u_x}{u_x}{u_x}\)} act as units for it.
+
+\smallskip
+
+\begin{example}
+The paradigmatic example of a 2-category is that of small categories, functors and natural transformations.
+Another basic example is that of spaces, continuous maps and (homotopy classes of) homotopies.
+\end{example}
+
+Let $C$ and $D$ be 2-categories, a \emph{functor} $\phi\colon C\to D$ between them consists of functions $\phi_i\colon C_i\to D_i$  preserving all the structure on the nose.
+This notion is sometimes too rigid for it involves many identities between functors.
+A useful variant is that of a (normal) \emph{lax functor} $\phi\colon C\to D$, which consists of three functions $\phi_i\colon C_i\to D_i$ that preserve the source, target, units and the vertical composition $\bullet$.
+The horizontal composition $\circ$ is preserved only up to a given 2-cell.
+More precisely, there is also a function
+\[ \phi_{1,1}\colon C_1\times_{C_0}C_1\to D_2 \qquad \phi_{1,1}(g,f)\colon\phi_1(gf)\To\phi_1(g)\circ\phi_1(f) \]
+ruling the failure of associativity of the horizontal composition $\circ$.
+The functions $\phi_0$, $\phi_1$, $\phi_2$ and $\phi_{1,1}$ should satisfy the following axioms:
+\begin{enumerate}[label=\roman*)]
+  \item $\phi_{1,1}(\id_y,f) = \id_{\phi(f)} = \phi_{1,1}(f,\id_x)$ for \smash{$y\xfrom f x$} (normality).
+  \item $(\phi_2(\alpha_2)\circ \phi_2(\alpha_1))\bullet \phi_{1,1}(f_2,f_1) = \phi_{1,1}(g_2,g_1)\bullet \phi_2(\alpha_2\circ\alpha_1)$, where
+  \smash{$\xymatrix{z \ar@{}[r]|{\Downarrow\alpha_2} & y \ar@{}[r]|{\Downarrow\alpha_1} \ar@/^0.5pc/[l]^{g_2} \ar@/_0.5pc/[l]_{f_2} & x \ar@/^0.5pc/[l]^{g_1} \ar@/_0.5pc/[l]_{f_1}}$}.
+  \item $(\phi_{1,1}(f_3,f_2)\circ \phi_2(f_1))\bullet \phi_{1,1}(f_3f_2,f_1) = (\phi_2(f_3)\circ \phi_{1,1}(f_2,f_1))\bullet \phi_{1,1}(f_3,f_2f_1)$, \\
+  where $w\xfrom{f_3}z\xfrom{f_2}y\xfrom{f_1}x$.
+\end{enumerate}
+To ease the notation often we will drop the subindexes and write $\phi$ instead of $\phi_i$.
+
+Given $\phi,\psi\colon C\to D$ lax functors between 2-categories, a \emph{lax transformation} $H\colon\phi\Rightarrow\psi$ consists of two functions: to each object $x\in C_0$ it associates an arrow \smash{$\psi(x)\xfrom{H_x}\phi(x)$} and to each arrow \smash{$y\xfrom f x$} a 2-cell $H_f\colon H_y\phi(f)\Rightarrow\psi(f)H_x$.
+These two maps $C_0\to D_1$ and $C_1\to D_2$ are required to satisfy the following conditions:
+\begin{enumerate}[label=\roman*)]
+  \item $H_{\id_x} = \id_{H_x}$ (normality).
+  \item $(\psi(\alpha)\circ \id_{H_x})\bullet H_f = H_g \bullet(\id_{H_y}\!\circ\,\phi(\alpha))$,
+  where \smash{$\2cell{x}{y}{f}{g}{\alpha}$}.
+  \item $(\psi(g)\circ H_f)\bullet(H_g\circ\phi(f))\bullet(H_g\circ\phi_{1,1}(g,f)) = (\psi_{1,1}(g,f)\circ H_x)\bullet H_{gf}$ for each pair of composable arrows \smash{$z\xfrom g y\xfrom f x$}.
+  This can be depicted as a commutative prism with vertical faces $H_g$, $H_f$ and $H_{gf}$, and horizontal faces given by the structural 2-cells of $\phi$ and $\psi$.
+  \begin{equation}
+    \begin{tikzcd}[row sep=10pt, column sep=17pt]
+      \phi(z) \ar{dd}[swap]{H_z} \ar[Rightarrow, shorten = 33.7pt]{dddr}{H_g} & \ar[Rightarrow, near start]{d}{\phi_{1,1}(g,f)} & \phi(x) \ar{ll}[swap]{\phi(gf)} \ar{dd}{H_x} \ar[shorten = -4pt]{ld}{\phi(f)} \\
+       & \phi(y) \ar[near end]{dd}{H_y} \ar[shorten = -4pt]{lu}{\phi(g)} \ar[Rightarrow, shorten = 3.2pt]{dr}{H_f} & \\
+      \psi(z) & & \psi(x) \ar{ll} \ar[shorten = -4pt]{ld}{\psi(f)} \\
+       & \psi(y) \ar[shorten = -4pt]{lu}{\psi(g)} &
+    \end{tikzcd}
+  \end{equation}
+\end{enumerate}
+If all the $H_f$ are invertible and the $H_x$ are invertible up to a 2-cell, $H$ is a \emph{lax equivalence}.
+
+A \emph{2-groupoid} is a small 2-category in which the 2-cells are invertible with respect to the vertical composition $\bullet$ and the arrows are invertible up to homotopy, namely for every \smash{$y\xfrom{g}x$} there exists a \smash{$x\xfrom{h}y$} and 2-cells $u_x\To hg$ and $u_y\To gh$.
+% and for every 2-cell $\alpha\colon f\To g$ there is an inverse $\alpha^{-1}\colon g\To f$, such that $\alpha^{-1}\bullet\alpha = u_f$ $\alpha\bullet\alpha^{-1} = u_g$.
+Note that for a fixed pair of objects $x,y\in G_0$, the arrows and 2-cells between them form a 1-groupoid $G_2(y,x)\tto G_1(y,x)$.
+
+Some references, \cite{gs15} for example, demand the arrows to be invertible on the nose.
+We call this type of 2-groupoids \emph{strict}.
+Let us remark that the fundamental example in this thesis, the General Linear 2-Groupoid, is not strict.
+
+In the following sections we will dive into simplicial sets and manifolds with more detail, but for now let us breafly mention de nerve of a 2-groupoid, that we need to define Lie 2-groupoids.
+Let $G$ be a 2-groupoid, its \emph{nerve} $NG$ is the simplicial set whose 0-simplices are the objects of $G$, $N_0G = G_0$, the 1-simplices are the arrows, $N_1G = G_1$, the 2-simplices $N_2G$ are the triangles
+\begin{equation}
+\begin{gathered}
+\xymatrix@C=.8pc@R=1.2pc{
+    & z \ar[dl]_h \\
+  y & & x \ar[ll]^k \ar[ul]_g \lltwocell\omit{_<2>\alpha}
+}
+\end{gathered}
+\end{equation}
+and the higher simplices are determined by the $k$-simplices for $k=0,1,2$.
+
+If the objects $G_0$ and arrows $G_1$ are manifolds and the source and target of arrows $s,t\colon G_1\to G_0$ are surjective submersions, the 2-horns
+\( N_{2,0}G=G_1\tensor*[_s]{\times}{_s}G_1 , \ N_{2,1}G=G_1\tensor*[_s]{\times}{_t}G_1 \ \, \text{and} \ \, N_{2,2}G=G_1\tensor*[_t]{\times}{_t}G_1 \)
+are good fiber products and therefore they have a well defined manifold structure.%(see \cite[\textsection 2.2]{dh13}).
+\begin{equation}
+  N_{2,0}G = \bigg\{
+  \begin{matrix}
+    \xymatrix@R=5pt@C=5pt{
+        & y & \\
+      z &   & x \ar[ul]_{f}\ar[ll]^{h}
+    }
+  \end{matrix}
+  \bigg\}
+  \qquad
+  N_{2,1}G = \bigg\{
+  \begin{matrix}
+    \xymatrix@R=5pt@C=5pt{
+        & y  \ar[ld]_g & \\
+      z &              & x \ar[ul]_{f}
+    }
+  \end{matrix}
+  \bigg\}
+  \qquad
+  N_{2,2}G = \bigg\{
+  \begin{matrix}
+    \xymatrix@R=5pt@C=5pt{
+        & y \ar[ld]_g & \\
+      z &             & x \ar[ll]^{h}
+    }
+  \end{matrix}
+  \bigg\}
+\end{equation}
+
+We can write the set of set of 2-simplices $N_2G$ as a fiber product between the target map of the 2-cells $t\colon G_2\to G_1$ and the composition of arrows $\circ\colon N_{2,1}G\to G_1$.
+So, if the set of 2-cells $G_2$ is also a manifold and the target map of 2-cells $t\colon G_2\to G_1$ is a surjective submersion the fiber product  is good and the set of 2-simplices $N_2G$ has a well defined manifold structure.
+\begin{equation}
+  \begin{tikzcd}[sep = small]
+    N_2G \ar{r} \ar{d} & N_{2,1}G \ar{d}{\circ} \\
+    G_2 \ar{r}{t} & G_1
+  \end{tikzcd}
+\end{equation}
+
+A \emph{Lie 2-groupoid} is a 2-groupoid in which the sets of objects $G_0$, arrows $G_1$ and 2-cells $G_2$ are manifolds, the source and target maps of arrows $s,t\colon G_1\to G_0$ and of 2-cells $s,t\colon G_2\to G_1$ are surjective submsersions, the horizontal and vertical compositions $\circ\colon G_2\times_{G_1} G_2\to G_2$ and $\bullet\colon G_2\times_{G_1} G_2\to G_2$, units $u\colon G_0\to G_1$, $u\colon G_1\to G_2$, inversion of 2-cells $i\colon G_2\to G_2$ and the restriction maps $d_{2,0}\colon N_2G\to N_{2.0}G$ and $d_{2,2}\colon N_2G\to N_{2.2}G$ are all smooth.
+
+A \emph{morphism} of Lie 2-groupoids is a lax functor $\phi\colon G\to H$ such that the maps $\phi_0$, $\phi_1$ and $(\phi_2,\phi_{1,1})\colon N_2G\to N_2H$ are smooth.
+Given a pair of morphisms of Lie 2-groupoids $\phi$ and $\psi$ from $G$ to $H$, an \emph{equivalence} between them is a lax equivalence $H\colon\phi\Rightarrow\psi$ in which the maps $G_0\to H_1$ and $G_1\to H_2$ are smooth.
+
+% A Lie 2-groupoid is \emph{strict} if it is set-theoretic strict and the inversion of arrows $i\colon G_1\to G_1$ is smooth.
+
+As we mentioned earlier, there are some alternative definitions of Lie 2-groupoids that can be found in the literature.
+In \cite{gs15} the authors work with what we call \emph{strict} Lie 2-groupoids, that is, Lie 2-groupoids in which all the arrows are invertible.
+This less general notion does not include the General Linear 2-Groupoid (see \textsection \ref{sec:gl2gpd}).
+The other definition comes from a simplicial point of view.
+In \cite{zhu09} the authors define a Lie 2-groupoid as a simplicial manifold in which every inner horn admits a filling, and the filling is unique for all $n>2$.
+We will call this type of Lie 2-groupoids \emph{weak}.
+Note that the nerve is a functor from the category of Lie 2-groupoids to the category of weak Lie 2-groupoids, and it turns to be that this functor is fully faithful (see \cite[Prop.\ 3.3]{dho20}).
+In other words, the category of Lie 2-groupoids is a subcategory of the weak Lie groupoids.
+\begin{equation}
+\{ \text{strict Lie 2-groupoids} \} \hookrightarrow \{ \text{Lie 2-groupoids} \} \hookrightarrow \{ \text{weak Lie 2-groupoids} \}
+\end{equation}

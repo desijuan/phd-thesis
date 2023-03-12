@@ -1,0 +1,126 @@
+%
+% SECTION 2 - STACKS
+%
+
+% STACKS
+Two Lie groupoids $G\tto M$ and $G'\tto M'$ are equivalent if there is a third Lie groupoid $H\tto N$ and two Morita morphisms $(H\tto N)\xto\sim (G'\to M')$ and $(H\tto N)\xto\sim (G\tto M)$.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+ (G\tto M) & (H\tto N) \ar[shorten = -.15em]{l}[pos=.45, above]{\sim} \ar[shorten = -.15em]{r}[pos=.45]{\sim} & (G'\tto M')
+\end{tikzcd}
+\end{equation}
+A \emph{differentiable stack} is an equivalence class of Lie groupoids.
+We use $[G\tto M]$, or sometimes simply $[G]$, to denote the differentiable stack presented by the Lie groupoid $G\tto M$.
+
+% FRACTIONS
+Given two Lie groupoids $G\tto M$ and $G'\tto M'$, let us consider the pairs of morphisms $\psi\colon (H\tto N)\to (G'\tto M')$ and $\phi\colon (H\tto N)\xto\sim (G\tto M)$ where the second one is Morita.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+ (G\tto M) & (H\tto N) \ar[shorten = -.15em]{l}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, above]{\phi} \ar[shorten = -.15em]{r}[pos=.45]{\psi} & (G'\tto M')
+\end{tikzcd}
+\end{equation}
+Two pairs $(\psi_1, \phi_1)$ and $(\psi_2, \phi_2)$ are equivalent if there is third one $(\psi_3, \phi_3)$ that sits on top of the first two, meaning that they all fit into the following diagram commutative up to isomorphisms.
+\begin{equation}
+\begin{tikzcd}
+  & (H_1\tto N_1) \ar{dl}[pos=.4, sloped, below]{\sim}[pos=.4, sloped, above]{\phi_1} \ar{dr}[pos=.4, sloped, above]{\psi_1} & \\
+ (G\tto M) & (H_3\tto N_3) \ar{l}[pos=.4, sloped, below]{\sim}[pos=.4, sloped, above]{\phi_3} \ar{u}[pos=.4, sloped, above]{\sim} \ar{r}[pos=.4, sloped, above]{\psi_3} \ar{d}[pos=.4, sloped, below]{\sim} & (G'\tto M') \\
+  & (H_2\tto N_2) \ar{ul}[pos=.4, sloped, above]{\phi_2}[pos=.4, sloped, below]{\sim} \ar{ur}[pos=.4, sloped, above]{\psi_2} &
+\end{tikzcd}
+\end{equation}
+%
+% MAPS OF STACKS
+A \emph{map of stacks} $\psi/\phi\colon [G\tto M]\to [G'\tto M']$ is an equivalence class of pairs $(\psi, \phi)$.
+
+Given two fractions $\psi/\phi\colon [G\tto M]\to [G'\tto M']$, $\psi'/\phi'\colon [G'\tto M']\to [G''\tto M'']$, their composition is defined as $\psi'\psi''/\phi''\phi\colon [G\tto M]\to [G''\tto M'']$, where $\phi''\colon K\xto\sim H$ and $\psi'\colon K\to H'$ are such that the diagram below commutes up to isomorphism.
+\begin{equation}
+\begin{tikzcd}[sep=small]
+  & & (K\tto O) \ar{dl}[pos=.4, sloped, below]{\sim}[above]{\phi''} \ar{dr}[pos=.3, yshift=-2pt]{\psi''} & & \\
+  & (H\tto N) \ar{dl}[pos=.4, sloped, below]{\sim}[pos=.55, above]{\phi} \ar{dr}[pos=.3, yshift=-2pt]{\psi} & & (H'\tto N') \ar{dl}[pos=.4, sloped, below]{\sim}[above]{\phi'} \ar{dr}[pos=.3, yshift=-2pt]{\psi'} & \\
+  (G\tto M) & & (G'\tto M') & & (G''\tto M'')
+\end{tikzcd}
+\end{equation}
+We can take $K\tto O$ as the homotopy pullback $H\tilde\times_{G'} H'$ (see \cite[\textsection 4.4]{dh13}), and any other choice leads to an equivalent fraction.
+
+% EX: MANIFOLDS
+\begin{example}
+As we have seen in example \ref{ex:unit}, a manifold $M$ can be seen as a unit groupoid $M\tto M$, and therefore we can consider the differentiable stack $[M\tto M]$. When it is clear from the context, we will write $M$ directly to refer to any of this spaces.
+\end{example}
+
+% EX: LIE GROUP
+\begin{example}
+For a Lie group $G\tto *$ the stack $[G\tto *]$ is called the \emph{classifying stack}.
+It is sometimes denoted by $BG$.
+\end{example}
+
+% EX: SUBMERSION GPD
+\begin{example}
+In example \ref{ex:submersion_gpd_pb} we saw that a submersion groupoid $M\times_N M\tto M$ is Morita equivalent to the unit groupoid $N\tto N$.
+Both Lie groupoids $M\times_N M\tto M$ and $N\tto N$ present the same stack, or in other words, from a stacky point of view, $[M\times_N M\tto M]$ is the same as the manifold $N$.
+\end{example}
+
+% EX: OPEN COVER
+\begin{example}
+As we observed in example \ref{ex:cech}, in terms of stacks, the \v Cech groupoid of an open cover $M_\U$ is the same as the manifold $M$, and the stack $[G_\U]$ is the same as $[G\tto M]$.
+\end{example}
+
+% EX: PULL-BACK
+\begin{example}
+Generalizing the two previous examples, as the induced map in the pull-back $(\psi^*G\tto N) \to (G\tto M)$ is Morita, the groupoids $(\psi^*G\tto N)$ and $(G\tto M)$ present the same stack.
+\end{example}
+
+% % EX: TRANSITIVE GPD
+% \begin{example}
+% Transitive groupoid.
+% \end{example}
+
+For every fraction
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  G & H \ar[shorten = -.15em]{l}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, above]{\phi} \ar[shorten = -.15em]{r}[pos=.45]{\psi} & G'
+\end{tikzcd}
+\end{equation}
+we can consider the equivalent one
+\begin{equation}
+\begin{tikzcd}[sep = small]
+ G & G\tilde\times_G H \ar[shorten = -.15em]{l}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, above]{\tilde\phi} \ar[shorten = -.15em]{r}[pos=.45]{\tilde\psi} & G' ,
+\end{tikzcd}
+\end{equation}
+where $G\tilde\times_G H$ is the homotopy pull-back of $\phi$ and the identity of $G$.
+As explained in \cite[Prop.\ 4.4.4]{dh13}, since $\phi$ is Morita, we have that $\tilde\phi$ is a surjective equivalence, that is, $\tilde\phi$ Morita and the map on the objects is a surjective submersion.
+
+\begin{lemma}
+Every map of stacks admits a representative with denominator a surjective equivalence.
+\end{lemma}
+
+The next lemma shows that when the domain is a manifold, the denominator can be chosen to be an open cover.
+It will be revisited in section REF 6.1.
+
+\begin{lemma}\label{representative}
+Every map of stacks $[M\tto M]\to [G\tto N]$ with domain a manifold $M$ admits a representative with denominator \( \pi_\U\colon M_\U = \big( \coprod U_{ji}\tto \coprod U_i \big) \to (M\tto M) \) for some open cover $\U$ of $M$.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  M & M_\U \ar[shorten = -.15em]{l}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, above]{\pi_\U} \ar[shorten = -.15em]{r}{\theta} & G
+\end{tikzcd}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $(\psi, \phi)$ be a a representative of the map of stacks $[M\tto M]\to [G\tto N]$, given by a pair of morphisms of Lie groupoids $\phi\colon (G'\tto N') \xto{\sim} (M\tto M)$ and $\psi\colon (G'\tto N') \to (G\tto N)$ where the first one is Morita.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  M & G' \ar[shorten = -.15em]{l}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, above]{\phi} \ar[shorten = -.15em]{r}{\psi} & G
+\end{tikzcd}
+\end{equation}
+As the codomain of $\phi\colon (G'\tto N') \xto{\sim} (M\tto M)$ is a unit groupoid, the fact of it being essentially surjective implies that the map on the objects $\phi\colon N'\to M$ is a surjective submersion.
+So, it admits local sections over an open cover $\U$ of $M$.
+A choice of such sections provides a factorization $\pi_\U = \phi\sigma$.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  & G' \ar[shorten = -.15em]{d}{\phi}[sloped, below]{\sim} \\
+  M_\U \ar[shorten = -.2em]{r}[below]{\pi_\U}[above]{\sim} \ar[shorten = -.3em]{ur}{\sigma} & M
+\end{tikzcd}
+\end{equation}
+As $\phi$ and $\pi_\U$ are Morita, so is $\sigma$.
+Setting $\theta = \psi\sigma$ we have that the pair $(\theta, \pi_\U)$ is equivalent to $(\psi, \phi)$.
+\end{proof}
+

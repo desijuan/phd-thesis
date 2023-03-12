@@ -1,0 +1,144 @@
+%
+% SECTION 4 - NERVE AND COHOMOLOGY
+%
+
+% NERVE
+The \emph{nerve} of a Lie groupoid $G\tto M$, denoted $NG$, is the simplicial manifold whose $k$-simplices $N_kG$ are the strings of composable arrows $(g_k,\dots,g_1)$ such that $s(g_{i+1}) = t(g_i)$ for all $1\leq i\leq k-1$.
+So, $N_0G = M$, $N_1G = G$, $N_2G = G\times_M G$ and so on.
+\[ (g_k,\dots,g_1) \colon x_k \leftarrow \dots \leftarrow x_i \xfrom{g_i} x_{i-1} \leftarrow \dots \leftarrow x_0 \]
+The \emph{face maps} $d_i\colon N_kG \to N_{k-1}G$ are $d_1=s$ and $d_0=t$ for $k=1$, and
+\begin{equation}
+d_i(g_k,\dots,g_1) =
+\begin{cases}
+  (g_k,\dots,g_2) & i = 0 \\
+  (g_k,\dots,g_{i+1}g_i,\dots,g_1) & 1 \leq i \leq k-1 \\
+  (g_{k-1},\dots,g_1) & i = k
+\end{cases}
+\end{equation}
+for $k>1$.
+The \emph{degeneracies} $s_j\colon N_kG \to N_{k+1}G$ are
+\begin{equation}
+s_j(g_k,\dots,g_1) =
+\begin{cases}
+  (g_k,\dots,g_1,u_{s(g_1)}) & j = 0 \\
+  (g_k,\dots,g_{j+1},u_{t(g_j)},g_j,\dots,g_1) & 1 \leq j \leq k . \\
+\end{cases}
+\end{equation}
+% A $k$-simplex is \emph{degenerated} if it is in the image of one of the degeneracies.
+
+% DIFFERENTIABLE COHOMOLOGY
+Considering the functions on the manifolds of $k$-simplices and the differentials
+\[ \delta\colon C^\infty(N_kG)\to C^\infty(N_{k+1}G) \qquad \delta = \sum_{i=0}^{k+1} (-1)^{k+1-i} \, d_i^* \]
+we get the \emph{differentiable complex} $(C^\infty(NG), \delta)$.
+\[ C^\infty(NG)\colon \quad C^\infty(M) \xto{\delta} C^\infty(G) \xto{\delta} C^\infty(G\times_M G) \xto{\delta} \cdots \]
+Its cohomology $H_\text{diff}^*(G)$  is the \emph{differentiable cohomology} of the Lie groupoid $G\tto M$.
+
+% NON-REDUCED BOTT-SHULMAN COMPLEX
+For each $k$, we can also consider the $l$-forms on the manifolds of $k$-simplices together with the maps
+\[ \delta\colon \Omega^l(N_kG)\to \Omega^l(N_{k+1}G) \qquad \delta = \sum_{i=0}^{k+1} (-1)^{i+l} \, d_i^* \]
+to get the chain complexes $(\Omega^l(NG), \delta)$.
+\[ \Omega^l(NG)\colon \quad \Omega^l(M) \xto{\delta} \Omega^l(G) \xto{\delta} \Omega^l(G\times_M G) \xto{\delta} \cdots \]
+If we also take the De Rham cohomology into acount we get a double complex, the (non-reduced) \emph{Bott-Shulman complex}:
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  \vdots & \vdots & \vdots \\
+  \Omega^2(M) \ar{u} \ar{r}{\delta} & \Omega^2(G) \ar{u} \ar{r}{\delta} & \Omega^2(N_2G) \ar{u} \ar{r} & \cdots \\
+  \Omega^1(M) \ar{u}{d} \ar{r}{\delta} & \Omega^1(G) \ar{u}{d} \ar{r}{\delta} & \Omega^1(N_2G) \ar{u}{d} \ar{r} & \cdots \\
+  C^\infty(M) \ar{u}{d} \ar{r}{\delta} & C^\infty(G) \ar{u}{d} \ar{r}{\delta} & C^\infty(N_2G) \ar{u}{d} \ar{r} & \cdots
+\end{tikzcd}
+\end{equation}
+%
+% REDUCED BOTT-SHULMAN COMPLEX
+The degenerated simplices, that is, the ones that are in the image of the degeneracies, will not be of interest for us.
+So, we will replace the spaces of $l$-forms $\Omega^l(N_kG)$ with the ones that are zero on the degenerated simplices.
+\begin{equation}
+K^{k,l}(G\tto M) =
+\begin{cases}
+    \Omega^l(M) & k = 0 \\
+    \bigcap_{i=0}^{k-1} \Ker\left( s_i^*\colon \Omega^l(N_kG) \to \Omega^l(N_{k-1}G) \right) & k > 0
+\end{cases}
+\end{equation}
+The resulting complex $(K^{*,*}(G),\delta,d)$ is knwown as the \emph{reduced Bott-Shulman complex} of the Lie groupoid $G$.
+%
+% COHOMOLOGY OF LIE GROUPOIDS
+The cohomology of $G\tto M$ is defined as the cohomology of the total complex of $(K^{*,*}(G), d, \delta)$.
+\[ H^*(G) = H^*(\text{Tot}(K^{*,*}(G))) \]
+
+It is worth noting that both constructions, the reduced and the non-reduced version of the Bott-Shulman, yield equivalent complexes.
+Since it is more convenient to cross out the degenerated simplices, we will prefer the reduced version over the non-reduced one.
+
+\begin{example}
+Let $M\tto M$ be a unit groupoid, its the Bott-Shulman complex has zeros everywhere except for the first column.
+So, the Bott-Shulman complex of a manifold is the De Rham complex.
+\end{example}
+
+\begin{example}
+Let $M_\U$ be the \v{C}ech grupoid of a manifold $M$ with an open cover $\U$ that we presented in example \ref{ex:cover}.
+The (reduced) Bott-Shulman complex of $M_\U$ is the \v{C}ech-de Rham complex (see \cite[chapter 2]{bott-tu}).
+\end{example}
+
+\begin{example}
+Let $G\tto *$ be a Lie group, then $N_0G=*$, $N_1G=G$, $N_2G=G\times G$ and so on.
+In this case the differentiable cohomology is the group cohomology of $G$, and the Bott-Shulman complex ???
+\end{example}
+
+\begin{example}
+Let $(G\tto M)\acts(A\to M)$ be an action of Lie groupoids and let $G\times_M A\tto A$ be the corresponding action groupoid. ???
+\end{example}
+
+% ME GUSTARIA ENCONTRAR LA FORMA DE PONER ESTO
+% \begin{prop}[Grothendieck]
+% A\nota{acá hay que\\ definir un montón\\ de cosas antes} simplicial object $X_\bullet \in sC$ is isomorphic to the nerve of a Lie groupoid if and only if the maps
+% $$ \lambda_i^k\colon X_k\to \Lambda_i^k $$
+%   are covers for $k=1$ and isomorphisms for $k>1$.
+% \end{prop}
+
+
+
+
+% % DIFFERENTIAL COHOMOLOGY WITH COEFFICIENTS IN A REPRESENTATION
+% Let us consider the maps
+% \begin{align*}
+% G_k &\xto{s} M \\
+% (g_1,\dots,g_k) &\mapsto x_0 = s(g_1) \text{.}
+% \end{align*}
+% Given a vector bundle $E$ over $M$, let $C(G_k,E)$ be the vector space of sections of the pull-back $s^*E$.
+% An element of $C(G_k,E)$ is a smooth map $\sigma\colon G_k\to E$ such that $\sigma(g_1,\dots,g_k)$ belongs to the fiber $E_{x_0}$.
+% Let $C(G,E)$ be the direct sum $\bigoplus_{k\geq 0} C(G_k,E)$.
+% If $\rho\colon G\to GL(E)$ is a representation of $G\tto M$ we can consider the maps
+% $\delta_\rho\colon C(G_k,E)\to C(G_{k+1},E)$
+% given by
+% \begin{equation*}
+% \delta_\rho(\sigma)(g_1,\dots,g_{k+1}) = \rho_{g_1}^{-1} d_0^*(\sigma)(g_1,\dots,g_{k+1}) + \sum_{i=1}^{k+1} (-1)^i \, d_i^*(\sigma)(g_1,\dots,g_{k+1}) \text{.}
+% \end{equation*}
+% \begin{lemma}
+% The mapping $\rho \mapsto \delta_\rho$ induces a bijection between the representations $\rho\colon G\to GL(E)$ and the degree $1$ differential operators $\delta_\rho\colon C(G,E)\to C(G,E)$ with square zero.
+% \end{lemma}
+
+% Observe that when $E$ is the trivial line bundle $M\times\CC$ and $\rho$ is the trivial representation, we have that $(C(G,E),\delta_\rho)$ is the complex $(C^\infty(G_*),\delta)$ defined above.
+
+% Given a vector bundle $E\to M$ and a representation $\rho\colon G\to GL(E)$, we define the \emph{differential cohomology with coefficients} in the representation $\rho$, denoted $H^*(G,E)$, to be the cohomology of the complex $(C(G,E),\delta_\rho)$.\\
+
+% % COADJOINT REPRESENTATION OF A LIE GROUP
+% Let us breafly recall the coadjoint representation of a Lie group $G\tto *$, it is given by the map
+% \begin{align*}
+% G &\to GL(\g^*) \\
+% g &\mapsto \text{ad}_g
+% \end{align*}
+% where $\text{ad}_g(\xi)(X_e) = \xi(d_e\rho_{g^{-1}}(X_e))$ for every $\xi\in \g^*$ and $X_e\in \g$, and $\rho_g$ is the conjugation by the element $g$ of $G$.
+
+% BOTT MANAGED TO COMPUTE THE HORIZONTAL COHOMOLOGIES OF THE BOTT-SHULMAN COMPLEX
+%   $H_\delta ^p(\Omega^q(G_*) \simeq H_\text{diff}^{p-q}(G, S^q(\mathfrak{g}^*))$
+
+% BOTT'S SPECTRAL SEQUENCE: E_{pq}^1 => H^{p+q}(BG)
+
+% IF G IS A COMPACT LIE GROUP, THEN H^{p+q}(BG) = 0 if p \neq q
+%   AND H^{2p}(BG) = S^q(\mathfrak{g}^*)^G
+
+
+
+
+
+
+
+

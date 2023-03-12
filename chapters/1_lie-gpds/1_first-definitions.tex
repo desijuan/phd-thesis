@@ -1,0 +1,73 @@
+%
+% SECTION 1 - FIRST DEFINITONS
+%
+
+% GROUPOIDS
+A \emph{groupoid} $G\tto M$ is a small category in which every arrow is invertible.
+It has a set of objects $M=\{x,y,z,\dots\}$ and a set of arrows $G=\{g,h,\dots\}$.
+Each arrow $g$ in $G$ has two objects associated to it, the source $s(g)$ and the target $t(g)$.
+\[ s,t\colon G\to M  \quad s(y\xfrom{g} x) = x  \quad t(y\xfrom{g} x) = y \]
+There is an associative composition law that sends each pair of arrows $g$ and $h$ with $s(h) = t(g)$ to an arrow $hg$ from $s(g)$ to $t(h)$.
+Here, by $G\times_M G$ we mean the fiber product between the target and the source maps.
+\[ \circ\colon G\times_M G \to G \quad (z\xfrom{h}y, y\xfrom{g}x) \mapsto (z\xfrom{hg}x) \]
+For each object $x$ there is a unit arrow \smash{$x\xfrom{u_x} x$}, that satisfies $u_x g = g$ and $h u_x = h$ for every $g$ with $t(g) = x$ and every $h$ with $s(h) = x$.
+\[ u\colon M \to G \quad x \mapsto u_x \]
+The arrows are required to be invertible, so for each $y\xfrom{g} x$ there is another arrow in the opposite direction $g^{-1}$, satisfying $g^{-1}g = u_x$ and $gg^{-1} = u_y$.
+\[ i\colon G \to G \quad g \mapsto g^{-1} \]
+
+% LIE GROUPOIDS
+A \emph{Lie groupoid} is a groupoid in which the sets of objects and arrows are manifolds, the structural maps $s$, $t$, $\circ$, $u$ and $i$ are all smooth and the source and target maps are surjective submersions.
+
+As the source and target are left inverses of the unit map, the manifold of objects is an embedded submanifold of the arrows.
+With this in mind we will often write $G$ instead of $G\tto M$ to refer to the Lie groupoid in question.
+Also note that since the source and target are submersions the domain of the multiplication $G\times_M G$ is a good fiber product (see \cite[\textsection 2.2]{dh13}).
+
+% MORPHISMS OF LIE GPDS
+A \emph{morphism} of Lie groupoids $\phi\colon (G\tto M)\to (H\tto N)$ is a smooth functor.
+It consists of two smooth maps $M\to N$ and $G\to H$, both denoted again with $\phi$, which commute with the structural maps, that is $s(\phi(g)) = \phi(s(g))$, $t(\phi(g)) = \phi(t(g))$, $\phi(hg) = \phi(h)\phi(g)$, $\phi(u_x) = u_{\phi(x)}$ and $\phi(g^{-1}) = \phi(g)^{-1}$ for every arrow $g\in G$ and every object $x\in M$.
+\[
+\phi =
+\begin{cases}
+  G\xto{\phi} H \\
+  M\xto{\phi} N
+\end{cases}
+\]
+
+% EQUIVALENCES
+Given two morphisms of Lie groupoids $\phi$ and $\psi$ from $G\tto M$ to $H\tto N$, an \emph{equivalence} $\alpha\colon\phi\Rightarrow\psi$ is a smooth map $\alpha\colon M\to H$ that sends a point $x$ in $M$ to an arrow \smash{$\psi(x)\xfrom{\alpha_x}\phi(x)$}, verifying $\alpha_y \phi(g) = \psi(g) \alpha_x$ for every \smash{$y\xfrom{g} x$} in $G$.
+\begin{equation}
+\begin{tikzcd}[sep=small]
+  \phi(x) \ar{r}{\phi(g)} \ar{d}{\alpha_x} & \phi(y) \ar{d}{\alpha_y} \\
+  \psi(x) \ar{r}{\psi(g)} & \psi(y)
+\end{tikzcd}
+\end{equation}
+
+% ISOTROPY GROUPS
+Let us denote by $G(y,x)$ the subset of $G$ consisting of all arrows from $x$ to $y$.
+Given an $x\in M$, the \emph{isotropy group} of $G$ at $x$, denoted by $G_x$, is the set $G(x,x)$ of arrows starting and ending at $x$,
+%
+% ORBITS
+and the \emph{orbit} $O_x\subset M$ is the subset of all objects that are connected to $x$ by an arrow.
+
+\medskip\noi \red{DIBUJO. Explicar mejor $\uparrow$.}
+
+% G(y,x)\subset G ARE REGULAR SUBMANIFOLDS
+\begin{prop}[\cite{mm03, mack05}]
+Given $G\tto M$ and $x,y\in M$, the subset $G(y,x)\subset G$ is an embedded submanifold. In particular $G_x$ is a Lie group. The orbit $O_x\subset M$ is a (maybe not embedded) submanifold in a canonical way. \red{the s-fiber is a principal bundle}
+\end{prop}
+
+% ORBIT SPACE M/G
+The \emph{orbit space} $M/G$ is set of orbits with the quotient topology
+%
+% NORMAL SPACES
+and the \emph{normal space} $N_xO\subset T_xM$ is the quotient of vector spaces $T_xM/T_xO$.
+
+% ANCHOR
+The map $(t,s)\colon G\to M\times M$ is called the \emph{anchor map} of the groupoid.
+%
+% PROPER AND ÉTALE GPDS
+A Lie groupoid with a proper anchor map is a \emph{proper} groupoid.
+If the manifolds of objects and arrows $M$ and $G$ have the same dimension, the Lie groupoid $G\tto M$ is said to be \emph{étale}.
+%
+% TRANSITIVE GPDS
+A Lie groupoid is \emph{transitive} if it has a single orbit, or in other words, if for every pair of objects there is an arrow  between them.

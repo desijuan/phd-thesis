@@ -1,0 +1,125 @@
+%
+% SECTION 1 - DEFINITIONS AND BASIC FACTS
+%
+
+% VB-GPDS
+A \emph{VB-groupoid} $\Gamma\tto E$ over a Lie groupoid $G\tto M$, sometimes denoted simply by $\Gamma$, consists of Lie groupoids $\Gamma\tto E$, $G\tto M$ and a morphism $(\Gamma\tto E)\to (G\tto M)$ such that the maps on the arrows $\Gamma\to G$ and on the objects $E\to M$ are vector bundle projections for which the structure maps of $\Gamma\tto E$ are linear \cite{mack05}.
+\begin{equation}
+\begin{tikzcd}[sep=small, cells={text width={width("$M$")}}, align=center]
+  \Gamma \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} \ar{d} & E \ar{d} \\
+  G \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} & M
+\end{tikzcd}
+\end{equation}
+
+% CORE, SIDE AND ANCHOR MAP
+Given a VB-groupoid $(\Gamma\tto E)\to (G\tto M)$, its \emph{core bundle} is $C=\ker(s\colon\res{\Gamma}{M}\to E)$, the \emph{anchor map} is $\partial=\res{t}{C}\colon C\to E$ and the vector bundle $E\to M$ is called the \emph{unit bundle}.
+
+% MORPHISMS
+A \emph{morphism} of VB-groupoids $\Phi\colon\Gamma\to\Gamma'$ is a Lie groupoid morphism $\Phi\colon(\Gamma\tto E)\to(\Gamma'\tto E')$ covering another $\phi\colon(G\tto M)\to (G'\tto M')$ such that $\phi$ is fiberwise linar.
+When $G'=G$ and $\varphi$ is the identity we say that $\phi$ is a morphism over $G$.
+
+% LINEAR EQUIVALENCE
+Given \nota{revisar esto. relacionar con equivalencias de mapas de Lie gdps.} two morphisms of VB-groupoids $\Phi,\Psi\colon\Gamma\to \Gamma'$ over $G$, a \emph{linear equivalence}
+$\alpha\colon\Phi\Rightarrow\Psi$ is a vector bundle map \smash{$\alpha\colon E\to\res{\Gamma'}{M}$} covering the identity of $M$
+that sends an $e\in E$ to an arrow \smash{$\psi(e)\xfrom{\alpha_e}\phi(e)\in\res{\Gamma'}{M}$} such that $\alpha_{\tilde e} \Phi(\gamma) = \Psi(\gamma) \alpha_e$ for every \smash{$\tilde e\xfrom{\gamma} e\in \Gamma$}.
+
+% VB-GPD DERIVED CATEGORY
+We denote by $\mathrm{VB}(G\tto M)$ the category of VB-groupoids over $G\tto M$ with the morphisms covering the identity, and with $\mathrm{VB}[G\tto M]$ the \emph{derived category} of VB-groupoids over $G\tto M$, that is obtained from $\mathrm{VB}(G\tto M)$ by identifying equivalent morphisms.
+The objects of $\mathrm{VB}[G\tto M]$ are the VB-groupoids over $G\tto M$ and the arrows are the equivalence classes of morphisms over $G\tto M$.
+Note that an isomorphism in the derived category $\mathrm{VB}[G\tto M]$ is given by a morphism $\phi$ that admits an inverse up to linear equivalence.
+
+% EX: 2-VECT
+\begin{example}\label{ex:2vect}
+A VB-groupoid over the point $*\tto *$ is a \emph{2-vect} in the sense of \cite{bc04}.
+\begin{equation}
+  \begin{tikzcd}[sep=small, cells={text width={width("$M$")}}, align=center]
+    V_1 \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} \ar{d} & V_0 \ar{d} \\
+    * \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} & *
+  \end{tikzcd}
+\end{equation}
+Equivalently, a 2-vect is a category object in the category of vector spaces.
+It consists of a vector space of objects $V_0$ and a vector space of morphisms $V_1$, such that the source and target maps $s, t\colon V_1\to V_0$, the identity $i\colon V_0\to V_1$ and the composition $\circ\colon V_1\times_{V_0}V_1\to V_1$ are all linear.
+By Dold-Kan correspondence, a 2-vect is completely encoded in its anchor map $\partial\colon V_1\to V_0$.
+So, the category $VB(*)$ is equivalent to the category of 2-term chain complexes of vector bundles.
+\red{And $VB[*]$ is equivalent to $\text{Vect}\times\text{Vect}$.}
+\end{example}
+
+% EX: TANGENT VB-GPD
+\begin{example}
+By differentiating the structural maps of a Lie groupoid $G\tto M$ one obtains the \emph{tangent VB-groupoid} $(TG\tto TM)\to (G\tto M)$.
+Its core $A_G\to M$ is the vector bundle of the Lie algebroid of $G$ and its anchor $\partial\colon A_G\to TM$ is the usual anchor map of the algebroid.
+When $G\tto *$ is a Lie group, its tangent $(TG\tto *)\to (G\tto *)$ identifies with the semi-direct product $G\ltimes \mathfrak g$ of $G$ with its Lie algebra $\mathfrak g$ by the adjoint representation.
+\end{example}
+
+% EX: ACTION GPD OF A REPRESENTATION
+\begin{example}
+Given a representation of a Lie groupoid $G\tto M$ on a vector bundle $E\to M$, the corresponding action groupoid $G\times_M E\tto E$ (example \ref{ex:action-gpd}) is a VB-groupoid over $G$ with trivial core.
+\red{Compare morphisms and equivalences here, and conclude that the category of representations is embedded into VB(G) and VB[G]}
+\end{example}
+
+In the previous example, we saw that the action groupoid of a representation is a VB-groupoid with trivial core
+Actually, every VB-groupoid with trivial core arises in this way.
+
+% EQUIV: REPRESENTATIONS <--> VB-GPDS WITH TRIVIAL CORE
+\begin{prop}
+A VB-groupoid is isomorphic to a representation if and only if it has trivial core.
+\end{prop}
+
+\begin{proof}
+The action groupoid $G\times_M E\tto E$ of a representation $(G\tto M)\acts (E\to M)$ is a VB-groupoid with trivial core.
+Conversely, if $(\Gamma\tto E)\to (G\tto M)$ is a VB-groupoid with trivial core, let us denote $K=\ker(s\colon\Gamma\to E)$ and consider the following short exact sequence of vector bundles over $G$.
+\begin{equation}
+  \begin{tikzcd}[sep=small]
+    0 \ar{r} & K \ar{r} & \Gamma \ar{r}{\bar s} & s^*E \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+As \smash{$\res{K}{M} = C = 0$}, we have that $K = 0$ and so the map \smash{$\bar s\colon \Gamma\to s^*E = G\times_M E$} is an isomorphism.
+Taking $\rho$ as the composition \smash{$t\bar s^{-1}\colon G\times_M E\to E$} we get a representation of $G$ on $E$.
+% \begin{equation}
+% \begin{tikzcd}[row sep=1.2em, column sep=.5ex]
+%  &[-5pt] \Gamma \ar{ld}[swap]{\bar s} \ar{rd}{t} &[5pt] \\
+% G\times_M\!E \ar{rr}[xshift=-1pt]{\rho} & & E
+% \end{tikzcd}
+% \end{equation}
+\end{proof}
+
+% DUAL VB-GPD
+Given a VB-groupoid $\Gamma\tto E$ over $G\tto M$, its \emph{dual VB-groupoid} $\Gamma^*\tto C^*$ is the VB-groupoid over $G\tto M$ whose core-sequence is dual to that of $\Gamma$. For more details see \cite{mack05} or \cite{gsm17}. DEFINICIONES MAPAS.
+\begin{equation}
+  \begin{tikzcd}[sep=small, cells={text width={width("$M$")}}, align=center]
+    \Gamma \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} \ar{d} & E \ar{d} \\
+    G \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} & M
+  \end{tikzcd}
+  \quad \mapsto \quad
+  \begin{tikzcd}[sep=small, cells={text width={width("$M$")}}, align=center]
+    \Gamma^* \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} \ar{d} & C^* \ar{d} \\
+    G \ar[yshift=3pt]{r} \ar[yshift=-2.3pt]{r} & M
+  \end{tikzcd}
+\end{equation}
+
+% EX: COTANGENT VB-GPD
+\begin{example}
+The dual of the tangent groupoid $(TG\tto TM)\to (G\tto M)$ is the \emph{cotangent VB-groupoid} $(T^*G\tto A_G^*)\to (G\tto M)$. For more details see \cite{mack05}.
+\end{example}
+
+% QUASI-ISOMORPHISMS
+A morphism of VB-groupoids $\Phi\colon\Gamma\to\Gamma'$ induces a morphism between the core complexes.
+We say that $\Phi$ is a \emph{quasi-isomorphism} if it yields a linear quasi-isomorphism.
+\begin{equation}
+  \begin{tikzcd}[column sep=small, row sep=3.5ex]
+    0 \ar{r} & C \ar{r}{\partial} \ar[swap]{d}{\Phi} & E \ar{d}{\phi} \ar{r} & 0 \\
+    0 \ar{r} & C' \ar{r}{\partial'} & E' \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+
+% ACYCLIC VB-GPDS
+A VB-groupoid $\Gamma$ is \emph{acyclic} if its anchor map $\partial$ is a fiberwise isomorphism, or equivalently, if $\Gamma\to 0$ is a quasi-isomorphism.
+
+\begin{prop}
+An acyclic VB-groupoid $\Gamma$ is determined up to isomorphism by the base groupoid $G\tto M$ and by the unit bundle $E\to M$.
+As a vector bundle is isomorphic to $t^*E\oplus s^*E$ and as a grupoid there is an arrow in $\Gamma$ between two vectors if and only if they sit over points in the same orbit.
+\end{prop}
+
+\begin{example}
+PAIR GPD.
+\end{example}

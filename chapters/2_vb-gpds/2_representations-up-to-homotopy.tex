@@ -1,0 +1,99 @@
+%
+% SECTION 2 - REPRESENTATIONS UP TO HOMOTOPY
+%
+
+% PSEUDO-REPRESENTATIONS
+Given a Lie groupoid $G\tto M$ and a vector bundle $E\to M$, a \emph{pseudo-representation} $\rho\colon G\acts E$ is
+% a representation that not necessarily respects the compposition of $G$.
+% It is given by
+a smooth map $\rho\colon G\times_M E\to E$
+% \[ \rho\colon G\times_M E\to E \qquad (y\xfrom{g}x, e)\mapsto \rho_g(e) \]
+such that $\pi(\rho_g(e)) = t(g)$, $\rho_g\colon E_x\to E_y$ is linear and $\rho_{\id}=\id$.
+
+% 2-TERM RUTHS
+Let $E_1\oplus E_0\to M$ be a 2-term graded vector bundle and $G\tto M$ a Lie groupoid.
+A \emph{representation up to homotopy} $(\partial, \rho, \gamma)\colon G\acts E_1\oplus E_0$, abbreviated RUTH, consists of a fiberwise linear map $\partial\colon E_1\to E_0$, two pseudo-representations $\rho_1\colon G\acts E_1$ and $\rho_0\colon G\acts E_0$, and a section $\gamma$ of $\Hom(s^*E_0, t^*E_1) \to N_2G$, that sends a pair of composable arrows $(g_2, g_1)\in N_2G$ to a linear map \smash{$\gamma^{g_2, g_1}\colon E_0^{s(g_1)}\to E_1^{t(g_2)}$}, all verifying the following equations:
+\begin{align}
+  \rho_0^g \partial - \partial\rho_1^g &= 0 \\
+  \rho_1^{g_2}\rho_1^{g_1} - \rho_1^{g_2g_1} - \gamma^{g_2, g_1}\partial &= 0 \\
+  \rho_0^{g_2}\rho_0^{g_1} - \rho_0^{g_2g_1} - \partial\,\gamma^{g_2, g_1} &= 0 \\
+  \rho_1^{g_3}\gamma^{g_2, g_1} - \gamma^{g_3g_2, g_1} + \gamma^{g_3, g_2g_1} - \gamma^{g_3, g_2}\rho_0^{g_1} &=0 \qquad
+\end{align}
+
+% MORPHISMS OF 2-TERM RUTHS
+Given representations up to homotopy $(\partial, \rho, \gamma)\colon G\acts E_1\oplus E_0$ and $(\tilde\partial, \tilde\rho, \tilde\gamma)\colon G\acts \tilde E_1\oplus \tilde E_2$ of the same groupoid, a \emph{morphism} $(\phi, \mu)\colon(\partial, \rho, \gamma)\to(\tilde\partial, \tilde\rho, \tilde\gamma)$ consists of a pair of fiberwise linear maps $\phi_1\colon E_1\to \tilde E_1$ and $\phi_0\colon E_0\to \tilde E_0$, and a section $\mu$ of $\Hom(s^*E_0, t^*\tilde E_1) \to G$, that sends an arrow $g\in G$ to a linear map $\mu_g\colon E_0^{s(g)}\to \tilde E_1^{t(g)}$, all satisfying the following conditions:
+\begin{align}
+  \tilde\partial\phi_1 - \phi_0\partial &= 0 \\
+  \phi_1\rho_1^g - \tilde\rho_1^g\phi_1 - \mu^g\partial &= 0 \\
+  \tilde\rho_0^g\phi_0 - \phi_0\rho_0^g + \tilde\partial\mu^g &= 0 \\
+  \phi_1\gamma^{g_2, g_1} + \mu^{g_2}\rho_0^{g_1} + \tilde\rho_1^{g_2}\mu^{g_1} - \mu^{g_2g_1} - \tilde\gamma^{g_2, g_1}\phi_0 &= 0 \qquad\quad
+\end{align}
+
+A representation up to homotopy $(\partial, \rho, \gamma)\colon G\acts E_1\oplus E_0$ induces a representation in the cohomology of $G$.
+The induced representation is regular if the map $\partial$ has constant rank.
+This motivates the following definition.
+We will that a representation up to homotopy $(\partial, \rho, \gamma)\colon G\acts E_1\oplus E_0$ is \emph{regular} if the map $\partial$ has constant rank.
+
+Let $(\partial, \rho, \gamma)\colon G\acts E_1\oplus E_0$ be a representation up to homotopy of a Lie groupoid $G\tto M$ on a 2-term graded vector bundle $E_1\oplus E_0\to M$.
+For each object $x\in M$ we have a 2-term chain complex of vector spaces.
+\begin{equation}
+  \begin{tikzcd}
+    0 \ar{r} & E_1^x \ar{r}{\partial^x} & E_0^x \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+The first equation in the definition says that the pseudo-representations $\rho_0$ and $\rho_1$ commute with the differential $\partial$, so that for each arrow \smash{$y\xfrom{g}x\in G$} we have a map of complexes $\rho^g = \rho_1^g\oplus\rho_0^g$.
+\begin{equation}
+  \begin{tikzcd}
+    0 \ar{r} & E_1^x \ar{r}{\partial^x} \ar[swap]{d}{\rho_1^g} & E_0^x \ar{r} \ar{d}{\rho_0^g} & 0 \\
+    0 \ar{r} & E_1^y \ar{r}{\partial^y} & E_0^y \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+The second and third equations say that the pseudo-representations $\rho_1$ and $\rho_0$ are multiplicative up to the curvature tensor $\gamma$.
+In other words, for a pair of composable arrows $(g_2, g_1)\in N_2G$ we have two maps of complexes $\rho^{g_2g_1}$ and $\rho^{g_2}\rho^{g_1}$, and a homotopy \smash{$\gamma^{g_2, g_1}$} between them.
+\begin{equation}
+  \begin{tikzcd}
+    0 \ar{r} & E_1^x \ar{r}{\partial_x} \ar[swap]{d}{\rho_1^{g_2}\rho_1^{g_1} - \rho_1^{g_2g_1}} & E_0^x \ar{r} \ar{d}{\rho_0^{g_2}\rho_0^{g_1} - \rho_0^{g_2g_1}} \ar[sloped]{ld}{\gamma^{g_2, g_1}} & 0 \\
+    0 \ar{r} & E_1^z \ar{r}{\partial_y} & E_0^z \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+
+% EJ: M\tto M
+\begin{example}
+Let $M\tto M$ be a unit groupoid.
+Since there are only identity arrows, the (graded) pseudo-representation $\rho$ is trivial, and because of that the curvature tensor $\gamma$ has to be zero.
+So, the representations up to homotopy of the unit groupoid consist only of a pair of vector bundles $E_0$ and $E_1$ over $M$ and a morphism of vector bundles $\partial\colon E_1\to E_0$.
+\end{example}
+
+% EJ: E1=0
+\begin{example}
+If the vector bundle at degree one is trivial, a representation up to homotopy  $G\acts 0\oplus E$ is the same as a representation $G\acts E$ in the usual sense.
+\end{example}
+
+% EJ: G\tto *
+\begin{example}
+A representation up to homotopy of a Lie group $G\tto *\acts V_1\oplus V_0$, consists of an equivariant map $\partial\colon V_1\to V_0$ with respect to the pseudo-actions $\rho_1\colon G\acts V_1$ and $\rho_0\colon G\acts V_0$, and a curvature tensor $\gamma\colon G\times G\to \Hom(V_0, V_1)$ ruling the failure of associativity of $\rho_1$ and $\rho_0$.
+\end{example}
+
+% EJ: ADJOINT
+\begin{example}
+ADJOINT REPRESENTATION.
+\end{example}
+
+% GENERAL CASE
+In the present work we are interested in representations up to homotopy of graded vector bundles that have only 2 terms.
+This is a particular case of a more general theory that was developed by Arias Abad and Crainic in \cite{aac13}, in which they work with an arbitrary number of terms.
+Let us briefly mention the definition in the more general setting.
+
+Let
+\[ E=\bigoplus_{k=0}^n E_k \]
+a graded vector bundle over a manifold $M$.
+A \emph{representation up to homotopy} is a sequence $\{R_k\}_{k\geq 0}$ of elements $R_k\in C^k(G,\End^{1-k}(E))$ that satisfy
+\[ \sum_{i=1}^{k-1} (-1)^i R_{k-1}(g_k,\dots,g_{i+1}g_i,\dots,g_1) = \sum_{i=0}^k R_i(g_k,\dots,g_{k-i+1})\circ R_{k-i}(g_{k-i},\dots,g_1) \]
+for all $k\geq 0$.
+
+Given two representations up to homotopy $\{R_k\}$ and $\{\tilde R_k\}$, a \emph{morphism} $\Phi\colon R\to\tilde R$ between them is a sequence $\{\Phi_k\}_{k\geq 0}$ of elements $\Phi_k\in C^k(G,\Hom^{-k}(E,\tilde E))$, that satisfy
+\begin{multline}
+\sum_{i+j=k} (-1)^j \Phi_j(g_j,\dots,g_1) \circ R_i(g_k,\dots, g_{j+1}) = \\
+\sum_{i+j=k} \tilde R_j(g_k,\dots,g_{i+1}) \circ \Phi_i(g_1,\dots,g_1) + \sum_{j=1}^{k-1} (-1)^j \Phi_{k-1}(g_k,\dots,g_{j+1}g_j,\dots,g_1)
+\end{multline}
+for all $k$.

@@ -1,0 +1,4 @@
+Dold-Kan correspondence
+  Referencias: Baez y Crans cap 3, Mac Lane cap XII.8, Weibel cap 8.4
+cleavages de acíclicos
+homotopy pullback

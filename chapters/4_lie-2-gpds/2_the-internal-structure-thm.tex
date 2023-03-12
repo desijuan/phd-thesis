@@ -1,0 +1,110 @@
+%
+% SECTION 2 - THE INTERNAL STRUCTURE THEOREM
+%
+
+For a $x\in G_0$ the \emph{s-fiber} is $G(-,x) = s^{-1}(x) \subset G_1$, analogously, the \emph{t-fiber} is $G(x,-) = t^{-1}(x) \subset G_1$.
+The \emph{isotropy group} at $x$ is $G_x = s^{1}(x)\cap t^{-1}(x)$ and the \emph{orbit} of $x$ is $O_x = \{ y\in G_0 \mid \exists g \in G_1(-,x) \ \text{with} \ t(g) \} = t(G_1(-,x))$.
+
+\begin{prop}
+Let $G$ be a Lie 2-groupoid.
+If $g,h\in G_1$ are arrows with $t(g)=t(h)$, then $dt(\ker ds_g) = dt(\ker ds_h)$.
+\begin{equation}
+\begin{gathered}
+  \xymatrix@C=.5pc@R=1pc{
+      & z \ar[dl]_h \\
+    y & & x \ar_{g}[ll]
+  }
+\end{gathered}
+\end{equation}
+\end{prop}
+
+\begin{proof}
+Given a $v\in\ker ds_g = T_g s^{-1}(x)$, we will show that there exists a $w\in\ker ds_h = T_h s^{-1}(z)$ such that $dt(v) = dt(w)$.
+
+Let $\Delta_0$ be a 2-simplex filling the 2-horn $(g,h)\in N_{2,2}G$ as depicted below.
+\begin{equation}
+\Delta_0\colon
+\begin{gathered}
+  \xymatrix@C=.8pc@R=1.2pc{
+      & z \ar[dl]_h \\
+    y & & x \ar[ll]^g \ar[ul]_k \lltwocell\omit{_<2>\eta}
+  }
+\end{gathered}
+\end{equation}
+Take a curve $\alpha\colon I\to s^{-1}(x)$ with $\alpha(0) = g$, $\alpha'(0) = v$ and $\beta\colon I\to G_1$, $\beta(t) = k = d_2(\Delta_0)$ for all $t$.
+As the map $d_{2,0}\colon N_2G\to N_{2,0}G$ is a surjective submersion, we can lift the curve $(\alpha, \beta)\colon I\to N_{2,0}G$ to a curve $\Delta\colon I\to N_2G$ passing through $\Delta_0$ at time $0$.
+Let $\gamma\colon I\to s^{-1}(z)$ be the curve $\gamma = d_0(\Delta)$ and take $w = \gamma'(0)$.
+We have that $dt(w) = dt(v)$.
+\end{proof}
+
+The previous proposition shows that we can define $\mathcal{F}_y \coloneqq dt(\ker ds_g)$ where $g$ is any arrow with $t(g) = y$.
+In a similar way we can define $\mathcal{G}_y \coloneqq ds(\ker dt_h)$ for any arrow \smash{$x\xfrom{h} y$}.
+
+\begin{prop}
+$\mathcal{F}_y = \mathcal{G}_y$ for all $y\in G_0$.
+\end{prop}
+
+\begin{proof}
+Given a $v\in T_g s^{-1}(x)$, take a curve $\alpha\colon I\to s^{-1}(x)$ with $\alpha(0) = g$, $\alpha'(0) = v$ and let $\beta\colon I\to G_1$ be $\beta(t) = 1_{t(\alpha(t))}$.
+As the map $d_{2,2}\colon N_2G\to N_{2,2}G$ is a surjective submersion, we can lift the curve $(\alpha, \beta)\colon I\to N_{2,0}G$ to a curve $\Delta\colon I\to N_2G$ with $\Delta(0) = \Delta_0$, where $\Delta_0$ is a 2-simplex filling the 2-horn $(g,1_y)\in N_{2,2}G$.
+\begin{equation}
+\Delta_0\colon
+\begin{gathered}
+  \xymatrix@C=.8pc@R=1.2pc{
+      & x \ar[dl]_g \\
+    y & & y \ar[ll]^{1_y} \ar[ul]_h \lltwocell\omit{_<2>\eta}
+  }
+\end{gathered}
+\end{equation}
+Let $\gamma\colon I\to t^{-1}(x)$ be the curve $\gamma = d_0(\Delta)$.
+Take $h = \gamma(0)$ and $w = \gamma'(0) \in \ker dt_h$.
+It is straightforward to check that $ds(w) = dt(v)$.
+\end{proof}
+
+\begin{prop}[Normal representations]
+For every arrow $g\colon y\from x$ we have an induced isomorphism $\rho_g\colon TxG_0 / F_x \to TyG_0 / F_y$.
+\end{prop}
+
+\begin{proof}
+Consider the following diagram.
+\begin{equation}
+\begin{tikzcd}
+  T_xG_0 & T_gG_1 \ar[twoheadrightarrow, swap, "ds"]{l} \ar[twoheadrightarrow, "dt"]{r} & T_yG_0 \\
+  \mathcal{F}_x \ar[hook]{u} & \ker ds_g + \ker dt_g \ar[hook]{u} \ar{l} \ar{r} & \mathcal{F}_y \ar[hook]{u}
+\end{tikzcd}
+\end{equation}
+By the previous results we have that the derivatives of the source and target maps induce isomorphisms
+\[ \overline{ds}\colon T_gG_1 / (\ker ds_g + \ker dt_g) \to T_xG_0 / \mathcal{F}_x \]
+and
+\[ \overline{dt}\colon T_gG_1 / (\ker ds_g + \ker dt_g) \to T_yG_0 / \mathcal{F}_y \]
+respectively.
+Take $\smash{\rho_g = \overline{dt}\circ(\overline{ds}^{-1})}$.
+\end{proof}
+
+
+\begin{prop}
+The map $t_x = \res{t}{G_1(-,x)}\colon G_1(-,x)\to G_0$ has constant rank.
+\end{prop}
+
+\begin{proof}
+As the map $\overline{dt}\colon T_gG_1 / ker ds_g + \ker dt_g \to T_yG_0 / \mathcal{F}_y$ is a diffeomorphism, we have
+\begin{equation}
+\dim(\ker ds_g + \ker dt_g) = \dim(T_gG_1) - \dim(T_yG_0) - \dim(\mathcal{F}_y) \text{.}
+\end{equation}
+Hence
+\begin{align}
+\dim(\ker d_gt_x) &= \dim(\ker ds_g \cap \ker dt_g) \\
+ &= \dim(\ker ds_g) + \dim(\ker dt_g) - \dim(\ker ds_g + \ker dt_g) \\
+ &= \dim(\ker ds) + \dim(\ker dt) - \dim(G_1) + \dim(G_0) - \dim(\mathcal{F}_x) \text{,}
+\end{align}
+which implies that $\dim(\ker d_gt_x)$ does not depend on the choice of the arrow $g\in G_1(-,x)$.
+\end{proof}
+
+\begin{thm}
+For any $x,y \in G_0$ the subsets $G_1(y,x) \subset G_1$ are embedded submanifolds and the orbits $O_x \subset G_0$ are (maybe not embedded) submanifolds.
+\end{thm}
+
+\begin{proof}
+The fact that the map \smash{$t_x = \res{t}{G_1(-,x)}\colon G_1(-,x)\to G_0$} has constant rank implies that the subset \smash{$G(y,x) = t_x^{-1}(y) \subset G_1$} is an embedded submanifold and the isotropy group $G_x$ is a Lie group.
+This group acts freely and properly on $G(-,x)$ by right multiplication, therefore we can identify the quotient $G(-,x)/G_x$ with the orbit $O_x\subset G_0$ and regard it as a submanifold in a canonical way.
+\end{proof}

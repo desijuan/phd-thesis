@@ -1,0 +1,24 @@
+%
+% SECTION 4 - STACKY VECTOR BUNDLES
+%
+
+In section \ref{sec:VBgpds} we introduced the category $\mathrm{VB}(G\tto M)$ of VB-groupoids over $G\tto M$ with the VB-morphisms covering the identity and the VB-groupoid derived category $\mathrm{VB}[G\tto M]$, whose objects are the VB-groupoids and whose arrows are the isomorphism classes of VB-morphisms over $G\tto M$.
+As we saw in section \ref{sec:VB-Morita}, given a a morphism of Lie groupoids $\phi\colon(H\tto N)\to (G\tto M)$ the pullback of VB-groupoids induces a base-change functor $\phi^*\colon \mathrm{VB}(G\tto M)\to \mathrm{VB}(H\tto N)$.
+
+% LEMMA: THE BASE-CHANGE FUNCTOR DESCENDS TO THE DERIVED CATEGORY
+\begin{lemma}[\cite{dho20}]
+For every map of Lie groupoids $\phi\colon(H\tto N)\to(G\tto M)$ the base-change functor descends to the derived categories $\phi^*\colon \mathrm{VB}[G\tto M]\to \mathrm{VB}[H\tto N]$.
+\end{lemma}
+
+Let us consider now the situation in which the morphism $\phi\colon(H\tto N)\to(G\tto M)$ is  Morita, for example an open cover of a Manifold $\pi_\U\colon (\coprod U_{ji}\tto\coprod U_i)\to (M\tto M)$.
+One can interpret a VB-groupoid over \( M_\U = \big( \coprod U_{ji}\tto \coprod U_i \big) \) as a 2-vector bundle over each open set $U_i$ and a sort of cocycle up to homotopy.
+It turns out that such a cocycle can always be strictified, allowing a descent construction, and yielding a globally defined 2-vector bundle over $M$.
+
+% THM: BASE-CHANGE FUNCTOR OF A MORITA MAP IS AN EQUIVALENCE
+\begin{thm}[\cite{dho20}]\label{thm:VB-stacks}
+If $\phi\colon(H\tto N)\to(G\tto M)$ is a Morita map, then the base change functor $\phi^*\colon \mathrm{VB}[G\tto M]\to \mathrm{VB}[H\tto N]$ is an equivalence.
+\end{thm}
+
+\begin{coro}[\cite{dho20}]
+The derived category of the 2-term representations up to homotopy of a Lie groupoid is a Morita invariant.
+\end{coro}

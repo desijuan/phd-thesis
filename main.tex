@@ -1,0 +1,143 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[nopatch=eqnum]{microtype}
+\usepackage[english]{babel}
+\usepackage{fullpage}
+\usepackage[pdftex]{hyperref}
+\usepackage{hypcap}
+
+\usepackage[all,2cell]{xy}
+\UseAllTwocells
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools,tensor,bm}
+\usepackage{stmaryrd} % para \mapsfrom
+\mathtoolsset{showonlyrefs}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{coro}[thm]{Corolary}
+\newtheorem{lemma}[thm]{Lemma}
+\theoremstyle{definition}
+\newtheorem{mydef}[thm]{Definition}
+\newtheorem{obs}[thm]{Remark}
+\newtheorem{example}[thm]{Example}
+\newtheorem{examples}[thm]{Examples}
+\newtheorem{q}{Question}[section]
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\g}{\mathfrak{g}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\from}{\leftarrow}
+\newcommand{\To}{\Rightarrow}
+\newcommand{\From}{\Leftarrow}
+\newcommand{\xto}{\xrightarrow}
+\newcommand{\xfrom}{\xleftarrow}
+\newcommand{\dashto}{\dashrightarrow}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\acts}{\curvearrowright}
+\newcommand{\res}[2]{\left.#1\right|_{#2}}
+
+\DeclareMathOperator{\Ker}{ker}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Iso}{Iso}
+
+\DeclareRobustCommand{\2cell}[5]{\xymatrix{#2 \ar@{}[r]|{\Downarrow #5}& #1 \ar@/^.7pc/[l]^{#4} \ar@/_.7pc/[l]_{#3}}}
+
+% \usepackage[dvipsnames]{xcolor}
+
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\noi}{\noindent}
+\DeclareRobustCommand{\nota}[1]{\marginpar{\flushleft \tiny #1}}
+\newcommand{\flechita}{\nota{\red{$\leftarrow$ Acá}}}
+\newcommand{\here}{\nota{\colorbox{red}{\textbf{\large Acá!}}}}
+
+% redefinimos \emph para que sea bold
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\bfseries}
+
+% line numbers!
+\usepackage[pagewise, modulo, mathlines]{lineno}
+% \usepackage[pagewise, modulo, displaymath, mathlines]{lineno}
+% \usepackage[displaymath, mathlines]{lineno}
+
+\newcommand{\TITULO}{Stacky vector bundles and generalized Grassmannians}
+\newcommand{\AUTOR}{Juan Desimoni}
+\newcommand{\ORIENTADOR}{Matias L.~del Hoyo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% \input{frontpage}
+
+\tableofcontents
+
+% \linenumbers
+
+% \chapter*{Introduction}
+% \addcontentsline{toc}{chapter}{Introduction}
+
+\chapter{Lie groupoids}
+  \section{First definitions}
+    \input{chapters/1_lie-gpds/1_first-definitions}
+  \section{Examples of Lie groupoids}
+    \input{chapters/1_lie-gpds/2_examples-of-lie-gpds}
+  \section{Actions and representations}
+    \input{chapters/1_lie-gpds/3_actions-and-representations}
+  \section{Nerve and cohomology}
+    \input{chapters/1_lie-gpds/4_nerve-and-cohomology}
+
+\chapter{VB-groupoids}
+  \section{Definitions and basic facts}\label{sec:VBgpds}
+    \input{chapters/2_vb-gpds/1_definitions-and-basic-facts}
+  \section{Representations up to Homotopy}
+    \input{chapters/2_vb-gpds/2_representations-up-to-homotopy}
+  \section{The Grothendieck Correspondence}\label{sec:groth-corresp}
+    \input{chapters/2_vb-gpds/3_the-grothendieck-correspondence}
+
+\chapter{Stacks and stacky vector bundles}\label{ch:stacks-and-syacky-vb}
+  \section{Morita morphisms}
+    \input{chapters/3_stacks-and-stacky-vb/1_morita-morphisms}
+  \section{Stacks}
+    \input{chapters/3_stacks-and-stacky-vb/2_stacks}
+  \section{VB-Morita morphisms}\label{sec:VB-Morita}
+    \input{chapters/3_stacks-and-stacky-vb/3_vb-morita-morphisms}
+  \section{Stacky vector bundles}
+    \input{chapters/3_stacks-and-stacky-vb/4_stacky-vb}
+
+\chapter{Lie 2-groupoids}
+  \section{Lie 2-groupoids}
+    \input{chapters/4_lie-2-gpds/1_lie-2-gpds}
+  \section{The Internal Structure Theorem}
+    \input{chapters/4_lie-2-gpds/2_the-internal-structure-thm}
+  \section{The General Linear 2-Groupoid}\label{sec:gl2gpd}
+    \input{chapters/4_lie-2-gpds/3_the-general-linear-2-gpd}
+
+\chapter{Equivalences between Lie 2-groupoids}
+  \section{Equivalences}
+    \input{chapters/5_equivalences-between-lie-2-gpds/1_equivalences}
+  \section{Nerves, weak higher groupoids and hypercovers}
+    \input{chapters/5_equivalences-between-lie-2-gpds/2_nerves-weak-higher-gpds-and-hypercovers}
+  \section{The category of 2-stacks}
+    \input{chapters/5_equivalences-between-lie-2-gpds/3_the-category-of-2-stacks}
+
+\chapter{Classification of stacky vector bundles}
+  \section{Good representatives}
+    \input{chapters/6_main-thm/1_good-representatives}
+  \section{The Main Theorem}
+  \section{Introducing characteristic classes}
+
+\input{bibliography}
+
+\end{document}

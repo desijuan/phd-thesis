@@ -1,0 +1,59 @@
+%
+% SECTION 3 - THE GENERAL LINEAR 2-GPD
+%
+
+Let $V=V_1\oplus V_0\to M$ a 2-term graded vector bundle over a manifold.
+Before discussing the smooth structure of the General Linear 2-Groupoid $GL(V)$, let us first describe it set-theoretically.
+The objects of $GL(V)$ are (linear) differentials on the fibers of $V$.
+\begin{equation}
+  \begin{tikzcd}[sep=small]
+    0 \ar{r} & V_1^x \ar{r}{\eta^x} & V_0^x \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+Given two objects $\eta^x\colon V_1^x\to V_0^x$ and $\nu^y\colon V_1^y\to V_0^y$ in $GL(V)_0$, an arrow between them $\alpha=(\alpha_1,\alpha_0)$ is a pair of linear maps $\alpha_1\colon V_1^x\to V_1^y$ and $\alpha_2\colon V_2^x\to V_2^y$ defining a quasi-isomorphism between the chain complexes $(V^x,\eta^x)$ and $(V^y,\nu^y)$, namely $\alpha_0\eta^x=\nu^y\alpha_1$, $\alpha_1$ induces a linear isomorphism between $\Ker(\eta^x)$ and $\Ker(\nu^y)$ and $\alpha_0$ induces a linear isomorphism between $\coker(\eta^x)$ and $\coker(\nu^y)$.
+\begin{equation}
+  \begin{tikzcd}[sep=small]
+    0 \ar{r} & V_1^x \ar{r}{\eta^x} \ar{d}{\alpha_1} & V_0^x \ar{r} \ar{d}{\alpha_0} & 0 \\
+    0 \ar{r} & V_1^y \ar{r}{\nu^y} & V_0^y \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+Given a pair of arrows $\alpha\colon\eta^x\to\nu^y$ and $\beta\colon\eta^x\to\nu^y$ in $GL(V)_1$, a 2-cell $R\colon\alpha\Rightarrow\mu$ is a chain homotopy.
+It is given by a linear map $R\colon V_0^x\to V_1^y$ such that $R\eta^x=\alpha_1-\beta_1$ and $\nu^y R=\alpha_0-\beta_0$.
+\begin{equation}
+  \begin{tikzcd}[sep=small]
+    0 \ar{r} & V_1^x \ar{r}{\eta^x} \ar[swap]{d}{\alpha_1-\beta_1} & V_0^x \ar{r} \ar{d}{\alpha_0-\beta_0} \ar[swap]{dl}{R} & 0 \\
+    0 \ar{r} & V_1^y \ar{r}{\nu^y} & V_0^y \ar{r} & 0
+  \end{tikzcd}
+\end{equation}
+
+The horizontal composition $\circ$ of $GL(V)$ is the composition of maps and the vertical composition $\bullet$ is the composition of chain homotopies, which is just the sum of the corresponding maps $R$.
+Every 2-cell is invertible and every arrow is invertible up to a 2-cell.
+We have a well-defined 2-groupoid $GL(V)$.
+
+Let us now discuss the smooth structure of $GL(V)$.
+For that, let us first note that the set of objects $GL(V)_1$ is the total space of the inner-hom vector bundle $\Hom(V_1,V_0)\to M$.
+The arrows $GL(V)_1$ are a subspace of total space of the following vector bundle over $M\times M$.
+\[ E=\Hom(\pi_1^*V_1,\pi_1^*V_0)\oplus \Hom(\pi_2^*V_1,\pi_2^*V_0)\oplus \Hom(\pi_1^*V_1,\pi_2^*V_1)\oplus \Hom(\pi_1^*V_0,\pi_2^*V_0) \]
+Here $\pi_1$ and $\pi_2 $ are the projections of $M\times M$ onto the first and second factors respectively.
+Lastly, the 2-cells are the set-theoretic fiber product
+\[ GL(V)_2 = GL(V)_1\times_{M\times M} \Hom(\pi_1^*V_0, \pi_2^*V_1) . \]
+
+The issue here is to show that $GL(V)_1\subset E$ is a submanifold.
+After we have done that, $GL(V)_2$ will identify with a fiber product along a submersion, in fact with a pullback vector bundle. This issue is rather subtle and will require a careful analysis. The first step in the argument given in \cite{dhs19} is to provide a simple system of equations describing $GL(V)_1\subset E$.
+
+\begin{lemma}[\cite{dhs19}]
+One can write $GL(V)_1=F\cap U_1\cap U_0$ where
+\[ F = \{ (\partial^x,\partial^y,\alpha_0, \alpha_1)\in E \mid \alpha_0\partial^x = \partial^y\alpha_1 \} \]
+\[ U_1 = \{ (\partial^x,\partial^y,\alpha_0,\alpha_1)\in E \mid \ker(\partial^x)\cap\ker(\alpha_1) = 0 \} \]
+\[ U_0 = \{ (\partial^x,\partial^y,\alpha_0,\alpha_1)\in E \mid \im(\partial^y) + \im(\alpha_0) = V_0^y \} \]
+\end{lemma}
+
+Next we show that the map $\phi$ above has maximal rank over the opens $U_i$, and since the zero section $0_{M\times M}\subset E'$ is closed embedded, the same holds for $GL(V)_1=\phi^{-1}(0_{M\times M})\cap U_1\cap U_0$.
+
+\begin{prop}[\cite{dhs19}]
+If $p\in U_1\cup U_0$ and $q=\phi(p)$ then $d\phi_p:T_pE\to T_qE'$ is surjective.
+\end{prop}
+
+\begin{thm}[\cite{dhs19}]
+Given $V=V_1\oplus V_0$ a graded vector bundle, the General Linear 2-Groupoid $GL(V)$ inherits a natural structure of a Lie 2-groupoid.
+\end{thm}

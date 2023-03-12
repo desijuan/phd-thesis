@@ -1,0 +1,76 @@
+1.1 First definitions:
+✔ p3 l2: "orbits, orbit" @done
+✔ p3 l4: "Our main sources" instead of "The main sources" @done
+✔ p3 l6: "It has a set" instead of "It consist of a set" @done
+✔ p3 l10: "each pair of arrows" instead of "every pair of arrows" @done
+☐ p3 l12: "m" instead of "\circ" for the multiplication (not composition)
+✔ p3 l-6: "the sets of objects and arrows" instead of "the set of objects and arrows" @done
+☐ p3 l-5: "m" instead of "\circ"
+☐ p3 l-3: provide reference to the claim
+✔ p3 l-1: "fiber product" instead of "pull-back" @done
+
+✔ p4 l2: "which commute" instead of "that commute" @done
+✔ p4 l9: "Let us denote by" instead of "Let us denote with" @done
+✔ p4 l10: "denoted by" instead of "denoted" @done
+✔ p4 l12: reference to T_xO while it s not yet proven or said that O is submanifold @done
+☐ p4 l13: the proposition should say that the s-fiber is a principal bundle (used later)
+
+1.2 Examples of Lie groupoids:
+✔ p4 l-13: "Our main sources" instead of "The main sources" @done
+✔ p4 l-9: discuss morphisms and equivalences in the example 1.2.1 @done
+✔ p4 l-5: "has the pairs (x,i) with x\in U_i as objects and the triples (x,j,i) with x\in U_{ji} as arrows" (source and target of each arrow?) @done
+✔ p4 l-4: "\{u_{(x,i)}\}" instead of "U_i" @done
+✔ p4 l-3: "A cocycle" is not defined, it should be replaced by "A GL_k-cocycle", or more generally a "Given a Lie group G, a G-cocycle" @done
+✔ p4 l-1: "\theta(x,j,i)" instead of $\theta(x,i,j)$ @done
+
+✔ p5 l2: "which has one arrow from x to y for arbitrary x,y in M" @done
+☐ p5 l3: discuss morphisms and equivalences in the example 1.2.3 and compare with 1.2.1 (suggestion: merge both examples in 1.2.1)
+✔ p5 l4: "on a manifold M which is an embedded submanifold and such that the projections..." @done
+✔ p5 l5: \pi_2 instead of \pi_1 @done
+☐ p5 l6: "submersions. Then" (suggestion: mention and cite Godement's criterion from my paper with Daniel and merge 1.2.4 with 1.2.9)
+✔ p5 l8: discuss morphisms and equivalences in the example 1.2.5 @done
+☐ p5 l12: discuss morphisms in the example 1.2.5, in particular it is important that a morphism between the action groupoids need not to come from a morphism between the acting groups, so the functor is not full
+☐ p5 l13: Clarify that the vector bundles are real and of finite rank, this is very important for they are one of the main objects of study in the thesis. Also, in this example, something should be said about the smooth structure, it may be a comment and a reference
+✔ p5 l18: "diagonal action" instead of "action". composition on the gauge groupoid should be explained. @done
+✔ p5 l19: "The gauge groupoid is transitive" instead of "Clearly, gauge groupoids are transitive, in the sense that ..." @done
+✔ p5 l20: "we can recover it up to isomorphism as the gauge groupoid..." @done
+✔ p5 l21: explain that since a point should be chosen the construction is not functorial @done
+✔ p5 l-14: "The submersion groupoid ... is the Lie groupoid over M which has an arrow from x to y" @done
+✔ p5 l-11: period. you should not start a new paragraph (punto y seguindo, no punto y aparte) @done
+
+1.3 Actions and representations:
+✔ p5 l-5: "We define Lie groupoid actions" instead of "We define groupoid actions" @done
+✔ p5 l-3: "After that," --- "and the pull-back" --- "a map of Lie" @done
+✔ p5 l-2: "a cocycle defining a vector bundle" instead of "a cocycle" @done
+
+✔ p6 l1: "be a Lie groupoid" --- "A a manifold" --- "p a constant rank map." Introduce a notation for the fibers A_x. @done
+✔ p6 l3: "\theta" instead of "\rho" (suggestion: write \theta_g:A_x\to A_y as a third segment of the equation) @done
+✔ p6 l4: "a" instead of "e" @done
+✔ p6 l4: "fiber product" instead of "fibered product", to be consistent with previous use @done
+✔ p6 l6: (suggestion: "is often called the moment map. An action is a representation if...") @done
+✔ p6 l7: examples should be here @done
+✔ p6 l11: the action groupoid projects over G and this map is an action map. conversely, every action map gives an action. this should be discussed or a reference should be given. @HELP! @done
+✔ p6 l18: "isomorphisms" instead of "isomorphimsms" @done
+✔ p6 l20: sentence "the reader..." should be suppressed. a proof for proposition 1.3.1 should be given. @done
+☐ p6 l21: Remark 1.3.2 should be developed, explaining the set-theoretic situation and the smooth aspects
+✔ p6 l-3: "are vector spaces equipped with an usual group representation" @done
+
+✔ p7 l1: "In particular, if E admits a representation... , then it is trivializable" @done
+✔ p7 l2: name the trivialization "\phi" and correct the formula below @done
+✔ p7 l8: representations are presented in another way, uniformize notation, clarify pullback construction @done
+✔ p7 l12: again "cocycle" is misleading, possible solution is to replace by "vector bundle cocycle" @done
+✔ p7 l14: "(x,j,i)" instead of "(x,i,j)" @done
+☐ p7 l17: write example on submersion groupoids, it works exactly as the open cover case, it is called "descent theory", read wikipedia article about it
+
+1.4 Nerve and Cohomology:
+☐ p7 l-12: correct references
+☐ p7 l-11: introduce the category \Delta, the notion of simplicial set and simplicial object, and write some references
+☐ p7 l-9: correct this formula, it doesn't work well, probably adding the name of every arrow
+
+☐ p8 l2: the superindex k+1-i should be replaced by i
+☐ p8 l5: functoriality should be stated, as well as the cup product and normal cochains
+☐ p8 l5: examples of manifold, submersion groupoid, Lie group should be included here
+☐ p8 l11: reference to Bott-Shullman complex
+☐ p8 l13: sentence "The degenerate simplices..." should be suppressed. (suggestion: write directly "The reduced Bott-Shulman complex ... is ...")
+☐ p8 l-5: suppress sentence "it is worth noting..." and explain why normal cochains give the same cohomology giving mathematical proof and / or precise reference
+☐ p9: here the examples should be revisited, examples 1.4.3 and 1.4.4 need to be rewritten, with precise references and statements.
