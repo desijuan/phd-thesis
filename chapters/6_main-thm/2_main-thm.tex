@@ -1,0 +1,131 @@
+%
+% SECTION 6.2 - THE MAIN THEOREM
+%
+
+\color{red} % EN ROJO DESDE ACÁ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thm}
+  $M$ manifold, $k>0$.
+  \[ VB_k[M] \quad \rightleftharpoons \quad \left\{ \text{maps of stacks} \ M\to GL_k \right\} \]
+\end{thm}
+
+\textbf{Examples:}
+\begin{itemize}
+  \item Manifolds: $M\tto M$.
+  \item \v Cech groupoid: $\U=\{U_i\}$, \ \( M_\U = \big( \coprod U_{ji}\tto \coprod U_i \big) \).
+  \item Lie groups: $G\tto *$.
+  \item Group actions: $G\acts M$, \ $G\times M\tto M$.
+\end{itemize}
+
+$\phi\colon(G\tto M)\to(G'\tto M')$ morphism of Lie groupoids.
+
+fractions \ $(G\tto M) \xleftarrow{\sim} (H\tto N) \rightarrow (G'\tto M')$.
+
+$E\to M$ vector bundle
+
+$\U=\{U_i\}$ trivializing open cover
+
+$\varphi_i\colon \res{E}{U_i}\to U_i\times\RR^k$ local trivializations
+\begin{equation*}
+  \{\theta_{ji}\} \text{$GL_k$-cocycle:}
+  \begin{cases}
+    \theta_{ji}\colon U_{ji}\to GL(k,\RR)\\
+    \theta_{ii}=\text{id}$, $\theta_{kj}\theta_{ji}=\theta_{ki}
+  \end{cases} \qquad\qquad\qquad\qquad\qquad\qquad
+\end{equation*}
+Morphism of Lie groupoids \ $\theta\colon \big( \coprod U_{ji}\tto \coprod U_i \big)\to (GL_k\tto *)$
+
+inducing a map of diff stacks
+\[ (\theta, \pi)\colon
+  \begin{tikzcd}[sep=small]
+    (M\tto M) & \big( \coprod U_{ji}\tto \coprod U_i \big) \ar[shorten = -.15em]{l}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, above]{\pi} \ar[shorten = -.15em]{r}[pos=.45]{\theta} & (GL_k\tto *)
+  \end{tikzcd}
+\]
+
+\[ VB_k[M] \quad \rightleftharpoons \quad \left\{ \text{maps of stacks} \ M\to GL_k \right\} \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\color{black} % EN ROJO HASTA ACÁ
+
+\begin{thm}
+Let $G\colon G_1\tto G_0$ be a Lie 1-groupoid.
+For every $p,q>0$ the following corresponcence holds:
+\[ VB_{pq}[G] \quad \rightleftharpoons \quad \left\{ \text{ maps of 2-stacks $G\to GL_{pq}$ } \right\} \]
+\end{thm}
+
+$G$, $H$ Lie 2-groupoids, $M$ manifold, $\psi\colon M\to H_0$  smooth map.
+
+$\psi$ meets transversally every orbit of $H$ if:
+\begin{enumerate}
+\item $\forall y\in H_0$, $\exists x\in M$ and a $y\xfrom{h}\psi(x) \in H_1$.
+\item $\forall x\in H_0$, $N_x\to N_{\phi(x)}$ is surjective.
+\end{enumerate}
+
+$\phi\colon G\to H$ map of Lie 2-groupoids.
+
+\[ \phi_{x,y}\colon \left( G_2(y,x)\tto G_1(y,x) \right) \to \left( H_2(\phi(y),\phi(x))\tto H_1(\phi(y),\phi(x)) \right) \]
+is Morita.
+
+Surjective equivalence: equivalence + the map on the objects $\phi_0\colon G_0\to H_0$ is a surjective submersion.
+
+\textbf{Remark:} For Lie 1-groupoids: equivalence = Morita morphism.
+
+\textbf{Examples:}
+\begin{itemize}
+  \item $GL(p,q)' \to GL(p,q)$ is a surjective equivalence.
+  \item $GL(p,q) \to GL(p+1,q+1)$ is an equivalence.
+\end{itemize}
+
+\[
+  \begin{tikzcd}[sep=small]
+    & \phi_0^*H \ar{dr} \\
+    G \ar{ur} \ar{rr}{\phi} & & H
+  \end{tikzcd}
+\]
+\textbf{Equivalence:} $G_1\to \phi_0^*H_1$ surjective submersion and $(G_2\tto G_1)\to (\phi_0^*H_2\tto \phi_0^*H_1)$ Morita.
+
+simplicial manifolds in which every inner horn admits a filling and the filling is unique for $n>2$.
+$\phi\colon X\to Y$ morphism of weak Lie 2-groupoids.
+
+\textbf{Equivalence:} $X_n \to M_n X \times_{M_n Y} Y_n$ surjective submersions for $0\leq n<2$ and diffeomorpism for $n=2$.
+
+\begin{thm}[dH-D]
+  \begin{itemize}
+    \item $\phi\colon G\to H$ morphisms of Lie 2-groupoids such that $\phi_0\colon G_0\to H_0$ is a surjective submersion, then \\
+    \begin{center}\( \phi \ \text{equivalence} \Leftrightarrow N\phi \ \text{hypercover} \).\end{center}
+
+    \item $G$, $H$ strict Lie 2-groupoids, $\phi\colon G\to H$ strict morphism such that $\phi_0\colon G_0\to H_0$ is a surjective submersion, then
+    \begin{center}\( \phi \ \text{equivalence} \Leftrightarrow (G_2\tto G_1)\to (\phi_0^*H_2\tto \phi_0^*H_1) \ \text{Morita} \).\end{center}
+  \end{itemize}
+\end{thm}
+
+Lie 2-groupoids up to equivalence:
+\[
+  \begin{tikzcd}[sep = small]
+    G & H \ar[shorten = -.15em]{l}[pos=.45, above]{\sim} \ar[shorten = -.15em]{r}[pos=.45]{\sim} & G'
+  \end{tikzcd}
+\]
+
+\textbf{Fractions:} invert the equivalences.
+\[ (\psi, \phi)\colon
+  \begin{tikzcd}[sep=small]
+    G & H \ar[shorten = -.15em]{l}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, above]{\phi} \ar[shorten = -.15em]{r}[pos=.45]{\psi} & G'
+  \end{tikzcd}
+\]
+
+Two pairs $(\psi_1, \phi_1)$ and $(\psi_2, \phi_2)$ are equivalent if there is third one $(\psi_3, \phi_3)$ that sits on top of the first two.
+\[
+  \begin{tikzcd}
+    & H_1 \ar{dl}[pos=.4, sloped, below]{\sim}[pos=.4, sloped, above]{\phi_1} \ar{dr}[pos=.4, sloped, above]{\psi_1} & \\
+   G & H_3 \ar{l}[pos=.4, sloped, below]{\sim}[pos=.4, sloped, above]{\phi_3} \ar{u}[pos=.4, sloped, above]{\sim} \ar{r}[pos=.4, sloped, above]{\psi_3} \ar{d}[pos=.4, sloped, below]{\sim} & G' \\
+    & H_2 \ar{ul}[pos=.4, sloped, above]{\phi_2}[pos=.4, sloped, below]{\sim} \ar{ur}[pos=.4, sloped, above]{\psi_2} &
+  \end{tikzcd}
+\]
+
+\begin{itemize}
+  \item Relation with the other definition of Lie groupoids (simplicial approach).
+  \item Cohomology of $GL_{pq}$? $\rightarrow$ Characteristic Classes.
+  \item Applications to Poisson Geometry:
+  Poisson and Dirac structures integrate to groupoids and pre-groupoids respectively. The tangent spaces induce stacky vector bundles. Characteristic classes as invariants.
+\end{itemize}
