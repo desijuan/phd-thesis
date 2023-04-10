@@ -112,11 +112,6 @@
 
 
 
-% MEETS TRANSVERSALLY EVERY ORBIT
-Let us recall that a smooth map is said to be transversal to a foliation if it intersects each leaf of the foliation in a transverse manner. That is, in such a way that the tangent spaces of the function and the leaf span the tangent space of the manifold at the intersection point.
-If $G$ and $H$ are Lie 2-groupoids and $\phi\colon G\to H$ a map of Lie 2-groupoids, we say that $\phi$ \emph{meets transversally every orbit} of $H$ if the map on the objects $\phi\colon G_0\to H_0$ is transversal to the foliation of $H_0$ given by the orbits of $H$.
-More precisely, if for each $y\in H_0$ there exists a $x\in G_0$ and a $h\in H_1$ with $s(h) = \phi(x)$ and $t(h) = y$; and for every $x\in H_0$ the linear map induced in the normal directions $N_x\to N_{\phi(x)}$ is surjective.
-% This is equivalent to asking the map $t\pi_1\colon H_1\times_{H_0} G_0 \to H_0$ to be a surjective submersion.
 
 % LOCALLY MORITA
 For every $x, y\in G_0$, the $G_2(y,x)\tto G_1(y,x)$ are Lie 1-groupoids, we call them \emph{hom-groupoids}.
@@ -126,7 +121,7 @@ is Morita.
 
 % DEF: EQUIVALENCE
 \begin{mydef}
-A map of Lie 2-groupoids $\phi\colon G\to H$ is an \emph{equivalence} if it meets transversally every orbit and it is locally Morita.
+A map of Lie 2-groupoids $\phi\colon G\to H$ is an \emph{equivalence} if it meets transversally every orbit and is locally Morita.
 If in addition the map on the objects $\phi_0\colon G_0\to H_0$ is a surjective submersion we say that $\phi$ is a \emph{surjective equivalence}.
 \end{mydef}
 
@@ -162,13 +157,25 @@ The inclusion $GL(p,q) \to GL(p+1,q+1)$ is an equivalence.
 HACER
 \end{proof}
 
-\medskip
+\bigskip
 
-It is not the first time that the definition of equivalence between Lie 2-groupoids appears in the literature.
-In addition to the conditions 1, 2 and 3 above, Ginot and Stienon work with strict Lie 2-groupoids and ask in \cite{gs} that the maps $\phi_0: G_0\to H_0$ and $G_1 \to \phi^*H_1$ are surjective submersions and call such maps hypercovers.
+\noi PULL-BACK LIE 2-GPDS A TRAVES DE UN MAPA
+
+\bigskip
+
+In \cite{gs15} Ginot and Stienon work with strict Lie 2-groupoids and In addition to the conditions 1, 2 and 3 above they ask that the maps $\phi_0: G_0\to H_0$ and $G_1 \to \phi^*H_1$ are surjective submersions and call such maps hypercovers.
 For us, this type of maps will be called \emph{surjective equivalences}.
 
-In other places, for example in \cite{z}, the authors work with weak Lie 2-groupoids, that is, simplicial manifolds that satisfy the horn-filling condition for all $n$ and such the horn-filling is unique for all $n\geq 2$.
+
+\bigskip
+
+\noi PROPOSICIÓN RELACIÓN NUESTRA DEF Y DEF GS
+
+\bigskip
+
+\noindent\rule{\textwidth}{5pt}
+
+In other places, for example in \cite{zhu09}, the authors work with weak Lie 2-groupoids, that is, simplicial manifolds that satisfy the horn-filling condition for all $n$ and such the horn-filling is unique for all $n\geq 2$.
 In this context a map of between weak Lie 2-groupoids $X\to Y$ is an equivalence, also called hypercover, if $X_0\to Y_0$ and $X_1\to (X_0\times X_0)\times_{Y_0\times Y_0} Y_1$ are surjective submersions and $X_2\to M_2X\times_{M_2Y} Y_2$ is a diffeomorphism.
 Here $M_2X = \Hom(\partial\Delta_2, X)$ is referred in some places as the matching space.
 
