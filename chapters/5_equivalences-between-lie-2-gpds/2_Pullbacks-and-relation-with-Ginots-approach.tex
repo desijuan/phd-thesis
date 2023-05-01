@@ -1,0 +1,33 @@
+%
+% SECTION 5.2 - PULLBACKS AND RELATION WITH GINOT'S APPROACH
+%
+
+\section{Pullbacks and relation with Ginot's approach}
+
+% PULL-BACK OF LIE 2-GPDS
+In \textsection \ref{sec:morita} we mentioned the pull-back of a Lie 1-groupoid along a map, there is a similar construction for Lie 2-groupoids.
+Let $G$ be a Lie 2-groupoid and $\psi\colon M\to G_0$ a smooth map that meets transversally every orbit of $G$.
+The \emph{pull-back} of $G$ along $\psi$ is the Lie 2-groupoid $\psi^*G$ with objects $M$, arrows $\psi^*G_1 \coloneqq G_1\times_{G_0\times G_0}(M\times M)$ and 2-cells $\psi^*G_2 \coloneqq G_2\times_{G_0\times G_0}(M\times M)$.
+There is also an induced map of Lie groupoids $\psi^*G\to G$.
+Note that the map on the objects is the identity, so it meets transversally every orbit of $G$, and the iduced Lie groupoid morphisms
+\[ \big( \psi^*G_2(y,x) \tto \psi^*G_1(y,x) \big) \to \big( G_2(\psi(y),\psi(x)) \tto G_1(\psi(y),\psi(x)) \big) \]
+is also the identity, and so it is Morita.
+Therefore, the map $\psi^*G\to G$ is an equivalence.
+
+In \cite{gs15} Ginot and Stienon work with strict Lie 2-groupoids, that is, Lie 2-groupoids in which every arrow is invertible.
+They give a definition of equivalences of (strict) Lie 2-groupoids in terms of the pull-back that we defined in the previous paragraph.
+Let $\phi\colon G\to H$ a morphism of Lie 2-groupoids.
+In first place, they ask the map on the objects $\phi_0\colon G_0\to H_0$ to be a surjective submersion, so that they can consider the pullback of $H$ along $\phi_0$, that we denote with $\phi^*H$, together with the following factorization.
+\begin{equation}
+\begin{tikzcd}[sep = small]
+  G \ar{rr}{\phi} \ar{dr} &   & H \\
+  & \phi^*H \ar{ur}
+\end{tikzcd}
+\end{equation}
+For Ginot and Stienon the morphism $\phi$ is an equivalence, which they call hypercover, if in addition to $\phi_0$, the map on the arrows $G_1\to \phi^*H_1$ is also a surjective submersion, and the iduced morphism of Lie 1-groupoids $\big(G_2\tto G_1\big)\to \big(\phi^*H_2\tto \phi^*H_1\big)$ is Morita.
+
+The following proposition shows that when working with strict Lie 2-groupoids, our notion of (surjective) equivalence matches the one of Ginot and Stienon.
+
+\begin{prop}
+If $G$, $H$ are strict Lie 2-groupoids and $\phi\colon G\to H$ strict morphism such that the map on the objects $\phi_0\colon G_0\to H_0$ is a surjective submersion, then $\phi$ is an equivalence if and only if $\big( G_2\tto G_1 \big) \to \big( \phi^*H_2\tto \phi^*H_1 \big)$ is Morita.
+\end{prop}

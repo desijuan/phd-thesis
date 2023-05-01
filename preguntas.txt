@@ -1,8 +1,0 @@
-1) "A 2-vect is equivalent to a 2-term chain complex V1-->V0 via the Dold-Kan correspondence." [dH-O, p 11]
-  Qué quiere decir esto? Es diferente del caso general? Por qué es tan importante Dold-Kan?
-2) "In light of a Dold-Kan correspondence, the anchor, regarded as a 2-term chain complex, ecodes the restricion of gamma to the units." [dH-O, p 4]
-3) "A 2-vect is a category object in the category of vector spaces." [dH-O, p 11]
-  "A VB-gpd is a Lie groupoid object in the category of vector bundles." [Mackenzie, p 409]
-  Estas dos afirmaciones estan bien? Cómo se relacionan entre sí?
-4) Pongo el ejemplo t*E+s*E (type 1)? Y el semidirect product? [GS-M, p 16]
-5) unital o unitary cleavage?

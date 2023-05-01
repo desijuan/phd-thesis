@@ -1,3 +1,0 @@
-# PhD Thesis
-
-Juan Desimoni

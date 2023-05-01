@@ -1,6 +1,6 @@
 MAIN = main
 MAIN_MODELO_UFF = main-modelo-uff
-SECTIONS = $(shell ls chapters/*/*.tex)
+SECTIONS = input-chapters.tex $(wildcard chapters/*/*.tex)
 BIBLIOGRAPHY = bibliography.tex
 
 main: $(MAIN).pdf
@@ -16,6 +16,9 @@ $(MAIN_MODELO_UFF).pdf: $(MAIN_MODELO_UFF).tex $(SECTIONS) $(BIBLIOGRAPHY)
 	pdflatex $(MAIN_MODELO_UFF) && pdflatex $(MAIN_MODELO_UFF)
 
 clean:
-	rm *.{aux,log,out,toc}
+	rm -f *.{aux,log,out,toc}
 
-.PHONY: all main modelo-uff clean
+cleanall:
+	rm -f *.{aux,log,out,pdf,toc}
+
+.PHONY: all main modelo-uff clean cleanall

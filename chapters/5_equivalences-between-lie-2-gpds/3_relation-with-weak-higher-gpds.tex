@@ -1,0 +1,22 @@
+%
+% SECTION 5.3 - RELATION WITH WEAK HIGHER GPDS
+%
+
+\section{Relation with weak higher groupoids}
+
+% WEAK N-GPDS
+In \cite{zhu09} the authors work with weak Lie 2-groupoids, that is, simplicial manifolds that satisfy the horn-filling condition for all $n$ and such the horn-filling is unique for all $n\geq 2$.
+In this context a map of between weak Lie 2-groupoids $X\to Y$ is an equivalence, also called hypercover, if $X_0\to Y_0$ and $X_1\to (X_0\times X_0)\times_{Y_0\times Y_0} Y_1$ are surjective submersions and $X_2\to M_2X\times_{M_2Y} Y_2$ is a diffeomorphism.
+Here $M_2X = \Hom(\partial\Delta_2, X)$ is referred in some places as the matching space.
+
+One problem that appears when working with weak Lie groupoids is that the matching space does not always admit a manifold structure.
+An example of this is the nerve of the action groupoid $S^1\times\RR^2 \tto \RR^2$ considered as a Lie 2-groupoid with only trivial 2-cells, where $S^1$ is acting on $\RR^2$ by rotations.
+The matching space
+$ M_2(S^1\times\RR^2) = \{ (g_1,g_2,g_3,x)\in S^1\times S^1\times S^1\times\RR^2 \mid g_2g_1 x = g_1 x \} $
+can be written as the union of $S^1\times S^1\times S^1\times \{0\}$ and $S^1\times S^1\times (\RR^2\setminus \{0\})$, so it does not admit a manifold structure.
+
+% PROP RELACIONANDO NUESTRA DEF CON LA DE CHENCHANG
+\begin{prop}
+If $\phi\colon G\to H$ is a morphism of Lie 2-groupoids such that the map on the objects $\phi_0\colon G_0\to H_0$ is a surjective submersion, then $\phi$ is an equivalence if and only if $N\phi$ is an hypercover.
+\end{prop}
+
