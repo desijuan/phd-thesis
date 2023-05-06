@@ -10,10 +10,6 @@
 \usepackage{hypcap}
 \usepackage{enumitem}
 
-\usepackage[all,2cell]{xy}
-\UseAllTwocells
-\usepackage{tikz-cd}
-
 \usepackage[total={210mm,297mm},left=20mm,right=20mm,bindingoffset=10mm,top=25mm,bottom=25mm]{geometry}
 
 %
@@ -23,17 +19,6 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools,tensor,bm}
 \usepackage{stmaryrd} % para \mapsfrom
 \mathtoolsset{showonlyrefs}
-
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{prop}[thm]{Proposition}
-\newtheorem{coro}[thm]{Corolary}
-\newtheorem{lemma}[thm]{Lemma}
-\theoremstyle{definition}
-\newtheorem{mydef}[thm]{Definition}
-\newtheorem{obs}[thm]{Remark}
-\newtheorem{example}[thm]{Example}
-\newtheorem{examples}[thm]{Examples}
-\newtheorem{q}{Question}[section]
 
 \usepackage[english]{babel}
 
@@ -70,55 +55,7 @@
 %  Seus macros
 %
 
-\newcommand\NN{\mathbb N}
-\newcommand\ZZ{\mathbb Z}
-\newcommand\Z{\mathbb Z}
-\newcommand\QQ{\mathbb Q}
-\newcommand\RR{\mathbb R}
-\newcommand\R{\mathbb R}
-\newcommand\CC{\mathbb C}
-\newcommand\g{\mathfrak g}
-\newcommand\U{\mathcal U}
-\newcommand\from{\leftarrow}
-\newcommand\To{\Rightarrow}
-\newcommand\From{\Leftarrow}
-\newcommand\xto{\xrightarrow}
-\newcommand\xfrom{\xleftarrow}
-\newcommand\dashto{\dashrightarrow}
-\newcommand\tto{\rightrightarrows}
-\newcommand\toto{\rightrightarrows}
-\newcommand\acts{\curvearrowright}
-\newcommand\res[2]{\left.#1\right|_{#2}}
-
-\DeclareMathOperator{\Ker}{Ker}
-\DeclareMathOperator{\coker}{coker}
-\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\Iso}{Iso}
-
-\DeclareRobustCommand{\2cell}[5]{\xymatrix{#2 \ar@{}[r]|{\Downarrow #5}& #1 \ar@/^.7pc/[l]^{#4} \ar@/_.7pc/[l]_{#3}}}
-
-\newcommand{\red}{\textcolor{red}}
-\newcommand{\noi}{\noindent}
-\DeclareRobustCommand{\nota}[1]{\marginpar{\flushleft \tiny #1}}
-\newcommand{\flechita}{\nota{\red{$\leftarrow$ Acá}}}
-
-\newcommand{\titulo}{TITLE}
-
-% redefinimos \emph para que sea bold
-\let\emph\relax
-\DeclareTextFontCommand{\emph}{\bfseries}
-
-% line numbers!
-\usepackage[pagewise, modulo, mathlines]{lineno}
-% \usepackage[pagewise, modulo, displaymath, mathlines]{lineno}
-% \usepackage[displaymath, mathlines]{lineno}
-
-\newcommand{\TITULO}{Stacky vector bundles and generalized Grassmannians}
-\newcommand{\AUTOR}{Juan Desimoni}
-\newcommand{\ORIENTADOR}{Matias L.~del Hoyo}
+\input{defs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -131,7 +68,7 @@
 
 % \linenumbers
 
-\input{input-chapters}
+\input{chapters}
 
 \input{bibliography}
 
