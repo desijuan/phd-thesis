@@ -4,30 +4,90 @@
 
 \section{Pullbacks and relation with Ginot's approach}
 
-% PULL-BACK OF LIE 2-GPDS
-In \textsection \ref{sec:morita} we mentioned the pull-back of a Lie 1-groupoid along a map, there is a similar construction for Lie 2-groupoids.
-Let $G$ be a Lie 2-groupoid and $\psi\colon M\to G_0$ a smooth map that meets transversally every orbit of $G$.
-The \emph{pull-back} of $G$ along $\psi$ is the Lie 2-groupoid $\psi^*G$ with objects $M$, arrows $\psi^*G_1 \coloneqq G_1\times_{G_0\times G_0}(M\times M)$ and 2-cells $\psi^*G_2 \coloneqq G_2\times_{G_0\times G_0}(M\times M)$.
-There is also an induced map of Lie groupoids $\psi^*G\to G$.
-Note that the map on the objects is the identity, so it meets transversally every orbit of $G$, and the iduced Lie groupoid morphisms
-\[ \big( \psi^*G_2(y,x) \tto \psi^*G_1(y,x) \big) \to \big( G_2(\psi(y),\psi(x)) \tto G_1(\psi(y),\psi(x)) \big) \]
-is also the identity, and so it is Morita.
-Therefore, the map $\psi^*G\to G$ is an equivalence.
+% greek letter for groupoid morphism
+% latin letter for map between manifolds
 
-In \cite{gs15} Ginot and Stienon work with strict Lie 2-groupoids, that is, Lie 2-groupoids in which every arrow is invertible.
-They give a definition of equivalences of (strict) Lie 2-groupoids in terms of the pull-back that we defined in the previous paragraph.
-Let $\phi\colon G\to H$ a morphism of Lie 2-groupoids.
-In first place, they ask the map on the objects $\phi_0\colon G_0\to H_0$ to be a surjective submersion, so that they can consider the pullback of $H$ along $\phi_0$, that we denote with $\phi^*H$, together with the following factorization.
-\begin{equation}
-\begin{tikzcd}[sep = small]
-  G \ar{rr}{\phi} \ar{dr} &   & H \\
-  & \phi^*H \ar{ur}
-\end{tikzcd}
-\end{equation}
-For Ginot and Stienon the morphism $\phi$ is an equivalence, which they call hypercover, if in addition to $\phi_0$, the map on the arrows $G_1\to \phi^*H_1$ is also a surjective submersion, and the iduced morphism of Lie 1-groupoids $\big(G_2\tto G_1\big)\to \big(\phi^*H_2\tto \phi^*H_1\big)$ is Morita.
+% recall case of 1-gpd
+Recall from section \ref{sec:morita} that the pull-back of a Lie groupoid $G\tto M$ through a map $f: N\to M$ is the Lie groupoid $f^*G$ over $N$ that has $G\times_{M\times M} (N\times N)$ as manifold of arrows \cite{dh13, mm03}.
+It is important to recall that since $G\times_{M\times M} (N\times N)$ is a (good) pull-back of manifolds is not always defined, and so is the pull-back of Lie groupoids $f^*G$.
 
-The following proposition shows that when working with strict Lie 2-groupoids, our notion of (surjective) equivalence matches the one of Ginot and Stienon.
+\begin{example}
+If $i: N\hookrightarrow M$ is the inclusion of a saturated submanifold and $G\toto M$ is a Lie groupoid over $M$, the pullback of $G$ through $i$ is the restriction of $G$ to $N$.
+\end{example}
+
+\begin{example}
+Map transverse to orbits.
+\end{example}
+
+There is an induced canonical map from the pullback. And it is (set-theoretic) fully faithful.
+So, if $f$ is transverse to the orbits and intersects all of them, then the canonical map is an equivalence.
+Conversely, if $\phi$ is an equivalence then the map from the first groupoid to the pullback is an isomorphism.
+
+% def of PULL-BACK OF LIE 2-GPDS
+There is a similar construction for Lie 2-groupoids.
+Let $G$ be a Lie 2-groupoid and $f: M\to G_0$ a smooth map transversal to the the foliation by orbits $F_G$.
+The \emph{pull-back} of $G$ along $\psi$ is the Lie 2-groupoid $\psi^*G$ with objects $M$, arrows $\psi^*G_1 \coloneqq G_1\times_{G_0\times G_0}(M\times M)$ and 2-cells $\psi^*G_2 \coloneqq G_2\times_{G_0\times G_0}(M\times M)$. This is fact well-defined (*).
+
+% example
+
+\begin{example}
+$M_\U\to M$ an open cover, $G$ a Lie 2groupoid with $G_0=M$, then there is a Cech 2-groupoid.
+\end{example}
+
+% canonical map
+Given $G$ and $f:M\to G_0$ transversal to $F_G$, there is a canonical strict morphism $\phi:f^*G\to G$. This morphism is always locally an isomorphism. Therefore, if in addition, $f$ is surjective on orbit spaces, then the canonical map is an equivalence. Conversely, if $\phi$ is an equivalence (non-necesarily strict morphism), then we can pull back the second groupoid through the object map and get a canonical factorization.
+$$H\to \phi^*G\to G$$
+
+\begin{lemma}
+Any equivalence can be factored as first a lax morphism that is an equivalence that is 1 on objects and second a strict morphism that is an equivalence that is locally an isomoprhism.
+\end{lemma}
+
+\begin{example}
+Let $q:\tilde M\to M$ a surjective subersion, eg an open cover, and let $C,E\to M$ vector bundles.
+The pullback $q^*GL(C\oplus E)$ of $GL(C\oplus E)$ through $q$ identifies canonically with the general linear 2groupoid of the pullback vector bundles: $GL(q^*C\oplus q^*E)$. In particular, the canonical map $GL(q^*C\oplus q^*E)\to GL(C\oplus E)$ is a strict morphism and an equivalence.
+\end{example}
+
+% definition of Ginot-Stienon
+Pullback of Lie 2-groupoids were used in \cite{gs15} by Ginot and Stienon to define equivalences, when working with strict 2-groupoid (every arrow invertible) and strict morphisms (not lax). Concretely, a {\bf GS-equivalence} $\phi:G\to H$ between strict 2-groupoids is a strict morphism that is
+\begin{enumerate}
+\item[GS1)] surjective submersion on objects;
+\item[GS2)] the map on the arrows $G_1\to \phi^*H_1$ is a surjective submersion; and
+\item[GS3)] the pullback $ \big( G_2\toto G_1 \big) \to \big( \phi^*H_2\toto \phi^*H_1 \big) $ is Morita.
+\end{enumerate}
+
+% \begin{comment}
+% They give a definition of equivalences of (strict) Lie 2-groupoids in terms of the pull-back that we defined in the previous paragraph.
+% Let $\phi\colon G\to H$ a morphism of Lie 2-groupoids.
+% In first place, they ask the map on the objects $\phi_0\colon G_0\to H_0$ to be a surjective submersion, so that they can consider the pullback of $H$ along $\phi_0$, that we denote with $\phi^*H$, together with the following factorization.
+% \begin{equation}
+% \begin{tikzcd}[sep = small]
+%   G \ar{rr}{\phi} \ar{dr} &   & H \\
+%   & \phi^*H \ar{ur}
+% \end{tikzcd}
+% \end{equation}
+% For Ginot and Stienon the morphism $\phi$ is an equivalence, which they call hypercover, if in addition to $\phi_0$, the map on the arrows $G_1\to \phi^*H_1$ is also a surjective submersion, and the iduced morphism of Lie 1-groupoids $\big(G_2\tto G_1\big)\to \big(\phi^*H_2\tto \phi^*H_1\big)$ is Morita.
+% \end{comment}
+
+In the next proposition we show that our definition is indeed a generalizaation of the defintion of GS. In other words, when working with strict Lie 2-groupoids, our notion of (surjective) equivalence matches the one of Ginot and Stienon.
 
 \begin{prop}
-If $G$, $H$ are strict Lie 2-groupoids and $\phi\colon G\to H$ strict morphism such that the map on the objects $\phi_0\colon G_0\to H_0$ is a surjective submersion, then $\phi$ is an equivalence if and only if $\big( G_2\tto G_1 \big) \to \big( \phi^*H_2\tto \phi^*H_1 \big)$ is Morita.
+Let $\phi:G\to H$ a morphism of 2-groupoids such that $\phi_0$ is transverse to $F_H$. Then
+$\phi$ is locally Morita if and only if the pullback $ \big( G_2\toto G_1 \big) \to \big( \phi^*H_2\toto \phi^*H_1 \big) $ is Morita.
 \end{prop}
+
+\begin{proof}
+It is more or less clear that their definition, in that particular case, implies ours. The subtle part here is that condition GS3) actually implies locally Morita. But this is easy (*). The point here is that set-theoretically we have $(G_2\toto G_1)=\coprod_{x,y}(G_2(y,x)\toto G_1(y,x))$.
+
+$$\xymatrix{  G_1 \ar[rr] \ar[rd]& & \phi^*H_1\ar[dl] \\ & G_0\times G_0 & }$$
+
+\end{proof}
+
+
+\begin{coro}
+In particular, if $\phi:G\to H$ is strict and  $\phi_0$ and $G_1\to\phi^*H_1$ are surjective submersions, then $\phi$ is GS-equivalence iff it is an equivalence.
+\end{coro}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

@@ -28,21 +28,24 @@ Recall that, given $G$ a Lie 2-groupoid, we have:
 \begin{itemize}
 \item an induced singular foliation $F_G\subset TG_0$ over the objects given by the orbits, and
 \item for each pair of objects $x,y\in G_0$, we have a well-defined \emph{hom-groupoid},
-$$G(y,x)=\big( G_2(y,x)\tto G_1(y,x) \big),$$
+$$G(y,x)=\big( G_2(y,x)\toto G_1(y,x) \big),$$
 that is a regular Lie groupoid with abelian isotropy.
 \end{itemize}
-If $\phi\colon G\to H$ is a morphism of Lie 2-groupoids, then it must respect the orbits, and therefore the foliation $F_G\to F_H$, and it induces locally Lie groupoid morphisms
-\[ \phi_{x,y}\colon G(y,x) \to H(\phi(y),\phi(x)). \]
+If $\phi: G\to H$ is a morphism of Lie 2-groupoids, then it must respect the orbits, and therefore the foliation $F_G\to F_H$, and it induces locally Lie groupoid morphisms
+$$ \phi_{x,y}: G(y,x) \to H(\phi(y),\phi(x)). $$
 
 % DEF: EQUIVALENCE
 \begin{mydef}
-A morphism of Lie 2-groupoids $\phi\colon G\to H$ is an \emph{equivalence} if it satisfies the following two conditions:
+A morphism of Lie 2-groupoids $\phi: G\to H$ is an \emph{equivalence} if it satisfies the following two conditions:
 \begin{enumerate}
-\item[E1)] $\phi_0\colon G_0\to H_0$ meets transversely every orbit, namely, $G_0\to H_0\to H_0/F_H$ is surjective and $T_xG_0\to N_{\phi(x)}H_0$ is surjective for every $x$;
+\item[E1)] $\phi_0: G_0\to H_0$ meets transversely every orbit, namely, $G_0\to H_0\to H_0/F_H$ is surjective and $T_xG_0\to N_{\phi(x)}H_0$ is surjective for every $x$;
 \item[E2)] it is locally Morita, namely, for every $x,y$ the morphism of Lie 1-groupoids $\phi_{x,y}$ is Morita, as defined in \textsection \ref{sec:morita}.
 \end{enumerate}
-If in addition $G_0\to H_0$ is surjective submersion we say that $\phi$ is a \emph{surjective equivalence}.
+If in addition $G_0\to H_0$ is surjective submersion we
+say that $\phi$ is a \emph{surjective equivalence}.
 \end{mydef}
+
+\noi OBS: Esta def tambien tiene sentido para lax functors.\\
 
 We remark that if $\phi$ is an equivalence then it gives a bijection between the orbit spaces (pi0 argument explaining this), and it gives isomorphisms between the orbits of the hom-groupoids (pi1), and the isotropies of the hom-groupoids (pi2).
 
@@ -50,56 +53,86 @@ Let us discuss some very basic examples and we will see later more examples once
 
 % EX: LIE 1-GPDS
 \begin{example}
-If $G$ and $H$ are Lie 1-groupoids, seen as Lie 2-groupoids with trivial 2-cells, then $\phi$ is an equivalence if and only if it is Morita, as defined in \textsection\ref{sec:morita}.
-  In fact, in this case, the hom-groupoids are just discrete sets, being locally Morita is the same as being set-theoretically fully faithful, and we showed in Lemma \ref{ES-and-stFF} that a Lie groupoid morphisms that meets tranversely every orbit and is set-theoretically fully faithful must be Morita.
+If $G$ and $H$ are Lie 1-groupoids, seen as Lie 2-groupoids with trivial 2-cells, then $\phi$ is an equivalence if and only if it is Morita, as defined in \textsection \ref{sec:morita}.
+In fact, in this case, the hom-groupoids are just discrete sets, being locally Morita is the same as being set-theoretically fully faithful, and we showed in Lemma \ref{ES-and-stFF} that a Lie groupoid morphisms that meets tranversely every orbit and is set-theoretically fully faithful must be Morita.
 \end{example}
 
-% ABELIAN GROUPS / Abelian Lie 2-groups
+% Ex: Abelian Lie 2-groups
 \begin{example}
-Lie 2-groups. (concrete example: $(\Z\times\R\toto\R)\to (S^1\toto S^1)$)
+Recall that a Lie 2-group is a Lie 2-groupoid with only one object.
+Since there are only trivial objects, a morphism of Lie 2-grouops $\phi : (G_2\toto G_1\toto *) \to (H_2\toto H_1\toto *)$ is an equivalence if and only if the induced  morphism of Lie 1-groupoids $\phi : (G_2\toto G_1) \to (H_2\toto H_1)$ is Morita.
+(concrete example: $(\Z\times\R\toto\R)\to (S^1\toto S^1)$)
 \end{example}
 
-% abelian group bundle suspension
+% Ex: Abelian group bundle suspension
 \begin{example}
-$(G\toto M\toto M)\to (H\toto N\toto N)$ in this case a morphism is an equivalence if and only if it is an isomorphism.
+If $(G\toto M\toto M)$ and $(H\toto N\toto N)$ are Lie 2-groupoids having only identities as arrows, as in example [int ref], a morphism $\phi : (G\toto M\toto M)\to (H\toto N\toto N)$ between them is an equivalence if and only if it is an isomorphism.
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For a Lie 2-groupoid $G$, let us consider the strict Lie 2-groupoid $G'$ that is obtained from $G$ by restricting the manifold of arrows to the invertible ones.
-The subset $G'_1\subset G_1$ is open.
-There is an inclusion $i\colon G'\hookrightarrow G$.
-For the general lineal 2-groupoid $GL_{pq}$ of a 2-vector space $\RR^p\oplus\RR^q\to *$ this morphism turns out to be a surjective equivalence.
+Recall from section \ref{sec:gl2gpd} that the General Linear 2-Groupoid $GL_{pq}$ is the Lie 2-groupoid that has linear maps $\partial:\R^p\to\R^q$ as objects, quasi-isomorphisms $\rho:\partial\to\partial'$ as arrows, and chain homotopies $\gamma:\phi\then\phi'$ as 2-cells.
+We will show that the General Linear 2-Groupoid defines, up to equivalences, the 2-stack classifying the stacky vector bundles, that we will call {\bf categorified Grassmanian}.
+Write $G'_{pq}\subset G_{pq}$ for the Lie 2-subgroupoid defined by the invertible arrows $\phi$. It is clear that $(G'_{pq})_1\subset (G_{pq})_1$ is an open subset, and therefore, it is easy to see that it is well-defined.
 
 \begin{lemma}
-$i\colon GL_{pq}' \hookrightarrow GL_{pq}$ is a surjective equivalence.
+The inclusion $i:GL_{pq}' \to GL_{pq}$ is a surjective equivalence of Lie 2-groupoids.
 \end{lemma}
 
 \begin{proof}
-The map on the objects is the identity, so it is a surjective submersion and as such it intersects tranversally every orbit of $GL_{pq}$.
-To see that $i$ is locally Morita, we have to show that for any pair objects $\nu,\delta\in{GL_{pq}}_0$ the morphism of Lie 1-groupoids
-\[ i_{\nu,\delta}\colon \big( {GL'_{pq}}_2(\delta,\nu)\tto {GL'_{pq}}_1(\delta,\nu) \big) \to \big( {GL_{pq}}_2(\delta,\nu)\tto {GL_{pq}}_1(\phi(\delta),\phi(\nu)) \big) \]
+The map on the objects is the identity, so E1 holds trivially.
+To see that $i$ is locally Morita, let $\partial,\partial'$ be two objects in $GL_{pq}$, we have to show that
+$$ \big( (GL'_{pq})_2(\partial',\partial)\toto (GL'_{pq})_1(\partial',\partial) \big) \xto{i} \big( (GL'_{pq})_2(\partial',\partial)\toto (GL'_{pq})_1(\partial',\partial) \big)$$
 is Morita.
-By Lemma \ref{ES-and-stFF}, it is enough to prove that $i_{\nu,\delta}$ is essentially surjective and set-theoretically fully faithful.
-It is easy to see that it is set-theoreticaly fully faithful.
-To see that $i_{\nu,\delta}$ is essentially surjective observe that the map
-\[ t\pi_1\colon {GL_{pq}}_2(\nu, \delta) \times_{{GL_{pq}}_1(\nu, \delta)} {GL'_{pq}}_1(\nu, \delta) \to {GL_{pq}}_1(\nu, \delta) \]
-is the restriction of the target map
-\[ t\colon {GL_{pq}}_2(\nu, \delta) \to {GL_{pq}}_1(\nu, \delta) \]
+This is clearly set-theoretically fully faithful, thus, by Lemma \ref{ES-and-stFF}, we just need to show that it is smoothly essentially surjective, namely that the map
+$$ t\pi_1: (GL_{pq})_2(\partial', \partial) \times_{(GL_{pq})_1(\partial', \partial)} (GL'_{pq})_1(\partial', \partial) \to (GL_{pq})_1(\partial', \partial) $$
+is a surjective submersion.
+And this easily follows by noting that in this particular case, $t\pi_1$ identifies with the restriction of the target map
+$t: (GL_{pq})_2(\partial', \partial) \to (GL_{pq})_1(\partial', \partial)$
 to the open set
-\[ s^{-1}({GL'_{pq}}_1(\nu, \delta)) \subset {GL_{pq}}_2(\nu, \delta) . \]
+$s^{-1}((GL'_{pq})_1((\partial', \partial)) \subset (GL_{pq})_2(\partial', \partial)$.
 \end{proof}
 
+%%%%%%%%%%%%%
 
+The manifold $(GL_{pq})_0$ of objects of $GL_{p,q}$ comes equipped with a canonical filtration by the rank.
+Let $U^r_{pq} \subset (GL_{pq})_0$ be the open set $\{\partial\in (GL_{pq})_0 \mid \rk\partial\geq r\}$.
+Note that $U^0_{pq}=(GL_{pq})_0$, $U^1_{pq}=(GL_{pq})_0\setminus\{0\}$ and $U^r$ is empty for any $r > r_0 \coloneqq \min(p,q)$.
+$$ (GL_{pq})_0 = U^0_{pq} \supset U^1_{pq} \supset \dots \supset U^r_{pq} \supset \dots \supset U^{r_0}_{pq} \supset U^{r_0+1}_{pq} = \emptyset $$
+
+There is a canonical map $\lambda:GL_{pq} \to GL_{p+1,q+1}$ that sends a differential $\partial:\R^p\to\R^q$ to $\lambda(\partial)=\partial\oplus 1:\R^p\oplus\R\to\R^q\oplus\R$, a quasi-isomorphism $\rho$ to $\lambda(\rho)=\rho\oplus 1$, and a chain-homotopy $\gamma$ to $\lambda(\gamma)=\gamma\oplus 0$. It is easy to check that it is a well-defined smooth strict\nota{definí strict morphism? chequear} morphism.
+Let us denote with $GL^r_{pq}$ to the Lie 2-groupoid that is obtained by restricting $GL_{pq}$ to $U^r_{pq}$.
 
 \begin{lemma}
-The inclusion $GL(p,q) \to GL(p+1,q+1)$ is an equivalence.
+The morphism $\lambda$ gives an equivalence $\lambda:GL^r_{pq}\to GL^{r+1}_{p+1,q+1}$ for every $r$.% and its image $GL^1_{p+1,q+1}$.
+%$$ \begin{tikzcd}[sep = small]
+%GL_{pq} \ar[shorten = -.15em]{r}[pos=.45, sloped, below]{\sim}[pos=.45, sloped, %above]{\lambda} & GL^1_{p+1,q+1} \subset GL_{p+1,q+1}
+%\end{tikzcd} $$
 \end{lemma}
 
 \begin{proof}
-HACER
+E1)
+It is easy to see that $\lambda$ meets every orbit, let us show that the intersection is transversal.
+Let $V\subset (GL_{p+1,q+1})_0$ be the open set consisting of the matrices that have non-vanishing bottom right entry $x_{pq}$.
+By performing a fixed sequence of rows and columns operations, every $\eta\in (GL_{p+1,q+1})_0$ can be taken into an $F(\eta)\in\lambda(GL_{pq})$ of the form $\partial\oplus 1$ for some $\partial\in GL_{pq}$.
+There is a well defined rank preserving differentiable surjective map $F : V\to\lambda((GL_{pq})_0)$
+defined in an open set $(GL^1_{p+1,q+1})_0\subset V \subset (GL_{p+1,q+1})_0$
+such that $F\circ F = F$.
+For every $\partial\in (GL_{pq})_0$
+$$ \Ker d_{\lambda(\partial)}F \oplus T_{\lambda(\partial)}\lambda(GL_{pq}) = T_{\lambda(\partial)}GL_{p+1,q+1} . $$
+As $F$ preserves the rank, we have that $\Ker d_{\lambda(\partial)}F \subset T_{\lambda(\partial)}O_{\lambda(\partial)}$.
+
+E2)
+We have to show that for each pair of objects $\partial,\partial'\in (GL_{pq})_0$, the induced morphism of Lie 1-groupoids $\lambda_{\partial, \partial'}$ is Morita.
+$$\big( (GL_{pq})_2(\partial',\partial) \toto (GL_{pq})_1(\partial',\partial) \big) \xto{\lambda_{\partial,\partial'}} \big( (GL_{pq})_2(\lambda(\partial'),\lambda(\partial)) \toto (GL_{pq})_1(\lambda(\partial'),\lambda(\partial))  \big)$$
+To see that it is essentially surjective we can proceed(*) in a similar way to E1).
+To see that $\lambda_{\partial, \partial'}$ is set-theoretically fully faithful is a simple straightforward computation. We can therefore conclude by Lemma \ref{ES-and-stFF}.
 \end{proof}
 
+\begin{coro}
+By iterating $\lambda$ we get an equivalence $GL_{pq}\to GL^r_{p+r,q+r} \subset GL_{p+r,q+r}$ for every $r\geq0$.
+%The General Linear 2-groupoid $GL_{pq}$ can be identified with $GL^r_{p+r,q+r} \subset GL_{p+r,q+r}$ for any $r\geq 0$.
+\end{coro}
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

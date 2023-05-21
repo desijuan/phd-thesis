@@ -1,6 +1,8 @@
 %
-% SECTION 1 - MORITA MORPHISMS
+% SECTION 3.1 - MORITA MORPHISMS
 %
+
+\section{Morita morphisms}\label{sec:morita}
 
 % ESSENTIALLY SURJECTIVE
 A morphism of Lie groupoids $\phi\colon(G\tto M)\to(G'\tto M')$ is \emph{essentially surjective} if the maps induced in the space of orbits \smash{$\overline\phi\colon M/G\to M'/G'$} and in the normal directions \smash{$\overline{d_x\phi}\colon N_xO\to N_{\phi(x)}O$} are surjective.
@@ -44,12 +46,12 @@ So, a Morita morphism between manifolds is the same as a diffeomorphism.
 % EX: SUBMERSION GPD
 \begin{example}\label{submersion-morita}
 Let $q\colon M\to N$ be a surjective submersion.
-The induced map $(M\times_N M \tto M)\to(N\tto N)$ is Morita. 
+The induced map $(M\times_N M \tto M)\to(N\tto N)$ is Morita.
 \end{example}
 
 % EX: CECH GPD
 \begin{example}
-\v{C}ech groupoid 
+\v{C}ech groupoid
 $\left( \coprod G(U_j,U_i) \tto \coprod U_i \right) \to \left( G\tto M \right)$.
 \end{example}
 
@@ -72,7 +74,7 @@ is a Morita morphism.
 \end{example}
 
 \begin{lemma}\label{ES-and-stFF}
-Let $\phi: (G\tto M) \to (H\tto N)$ be a map of Lie groupoids.
+Let $\phi: (G\tto M) \to (H\tto N)$ be a moriphism of Lie groupoids.
 If $\phi$ is essentially surjective and set-theoretically fully faithful, then it is Morita.
 \end{lemma}
 
@@ -86,10 +88,11 @@ The last condition implies that $v$ is actually in $T_gG(x',x)$ and the fist imp
 The bijection $(\phi,t,s): G\to H\times_{N\times N} (M\times M)$ turns out to be an immersion, therefore a diffeomorphism.
 \end{proof}
 
+\noindent COMENTARIO: ÓRBITAS SON SUBVARIEDADES.
 
-\noindent COMENTARIO SOBRE QUE LAS ORBITAS SON SUBVARIEDADES.
-Relacionar esto con que tiene sentido decir que un morfismo atravieza transversalmente las órbitas.
-\medskip
+\begin{coro}
+A morphism of Lie groupoids $\phi: (G\tto M) \to (H\tto N)$ is Morita if and only if it meets tranversely every orbit of $H$ and is set-theoretically fully faithful.
+\end{coro}
 
 This \nota{pongo esto como un lema?} is equivalent to asking that the following conditions hold: for every $y\in M$ there is another $x\in N$ and an arrow $\smash{y\xfrom{g}\psi(x)}\in G$, and for each $x\in N$ the induced linear map in the normal directions \smash{$\overline{d_x\psi}\colon T_xN\to N_{\psi(x)}O$} is surjective.
 Here $N_{\psi(x)}O \subset T_{\psi(x)}M$ is the normal space to the orbit $O_x\subset M$ and $N_xO=T_xN$, since $N\tto N$ is a unit groupoid.
