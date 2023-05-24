@@ -8,30 +8,35 @@
 % latin letter for map between manifolds
 
 % recall case of 1-gpd
-Recall from section \ref{sec:morita} that the pull-back of a Lie groupoid $G\tto M$ through a map $f: N\to M$ is the Lie groupoid $f^*G$ over $N$ that has $G\times_{M\times M} (N\times N)$ as manifold of arrows \cite{dh13, mm03}.
-It is important to recall that since $G\times_{M\times M} (N\times N)$ is a (good) pull-back of manifolds is not always defined, and so is the pull-back of Lie groupoids $f^*G$.
+In section \ref{sec:morita} we presented the pull-back of a Lie 1-groupoid $G\tto M$ through a smooth map $f: N\to M$.
+It is the Lie 1-groupoid $f^*G$ over $N$ that has $G\times_{M\times M} (N\times N)$, the pull-back of manifolds of $f\times f: N\times N\to M\times M$ and the anchor map $(t,s): G\to M\times M$, as manifold of arrows \cite{dh13, mm03}.
+It is important to recall that since $G\times_{M\times M} (N\times N)$ is a (good) pull-back of manifolds is not always defined \cite{dh13}.
 
 \begin{example}
 If $i: N\hookrightarrow M$ is the inclusion of a saturated submanifold and $G\toto M$ is a Lie groupoid over $M$, the pullback of $G$ through $i$ is the restriction of $G$ to $N$.
 \end{example}
 
-\begin{example}
-Map transverse to orbits.
-\end{example}
+Let us also recall from that section that for a Lie 1-groupoid $G\toto M$ there is a foliation by the orbits, that we denote $F_G$.
+If the map $f: N\to M$ is transverse the foliation $F_G$, then the pull-back $f^*G$ is well defined.
+In particular, the pull-back through a submersion is always defined.
 
-There is an induced canonical map from the pullback. And it is (set-theoretic) fully faithful.
-So, if $f$ is transverse to the orbits and intersects all of them, then the canonical map is an equivalence.
-Conversely, if $\phi$ is an equivalence then the map from the first groupoid to the pullback is an isomorphism.
+When the pull-back is defined, there is an induced canonical map $f^*G\to G$.
+And it is (set-theoretic) fully faithful.
+So, if $f$ is transverse to the orbits of $G$ and intersects all of them, then the canonical map is an equivalence.
+Conversely, if $\phi: (G\toto M)\to (H\toto N)$ is a Morita morphism, then, as $\phi$ is essentially surjective, one can consider the pull-back $\phi^*H$ of $H$ through the map on the objects $\phi: M\to N$, and the morphism $(G\toto M)\to (\phi^*H\toto N)$ is an isomorphism.
 
 % def of PULL-BACK OF LIE 2-GPDS
-There is a similar construction for Lie 2-groupoids.
-Let $G$ be a Lie 2-groupoid and $f: M\to G_0$ a smooth map transversal to the the foliation by orbits $F_G$.
-The \emph{pull-back} of $G$ along $\psi$ is the Lie 2-groupoid $\psi^*G$ with objects $M$, arrows $\psi^*G_1 \coloneqq G_1\times_{G_0\times G_0}(M\times M)$ and 2-cells $\psi^*G_2 \coloneqq G_2\times_{G_0\times G_0}(M\times M)$. This is fact well-defined (*).
+There is a similar construction for Lie 2-groupoids, which, as with Lie 1-groupoids, it is not always defined.
+Let $G$ be a Lie 2-groupoid and $f: M\to G_0$ a smooth map.
+If the map $f$ is transverse to the orbits of $G$, let us consider the manifolds $\psi^*G_1 \coloneqq G_1\times_{G_0\times G_0}(M\times M)$ and $\psi^*G_2 \coloneqq G_2\times_{G_0\times G_0}(M\times M)$.
+The \emph{pull-back} of $G$ along $\psi$ is the Lie 2-groupoid $\psi^*G$ with objects $M$, arrows $\psi^*G_1$ and 2-cells $\psi^*G_2$.
+This is fact well-defined (*).
 
 % example
-
 \begin{example}
-$M_\U\to M$ an open cover, $G$ a Lie 2groupoid with $G_0=M$, then there is a Cech 2-groupoid.
+Let $q: M_\U\to M$ be an open cover and $G$ a Lie 2groupoid with $G_0 = M$.
+There is a Cech 2-groupoid $G_\U$ that is the pull-back of $G$ through $q$.
+It has $\coprod U_i$ as objects, $\coprod G_1(U_j,U_i)$ as arrows and $\coprod G_2(U_j,U_i)$ as 2-cells. 
 \end{example}
 
 % canonical map
