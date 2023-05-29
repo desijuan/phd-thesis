@@ -4,11 +4,11 @@ SECTIONS := $(wildcard chapters/*/*.tex)
 OTHER := defs.tex chapters.tex
 BIBLIOGRAPHY := bibliography.tex
 
-main: $(MAIN).pdf beep
+main: $(MAIN_MODELO_UFF).pdf beep
 
-modelo-uff: $(MAIN_MODELO_UFF).pdf beep
+draft: $(MAIN).pdf beep
 
-all: main modelo-uff
+all: main draft
 
 $(MAIN).pdf: $(MAIN).tex $(SECTIONS) $(BIBLIOGRAPHY) $(OTHER)
 	pdflatex $(MAIN) && pdflatex $(MAIN)
@@ -25,4 +25,4 @@ cleanall:
 beep:
 	@paplay /usr/share/sounds/freedesktop/stereo/complete.oga &
 
-.PHONY: all main modelo-uff clean cleanall beep
+.PHONY: all main draft clean cleanall beep
