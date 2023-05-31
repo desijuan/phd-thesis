@@ -3,18 +3,19 @@
 %
 
 % PSEUDO-REPRESENTATIONS
+Recall from section \ref{sec:actions-and-representations} that a representation $\rho$ of a Lie groupoid $G\tto M$ on a vector bundle $E\to M$ is a way to realize the arrows of $G$ as linear isomorphisms $\rho_g$ between the fibers of $E$.
+For this section we need a less stronger notion, the one of pseudo-representation, which does not necessarily respect the compposition of $G$.
 Given a Lie groupoid $G\tto M$ and a vector bundle $E\to M$, a \emph{pseudo-representation} $\rho\colon G\acts E$ is
-% a representation that not necessarily respects the compposition of $G$.
-% It is given by
-a smooth map $\rho\colon G\times_M E\to E$
-% \[ \rho\colon G\times_M E\to E \qquad (y\xfrom{g}x, e)\mapsto \rho_g(e) \]
+a smooth map
+\[ \rho\colon G\times_M E\to E \qquad (y\xfrom{g}x, e)\mapsto \rho_g(e) \]
 such that $\pi(\rho_g(e)) = t(g)$, $\rho_g\colon E_x\to E_y$ is linear and $\rho_{\id}=\id$.
 
 % 2-TERM RUTHS
 Let $E_1\oplus E_0\to M$ be a 2-term graded vector bundle and $G\tto M$ a Lie groupoid.
-A \emph{representation up to homotopy} $(\partial, \rho, \gamma)\colon G\acts E_1\oplus E_0$, abbreviated RUTH, consists of a fiberwise linear map $\partial\colon E_1\to E_0$, two pseudo-representations $\rho_1\colon G\acts E_1$ and $\rho_0\colon G\acts E_0$, and a section $\gamma$ of $\Hom(s^*E_0, t^*E_1) \to N_2G$, that sends a pair of composable arrows $(g_2, g_1)\in N_2G$ to a linear map \smash{$\gamma^{g_2, g_1}\colon E_0^{s(g_1)}\to E_1^{t(g_2)}$}, all verifying the following equations:
+A \emph{representation up to homotopy} $(\partial, \rho, \gamma)\colon G\acts E_1\oplus E_0$, abbreviated RUTH, consists of a fiberwise linear map $\partial\colon E_1\to E_0$, two pseudo-representations $\rho_1\colon G\acts E_1$ and $\rho_0\colon G\acts E_0$ that commute with $\partial$
+$$ \rho_0^g \partial = \partial\rho_1^g , $$
+and a section $\gamma$ of $\Hom(s^*E_0, t^*E_1) \to N_2G$, that sends a pair of composable arrows $(g_2, g_1)\in N_2G$ to a linear map \smash{$\gamma^{g_2, g_1}\colon E_0^{s(g_1)}\to E_1^{t(g_2)}$}, all verifying the following equations:
 \begin{align}
-  \rho_0^g \partial - \partial\rho_1^g &= 0 \\
   \rho_1^{g_2}\rho_1^{g_1} - \rho_1^{g_2g_1} - \gamma^{g_2, g_1}\partial &= 0 \\
   \rho_0^{g_2}\rho_0^{g_1} - \rho_0^{g_2g_1} - \partial\,\gamma^{g_2, g_1} &= 0 \\
   \rho_1^{g_3}\gamma^{g_2, g_1} - \gamma^{g_3g_2, g_1} + \gamma^{g_3, g_2g_1} - \gamma^{g_3, g_2}\rho_0^{g_1} &=0 \qquad
